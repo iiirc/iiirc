@@ -5,6 +5,7 @@ gem 'rails', '3.2.11'
 gem 'mysql2'
 gem 'omniauth-github'
 gem 'turbolinks'
+gem 'rails_config'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
