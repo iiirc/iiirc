@@ -1,8 +1,4 @@
-# Setup
 
-```
-$ gem install powder # if you use pow
-```
 
 # Getting Started From Bitbucket
 
@@ -15,12 +11,20 @@ remote: Total 204 (delta 73), reused 204 (delta 73)
 Receiving objects: 100% (204/204), 42.75 KiB, done.
 Resolving deltas: 100% (73/73), done.
 $ cd rfckun
-$ bundle
 $ git remote
 bitbucket
+```
+
+# Setup
+
+```
+$ gem install powder # if you use pow
+$ bundle
 $ bundle exec rake db:create db:migrate
-$ bundle exec rake spec # you can test if u want
 $ r s # see http://0.0.0.0:3000
+
+$ bundle exec rake spec # you can test if u want
+
 $ powder link # if you use pow
 $ open http://rfckun.dev
 ```
