@@ -92,6 +92,7 @@ GEM
     method_source (0.8.1)
     mime-types (1.19)
     multi_json (1.5.0)
+    mysql2 (0.3.11)
     nokogiri (1.5.6)
     paint (0.8.5)
     polyglot (0.3.3)
@@ -161,7 +162,6 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sqlite3 (1.3.7)
     tapp (1.4.0)
       thor
     terminal-table (1.4.5)
@@ -195,12 +195,12 @@ DEPENDENCIES
   guard-spork
   hirb-unicode
   jquery-rails
+  mysql2
   pry-rails
   quiet_assets
   rails (= 3.2.11)
   rspec-rails
   sass-rails (~> 3.2.3)
-  sqlite3
   tapp
   timecop
   uglifier (>= 1.0.3)
