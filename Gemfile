@@ -15,22 +15,26 @@ end
 
 gem 'jquery-rails'
 
-group :development, :test do
+group :development do
   gem "tapp"
   gem "awesome_print"
+  gem "wirb"
+  gem "hirb-unicode"
 end
 
 group :development, :test do
-  gem "wirb"
-  gem "hirb-unicode"
-  gem "quiet_assets"
-  gem "pry-rails"
   gem "rspec-rails"
-  gem "fabrication"
-  gem "faker"
+  gem "fabrication", github: 'paulelliott/fabrication'
   gem "timecop"
+  gem "faker"
+  gem "database_cleaner"
+  gem "capybara"
   gem "capybara-webkit"
+  gem "launchy"
+  gem "quiet_assets", github: "evrone/quiet_assets"
+  gem 'rb-fsevent', '~> 0.9.1'
+  gem "growl" if system('which growlnotify >/dev/null')
   gem "guard-spork"
   gem "guard-rspec"
-  gem "growl" if system('which growlnotify >/dev/null')
+  gem 'guard-livereload'
 end
