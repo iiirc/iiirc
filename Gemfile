@@ -41,3 +41,18 @@ group :development, :test do
   gem "tapp"
   gem "awesome_print"
 end
+
+group :development, :test do
+  gem "wirb"
+  gem "hirb-unicode"
+  gem "quiet_assets"
+  gem "pry-rails"
+  gem "rspec-rails"
+  gem "fabrication"
+  gem "faker"
+  gem "timecop"
+  gem "capybara-webkit"
+  gem "guard-spork"
+  gem "guard-rspec"
+  gem "growl" if system('which growlnotify >/dev/null')
+end
