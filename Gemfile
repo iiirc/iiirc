@@ -24,12 +24,11 @@ end
 
 group :development, :test do
   gem "rspec-rails"
-  gem "fabrication", github: 'paulelliott/fabrication'
+  gem "fabrication"
   gem "timecop"
   gem "faker"
   gem "database_cleaner"
   gem "capybara"
-  gem "capybara-webkit"
   gem "launchy"
   gem "quiet_assets", github: "evrone/quiet_assets"
   gem 'rb-fsevent', '~> 0.9.1'
