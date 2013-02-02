@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Rfckun::Application.load_tasks
+Iiirc::Application.load_tasks
