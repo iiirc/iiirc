@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <header id="header" class="wrapper clear">
+  <header id="header" class="section clear">
     <h1 id="brand">
       <%= link_to "iiirc", root_path %>
     </h1>
@@ -22,10 +22,8 @@
   <div id="notice">
     <p><%= notice %></p>
   </div>
-  <div class="wrapper">
-    <%= yield %>
-  </div>
-  <footer id="footer" class="wrapper clear">
+  <%= yield %>
+  <footer id="footer" class="section clear">
     <p id="copyrights">&copy;&nbsp;iiirc</p>
     <% if current_user %>
       <p id="signout"><%= current_user.username %>&nbsp;(<%= link_to "signout", signout_path %>)</p>

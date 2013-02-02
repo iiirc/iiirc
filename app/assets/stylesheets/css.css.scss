@@ -188,7 +188,7 @@ body {
   background: asset-url('grid.png', image) repeat 0 0;
 }
 
-.wrapper {
+.section {
   padding: 8px;
   margin: 16px;
   
@@ -235,13 +235,21 @@ body {
 }
 
 .snippet {
-  &.title {
-    padding: 8px 0;
+  position: relative;
+  
+  .title {
+    padding-bottom: 8px;
     font-size: $font-size-large;
   }
   
-  &.content {
+  .content {
     background-color: #fff;
+  }
+  
+  .edit {
+    position: absolute;
+    top: 8px;
+    right: 8px;
   }
 }
 

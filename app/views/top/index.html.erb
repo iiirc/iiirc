@@ -1,20 +1,11 @@
 <% @snippets.each do |snippet| %>
-
-  <h2 class="snippet title"><%= link_to snippet do %><%= snippet.title %><% end %></h2>
-  
-  <div class="snippet content">
-    <%= simple_format(snippet.content) %>
-  </div>
-  
-  <div class="snippet meta">
-    <p><b>Published:</b><%= snippet.published %></p>
-    <p><%= link_to 'Edit', edit_snippet_path(snippet) %></p>
-    <p><%= link_to 'Show', snippet %></p>
-  </div>
-
+  <article class="snippet section">
+    <h2 class="title"><%= link_to snippet do %><%= snippet.title %><% end %></h2>
+    <div class="content">
+      <%= simple_format(snippet.content) %>
+    </div>
+    <%= link_to 'Edit', edit_snippet_path(snippet), class: 'edit' %>
+  </article>
 <% end %>
-</table>
-
-<br />
 
 <%= link_to 'New Snippet', new_snippet_path, class: 'btn btn-blue' %>
