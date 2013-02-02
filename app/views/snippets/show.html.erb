@@ -1,20 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @snippet.title %>
-</p>
+<h2 class="snippet title"><%= @snippet.title %></h2>
 
-<p>
-  <b>Content:</b>
+<div class="snippet content">
   <%= simple_format(@snippet.content) %>
-</p>
+</div>
 
-<p>
-  <b>Published:</b>
-  <%= @snippet.published %>
-</p>
-
-
-<%= link_to 'Edit', edit_snippet_path(@snippet) %> |
-<%= link_to 'Back', root_path %>
+<div class="snippet meta">
+  <p><b>Published:</b><%= @snippet.published %></p>
+  <p><%= link_to 'Edit', edit_snippet_path(@snippet) %></p>
+  <p><%= link_to 'Back', root_path %></p>
+</div>

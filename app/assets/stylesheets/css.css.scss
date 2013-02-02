@@ -29,8 +29,8 @@ $purple-dark: darken($purple, $color-diff);
 $font-color: $black;
 $font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 $font-size: 100%;
-$font-size-small: 90%;
-$font-size-large: 110%;
+$font-size-small: 80%;
+$font-size-large: 144%;
 $line-height: 1.66;
 $line-height-small: $line-height*0.8;
 $letter-spacing: 0;
@@ -228,5 +228,14 @@ body {
   }
 }
 
-
+.snippet {
+  &.title {
+    margin-bottom: 8px;
+    font-size: $font-size-large;
+  }
+  
+  &.content {
+    background-color: #fff;
+  }
+}
 
