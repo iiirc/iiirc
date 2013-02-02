@@ -40,6 +40,7 @@ class SnippetsController < ApplicationController
   # POST /snippets
   # POST /snippets.json
   def create
+    return render status: :forbidden, text: "Hey! Forbidden fruit :S" if current_user.blank?
     @snippet = current_user.snippets.build(params[:snippet])
 
     respond_to do |format|
