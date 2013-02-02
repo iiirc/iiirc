@@ -1,0 +1,6 @@
+<dl>
+  <%- snippet.messages.each do |message| -%>
+  <dt class="nick_<%= @nick_nums[message.nick] %>"><%= message.nick %></dt>
+  <dd class="nick_<%= @nick_nums[message.nick] %>"><%= raw Rinku.auto_link(h(message.content), :all) %></dd>
+  <%- end -%>
+</dl>
