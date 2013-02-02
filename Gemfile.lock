@@ -1,10 +1,3 @@
-GIT
-  remote: git://github.com/evrone/quiet_assets.git
-  revision: 8451f17b1119487fe45e7286f42afd576a6fd070
-  specs:
-    quiet_assets (1.0.1)
-      railties (>= 3.1, < 5.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -240,7 +233,6 @@ DEPENDENCIES
   launchy
   mysql2
   omniauth-github
-  quiet_assets!
   rails (= 3.2.11)
   rails_config
   rb-fsevent (~> 0.9.1)
