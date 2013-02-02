@@ -4,7 +4,6 @@ gem 'rails', '3.2.11'
 
 gem 'mysql2'
 gem 'omniauth-github'
-gem 'turbolinks'
 gem 'rails_config'
 gem 'gravtastic'
 
