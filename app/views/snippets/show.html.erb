@@ -1,13 +1,11 @@
-<p id="notice"><%= notice %></p>
-
-<h2 class="snippet title"><%= @snippet.title %></h2>
-
-<div class="snippet content">
-  <%= simple_format(@snippet.content) %>
-</div>
-
-<div class="snippet meta">
-  <p><b>Published:</b><%= @snippet.published %></p>
-  <p><%= link_to 'Edit', edit_snippet_path(@snippet) %></p>
-  <p><%= link_to 'Back', root_path %></p>
-</div>
+<article class="section snippet">
+  <h2 class="title"><%= @snippet.title %></h2>
+  <div class="content">
+    <ol>
+      <%- @snippet.messages.each do |message| -%>
+      <li class="nick_<%= @nick_nums[message.nick] %>"><%= message.content %></li>
+      <%- end -%>
+    </ol>
+  </div>
+  <%= link_to 'Edit', edit_snippet_path(@snippet), class: 'edit' %>
+</article>
