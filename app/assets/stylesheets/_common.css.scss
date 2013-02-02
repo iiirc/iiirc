@@ -9,6 +9,11 @@ a img { border: none; }
 img { vertical-align: bottom; }
 object,object:focus { outline:none; }
 
+input[type='button'],
+input[type='submit'] {
+  padding: 0;
+}
+
 /* common class */
 .hidden { display: none; }
 .half { -ms-filter: "alpha(opacity=50)"; filter: alpha( opacity=50 ); opacity: 0.5; }
