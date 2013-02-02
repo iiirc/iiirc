@@ -13,7 +13,7 @@ class Snippet < ActiveRecord::Base
         messages = @content.each_line.collect {|raw_content|
           Message.new(raw_content: raw_content.chomp)
         }
-        self.messages = messages
+        self.messages = messages.select {|message| message.content.present?}
       else
         true
       end
