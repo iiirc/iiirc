@@ -13,15 +13,17 @@
     </h1>
     <div id="account_info">
       <% if current_user %>
-        <%= image_tag current_user.gravatar_url, class: 'avator' %>
+        <%= image_tag current_user.gravatar_url(size: 48), class: 'avator' %>
       <% else %>
         <%= link_to "Sign in with GitHub", "/auth/github", 'data-no-turbolink' => true, class: 'btn btn-blue' %>
       <% end %>
     </div>
   </header>
-  <div id="notice">
-    <p><%= notice %></p>
-  </div>
+  <% if notice %>
+    <div class="notice section">
+      <p><%= notice %></p>
+    </div>
+  <% end %>
   <%= yield %>
   <footer id="footer" class="section clear">
     <p id="copyrights">&copy;&nbsp;iiirc</p>
