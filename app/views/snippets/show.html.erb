@@ -1,10 +1,11 @@
 <article class="section snippet">
   <h2 class="title"><%= @snippet.title %></h2>
   <div class="content">
-    <ol>
+    <dl>
       <%- @snippet.messages.each do |message| -%>
-      <li class="nick_<%= @nick_nums[message.nick] %>"><%= message.nick %>: <%= raw Rinku.auto_link(h(message.content), :all) %></li>
+      <dt class="nick_<%= @nick_nums[message.nick] %>"><%= message.nick %></dt>
+      <dd class="nick_<%= @nick_nums[message.nick] %>"><%= raw Rinku.auto_link(h(message.content), :all) %></dd>
       <%- end -%>
-    </ol>
+    </dl>
   </div>
 </article>
