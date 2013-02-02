@@ -1,8 +1,8 @@
 <% if current_user %>
   Welcome <%= current_user.username %>!
-  <%= link_to "Sign out", signout_path %>
+  <%= link_to "Sign out", signout_path, class: 'btn btn-red' %>
 <% else %>
-  <%= link_to "Sign in with GitHub", "/auth/github", 'data-no-turbolink' => true %>
+  <%= link_to "Sign in with GitHub", "/auth/github", 'data-no-turbolink' => true, class: 'btn btn-blue' %>
 <% end %>
 
 <h1>Listing snippets</h1>
@@ -31,4 +31,4 @@
 
 <br />
 
-<%= link_to 'New Snippet', new_snippet_path %>
+<%= link_to 'New Snippet', new_snippet_path, class: 'btn btn-blue' %>
