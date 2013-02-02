@@ -3,7 +3,7 @@
   <div class="content">
     <ol>
       <%- @snippet.messages.each do |message| -%>
-      <li class="nick_<%= @nick_nums[message.nick] %>"><%= message.content %></li>
+      <li class="nick_<%= @nick_nums[message.nick] %>"><%= message.nick %>: <%= raw Rinku.auto_link(h(message.content), :all) %></li>
       <%- end -%>
     </ol>
   </div>
