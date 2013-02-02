@@ -7,10 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <header id="header" class="wrapper">
+  <header id="header" class="wrapper clear">
     <h1 id="brand">
       <a href="/">iiirc</a>
     </h1>
+    <div id="account_info">
+      <% if current_user %>
+        <%= image_tag current_user.gravatar_url %>&nbsp;<%= current_user.username %>
+        <%= link_to "Sign out", signout_path, class: 'btn btn-red' %>
+      <% else %>
+        <%= link_to "Sign in with GitHub", "/auth/github", 'data-no-turbolink' => true, class: 'btn btn-blue' %>
+      <% end %>
+    </div>
   </header>
   <div class="wrapper">
     <%= yield %>

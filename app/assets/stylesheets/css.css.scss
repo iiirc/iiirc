@@ -171,7 +171,7 @@ h1, h2, h3, h4, h5, h6, h7 {
   	
   	&:hover { background: $purple-dark; }
   }
-  
+    
   &:hover {
 	  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.33);
   }
@@ -189,13 +189,18 @@ body {
 }
 
 .wrapper {
+  padding: 8px;
   margin: 16px;
   
-  background-color: #ff009a;
+  background-color: #ccc;
 }
 
 #header {
+  padding: 0;
+  height: 48px;
+  
   #brand {
+    float: left;
     width: 116px;
     height: 48px;
     display: block;
@@ -208,6 +213,17 @@ body {
       overflow: hidden;
       
       background: asset-url('iiirc.png', image) no-repeat 8px 8px;
+    }
+  }
+  
+  #account_info {
+    float: right;
+    height: 48px;
+    
+    .btn {
+      padding: 0 1em !important;
+      height: 48px;
+      line-height: 48px;
     }
   }
 }
