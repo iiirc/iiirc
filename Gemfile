@@ -21,6 +21,7 @@ group :development do
   gem 'pry-rails'
   gem "wirb"
   gem "hirb-unicode"
+  gem 'sqlite3'
 end
 
 group :development, :test do
