@@ -1,7 +1,5 @@
 class RemoveContentColumnFromSnippet < ActiveRecord::Migration
-  def up
-  end
-
-  def down
+  def change
+    remove_column :snippets, :content
   end
 end
