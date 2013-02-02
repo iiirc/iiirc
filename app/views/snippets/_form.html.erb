@@ -11,7 +11,7 @@
     </div>
   <% end %>
   <%= f.text_field :title, class: 'input-text input-text-large', placeholder: 'Title (optional)' %>
-  <%= f.text_area :content, class: 'textarea', placeholder: '00:00 YourName: Logged in...' %>
+  <%= text_area_tag :content, @content, class: 'textarea', placeholder: '00:00 YourName: Logged in...' %>
   <%= f.label :published %><%= f.check_box :published, {:checked => true} %>
   <%= f.submit class: 'btn btn-blue' %>  
 <% end %>

@@ -41,9 +41,14 @@ class SnippetsController < ApplicationController
   # POST /snippets.json
   def create
     @snippet = current_user.snippets.build(params[:snippet])
+    @content = params[:content]
+    messages = @content.each_line.collect do |raw_message|
+      Rails.logger.debug raw_message.encoding
+      Message.new(raw_content: raw_message.chomp)
+    end
 
     respond_to do |format|
-      if @snippet.save
+      if @snippet.save && @snippet.messages = messages
         format.html { redirect_to @snippet, notice: 'Snippet was successfully created.' }
         format.json { render json: @snippet, status: :created, location: @snippet }
       else

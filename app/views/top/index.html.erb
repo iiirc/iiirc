@@ -2,7 +2,11 @@
   <article class="snippet section">
     <h2 class="title"><%= link_to snippet do %><%= snippet.title %><% end %></h2>
     <div class="content">
-      <%= simple_format(snippet.content) %>
+      <ol>
+        <%- snippet.messages.each do |message| -%>
+        <li><%= message %></li>
+        <%- end -%>
+      </ol>
     </div>
     <%= link_to 'Edit', edit_snippet_path(snippet), class: 'edit' %>
   </article>
