@@ -1,0 +1,47 @@
+16:31 lighty_z: rspecに詳しい方すいません
+16:32 lighty_z: 2.11 あたりから should が非推奨になって expect を使うべき、という話があると聞いたのですが
+16:33 lighty_z: そのソースが
+16:33 lighty_z: http://myronmars.to/n/dev-blog/2012/06/rspecs-new-expectation-syntax
+16:33 hsbt: hi
+16:33 lighty_z: ここあたりしか見当たらないのですが、shouldは使わない方がいいのでしょうか？
+16:33 banyan: 新規で始める場合は expect の syntax 使うのがいいのではないかと思ってます。
+16:34 lighty_z: おお
+16:34 hsbt: そうですね
+16:34 hsbt: "ここあたり" というかこの人は rspec のメンテナです
+16:34 lighty_z: なんとも
+16:34 hsbt: "3.0 で消すからな!"
+16:34 hsbt: なので、expect にしましょう
+16:35 banyan: ちなみに刺身さんが議論を投げかけたエントリがこちらになります -> http://blog.kyanny.me/entry/2012/07/12/234344
+16:35 hsbt: http://myronmars.to/n/open-source
+16:35 lighty_z: 刺身さんカコイイ！
+16:35 tikeda: ｗｗ
+16:37 lighty_z: https://www.relishapp.com/rspec/docs/gettingstarted
+16:37 lighty_z: ここのサンプルでshouldを使っていたので混乱しておりました
+16:37 antipop: ドキュメントがまちがっている
+16:37 tikeda: RSpecのドキュメントひどいですよね
+16:38 tikeda: 嫌ひどいというのは言い過ぎですけど
+16:38 tikeda: なんかちょっと遅い
+16:38 antipop: いや、ひどいよ!
+16:38 antipop: まったくわからない
+16:38 tikeda: じあーるすぺくぶっくの販促なんですかね。
+16:38 antipop: rspecブックみたってこまかいことはわからんからなー
+16:39 tikeda: そうなんですか
+16:39 antipop: あと古いし。
+16:39 umazura has left IRC (Ping timeout: 180 seconds)
+16:39 hsbt: tikeda さんがドキュメントをコントリビュートする。まで読んだ
+16:40 lighty_z: 勉強になります！
+16:40 antipop: tikeda++
+16:40 tikeda: どこ情報ですか
+16:40 antipop: なんかもう逐一ここできいたらいいですよ> lighty_z
+16:41 tikeda: そのやり取り毎日ブログにはったらみんな助かりますよｗ
+16:42 banyan: https://github.com/rspec/rspec-rails rspec-rails はすぐ README を expect syntax にする PR 投げられて受け入れられてたのに、
+16:42 banyan: rspec-core はまだ変わってないのかー...
+16:42 antipop: hm=
+16:42 hsbt: 僕は最近 test-unit しか使ってないので...
+16:42 hsbt: test-unit もかわいくなってきた
+16:43 lighty_z: ブログにまとめられるかわかりませんが、聞きまくります！
+16:43 antipop: こういうのしたいんだけど、なんかいいライブラリある?とか
+16:43 antipop: こういうコードの効率的な書き方は?とか
+16:44 lighty_z: ﾋｰ そういう質問くさるほどあります！
+16:46 kuroda is now known as kuroda_away
+16:47 tikeda: ＩＲＣログそのまま貼るのでいい気がします。
