@@ -1,6 +1,8 @@
+<%- nick_nums = {}; nick_count = 0 -%>
 <dl>
   <%- snippet.messages.each do |message| -%>
-  <dt class="nick_<%= @nick_nums[message.nick] %>"><%= message.nick %></dt>
-  <dd class="nick_<%= @nick_nums[message.nick] %>"><%= raw Rinku.auto_link(h(message.content), :all) %></dd>
+  <%- unless nick_nums[message.nick] then nick_nums[message.nick] = nick_count; nick_count += 1 end -%>
+  <dt class="nick_<%= nick_nums[message.nick] %>"><%= message.nick %></dt>
+  <dd class="nick_<%= nick_nums[message.nick] %>"><%= raw Rinku.auto_link(h(message.content), :all) %></dd>
   <%- end -%>
 </dl>

@@ -1,11 +1,6 @@
 <article class="section snippet">
   <h2 class="title"><%= @snippet.title %></h2>
   <div class="content">
-    <dl>
-      <%- @snippet.messages.each do |message| -%>
-      <dt class="nick_<%= @nick_nums[message.nick] %>"><%= message.nick %></dt>
-      <dd class="nick_<%= @nick_nums[message.nick] %>"><%= raw Rinku.auto_link(h(message.content), :all) %></dd>
-      <%- end -%>
-    </dl>
+    <%= render 'snippet', snippet: @snippet %>
   </div>
 </article>
