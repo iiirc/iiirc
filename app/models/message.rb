@@ -17,8 +17,4 @@ class Message < ActiveRecord::Base
       end
     end
   end
-
-  def to_s
-    raw_content
-  end
 end

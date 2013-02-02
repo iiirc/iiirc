@@ -10,7 +10,7 @@
     <div class="content">
       <ol>
         <%- snippet.messages.each do |message| -%>
-        <li><%= message %></li>
+          <li><%= raw Rinku.auto_link(h(message.raw_content), :all, 'target="_blank"') %></li>
         <%- end -%>
       </ol>
     </div>
