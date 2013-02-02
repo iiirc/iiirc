@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Iiirc</title>
+  <title>IIIRC</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <header class="content">
+    <h1>IIIRC</h1>
+  </header>
+  <div class="content">
+    <%= yield %>
+  </div>
+  <footer class="content">
+    &copy; IIIRC
+  </footer>
 </body>
 </html>

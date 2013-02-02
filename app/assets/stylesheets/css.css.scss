@@ -78,6 +78,7 @@ html {
 body {	
 	color: $font-color;
   font-size: $font-size;
+  font-family: $font-family;
   line-height: 1;
   letter-spacing: $letter-spacing;
 }
@@ -182,3 +183,13 @@ h1, h2, h3, h4, h5, h6, h7 {
 :-moz-placeholder {
 	color: #909090 !important;
 }
+
+.content {
+  width: 640px;
+  margin: 0 auto 30px;
+}
+
+
+
+
+
