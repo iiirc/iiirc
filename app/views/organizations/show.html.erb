@@ -4,4 +4,17 @@
   <%= image_tag user.gravatar_url, class: 'avator' %>
 <% end %>
 
+<% @organization.snippets.each do |snippet| %>
+  <article class="snippet section">
+    <h2 class="title"><%= link_to snippet do %><%= snippet.title %><% end %></h2>
+    <div class="content">
+      <ol>
+        <%- snippet.messages.each do |message| -%>
+        <li><%= message %></li>
+        <%- end -%>
+      </ol>
+    </div>
+  </article>
+<% end %>
+
 <%= link_to 'Back', organizations_path %>
