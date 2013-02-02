@@ -15,10 +15,5 @@
   <%= f.label :published %><%= f.check_box :published, {:checked => true} %>
   <% if current_user.present? %>
     <%= f.submit class: 'btn btn-blue' %>
-  <% else %>
-    <p>
-      u can't create a snippet unless logged in.
-      <%= link_to "Sign in with GitHub", "/auth/github", 'data-no-turbolink' => true %>
-    </p>
   <% end %>
 <% end %>
