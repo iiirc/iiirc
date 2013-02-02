@@ -41,14 +41,12 @@ class SnippetsController < ApplicationController
   # POST /snippets.json
   def create
     return render status: :forbidden, text: "Hey! Forbidden fruit :S" if current_user.blank?
-    @snippet = current_user.snippets.build(params[:snippet])
     @content = params[:content]
-    messages = @content.each_line.collect {|raw_message|
-      Message.new(raw_content: raw_message.chomp)
-    }
+    @snippet = current_user.snippets.build(params[:snippet])
+    @snippet.content = @content
 
     respond_to do |format|
-      if @snippet.save && @snippet.messages = messages
+      if @snippet.save
         format.html { redirect_to @snippet, notice: 'Snippet was successfully created.' }
         format.json { render json: @snippet, status: :created, location: @snippet }
       else
