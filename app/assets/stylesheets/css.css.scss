@@ -184,12 +184,33 @@ h1, h2, h3, h4, h5, h6, h7 {
 	color: #909090 !important;
 }
 
-.content {
-  width: 640px;
-  margin: 0 auto 30px;
+body {
+  background: asset-url('grid.png', image) repeat 0 0;
 }
 
+.wrapper {
+  margin: 16px;
+  
+  background-color: #ff009a;
+}
 
+#header {
+  #brand {
+    width: 116px;
+    height: 48px;
+    display: block;
+    
+    a {
+      width: 116px;
+      height: 48px;
+      text-indent: 100%;
+      display: block;
+      overflow: hidden;
+      
+      background: asset-url('iiirc.png', image) no-repeat 8px 8px;
+    }
+  }
+}
 
 
 
