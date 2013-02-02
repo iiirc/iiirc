@@ -228,17 +228,18 @@ body {
   
   #account_info {
     float: right;
-    height: 48px;
+    height: 24px;
+    padding: 12px;
     
     .btn {
       padding: 0 1em !important;
-      height: 48px;
-      line-height: 48px;
+      height: 24px;
+      line-height: 24px;
     }
     
     .avator {
       width: auto;
-      height: 48px;
+      height: 24px;
       display: block;
     }
   }
@@ -257,6 +258,10 @@ body {
     
     color: #fff;
     font-size: $font-size-large;
+    
+    a {
+      color: #fff;
+    }
   }
   
   .content {
