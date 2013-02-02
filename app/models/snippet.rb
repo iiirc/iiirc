@@ -1,8 +1,9 @@
 class Snippet < ActiveRecord::Base
   belongs_to :user
+  belongs_to :organization
   has_many :messages, dependent: :destroy
 
-  attr_accessible :published, :title
+  attr_accessible :published, :title, :organization_id
 
   attr_writer :content
 

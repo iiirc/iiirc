@@ -10,10 +10,9 @@
     <div class="content">
       <ol>
         <%- snippet.messages.each do |message| -%>
-        <li><%= message %></li>
+          <li><%= raw Rinku.auto_link(h(message.raw_content), :all, 'target="_blank"') %></li>
         <%- end -%>
       </ol>
     </div>
-    <%= link_to 'Edit', edit_snippet_path(snippet), class: 'edit' %>
   </article>
 <% end %>
