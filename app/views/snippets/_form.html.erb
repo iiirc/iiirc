@@ -13,5 +13,12 @@
   <%= f.text_field :title, class: 'input-text input-text-large', placeholder: 'Title (optional)' %>
   <%= f.text_area :content, class: 'textarea', placeholder: '00:00 YourName: Logged in...' %>
   <%= f.label :published %><%= f.check_box :published, {:checked => true} %>
-  <%= f.submit class: 'btn btn-blue' %>  
+  <% if current_user.present? %>
+    <%= f.submit class: 'btn btn-blue' %>
+  <% else %>
+    <p>
+      u can't create a snippet unless logged in.
+      <%= link_to "Sign in with GitHub", "/auth/github", 'data-no-turbolink' => true %>
+    </p>
+  <% end %>
 <% end %>
