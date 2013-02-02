@@ -1,3 +1,7 @@
+<% if current_user %>
+  <%= link_to 'New Snippet', new_snippet_path, class: 'btn btn-blue' %>
+<% end %>
+
 <% @snippets.each do |snippet| %>
   <article class="snippet section">
     <h2 class="title"><%= link_to snippet do %><%= snippet.title %><% end %></h2>
@@ -7,5 +11,3 @@
     <%= link_to 'Edit', edit_snippet_path(snippet), class: 'edit' %>
   </article>
 <% end %>
-
-<%= link_to 'New Snippet', new_snippet_path, class: 'btn btn-blue' %>
