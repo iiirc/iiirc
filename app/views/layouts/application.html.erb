@@ -19,9 +19,11 @@
       <% end %>
     </div>
   </header>
-  <div id="notice">
-    <p><%= notice %></p>
-  </div>
+  <% if notice %>
+    <div id="notice" class="section">
+      <p><%= notice %></p>
+    </div>
+  <% end %>
   <%= yield %>
   <footer id="footer" class="section clear">
     <p id="copyrights">&copy;&nbsp;iiirc</p>
