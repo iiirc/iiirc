@@ -9,22 +9,27 @@
 <body>
   <header id="header" class="wrapper clear">
     <h1 id="brand">
-      <a href="/">iiirc</a>
+      <%= link_to "iiirc", root_path %>
     </h1>
     <div id="account_info">
       <% if current_user %>
-        <%= image_tag current_user.gravatar_url %>&nbsp;<%= current_user.username %>
-        <%= link_to "Sign out", signout_path, class: 'btn btn-red' %>
+        <%= image_tag current_user.gravatar_url, class: 'avator' %>
       <% else %>
         <%= link_to "Sign in with GitHub", "/auth/github", 'data-no-turbolink' => true, class: 'btn btn-blue' %>
       <% end %>
     </div>
   </header>
+  <div id="notice">
+    <p><%= notice %></p>
+  </div>
   <div class="wrapper">
     <%= yield %>
   </div>
-  <footer id="footer" class="wrapper">
-    &copy; IIIRC
+  <footer id="footer" class="wrapper clear">
+    <p id="copyrights">&copy;&nbsp;iiirc</p>
+    <% if current_user %>
+      <p id="signout"><%= current_user.username %>&nbsp;(<%= link_to "signout", signout_path %>)</p>
+    <% end %>
   </footer>
 </body>
 </html>

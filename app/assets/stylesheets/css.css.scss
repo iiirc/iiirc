@@ -225,17 +225,35 @@ body {
       height: 48px;
       line-height: 48px;
     }
+    
+    .avator {
+      width: auto;
+      height: 48px;
+      display: block;
+    }
   }
 }
 
 .snippet {
   &.title {
-    margin-bottom: 8px;
+    padding: 8px 0;
     font-size: $font-size-large;
   }
   
   &.content {
     background-color: #fff;
+  }
+}
+
+footer {
+  #copyrights {
+    float: left;
+    display: block;
+  }
+  
+  #signout {
+    float: right;
+    display: block;
   }
 }
 
