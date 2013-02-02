@@ -1,7 +1,10 @@
+# coding: utf-8
+
 class OrganizationsController < ApplicationController
   # GET /organizations
   # GET /organizations.json
   def index
+    # TODO 0人以外の Organization を表示させる
     @organizations = Organization.all
 
     respond_to do |format|
@@ -10,10 +13,10 @@ class OrganizationsController < ApplicationController
     end
   end
 
-  # GET /organizations/1
-  # GET /organizations/1.json
+  # GET /organizations/paperboy-all
+  # GET /organizations/paperboy-all.json
   def show
-    @organization = Organization.find(params[:id])
+    @organization = Organization.find_by_login(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

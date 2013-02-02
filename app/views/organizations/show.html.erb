@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<% @organization.users.each do |user| %>
+  <%= image_tag user.gravatar_url, class: 'avator' %>
+<% end %>
 
-<%= link_to 'Edit', edit_organization_path(@organization) %> |
 <%= link_to 'Back', organizations_path %>
