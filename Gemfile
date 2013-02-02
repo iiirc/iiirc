@@ -18,6 +18,7 @@ gem 'jquery-rails'
 group :development do
   gem "tapp"
   gem "awesome_print"
+  gem 'pry-rails'
   gem "wirb"
   gem "hirb-unicode"
 end
