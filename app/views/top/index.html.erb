@@ -1,21 +1,19 @@
-<% @snippets.each do |snippet| %>
-
-  <h2 class="snippet title"><%= snippet.title %></h2>
-  
-  <div class="snippet content">
-    <%= simple_format(snippet.content) %>
+<% if current_user %>
+  <div class="add_new_snippet ballon ballon-bottom">
+    <%= link_to 'New Snippet', new_snippet_path, class: 'btn btn-blue btn-horizontal' %>
   </div>
-  
-  <div class="snippet meta">
-    <p><b>Published:</b><%= snippet.published %></p>
-    <p><%= link_to 'Edit', edit_snippet_path(snippet) %></p>
-    <p><%= link_to 'Back', root_path %></p>
-    <p><%= link_to 'Show', snippet %></p>
-  </div>
-
 <% end %>
-</table>
 
-<br />
-
-<%= link_to 'New Snippet', new_snippet_path, class: 'btn btn-blue' %>
+<% @snippets.each do |snippet| %>
+  <article class="snippet section">
+    <h2 class="title"><%= link_to snippet do %><%= snippet.title %><% end %></h2>
+    <div class="content">
+      <ol>
+        <%- snippet.messages.each do |message| -%>
+        <li><%= message %></li>
+        <%- end -%>
+      </ol>
+    </div>
+    <%= link_to 'Edit', edit_snippet_path(snippet), class: 'edit' %>
+  </article>
+<% end %>

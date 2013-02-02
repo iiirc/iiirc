@@ -28,10 +28,11 @@ $purple-dark: darken($purple, $color-diff);
 
 $font-color: $black;
 $font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-$font-size: 100%;
-$font-size-small: 80%;
-$font-size-large: 144%;
+$font-size: 14px;
+$font-size-small: 12px;
+$font-size-large: 18px;
 $line-height: 1.66;
+$line-height-slim: 20px;
 $line-height-small: $line-height*0.8;
 $letter-spacing: 0;
 
@@ -39,6 +40,11 @@ $letter-spacing: 0;
   @if $type == link {
     color: $font-color;
     text-decoration: none;
+  } @else if $type == irc {
+    color: $white;
+    font-size: $font-size;
+    line-height: $line-height-slim;
+    letter-spacing: $letter-spacing;
   } @else {
     color: $font-color;
     font-size: $font-size;
@@ -95,11 +101,15 @@ h1, h2, h3, h4, h5, h6, h7 {
 .textarea {
   width: 100%;
   
-	@include font;
+	@include font(irc);
 	border: 0;
 	background-color: #fff;
 	border-top: 1px solid rgba(0, 0, 0, 0.3);
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	
+	&.input-text-large {
+  	font-size: $font-size-large;
+	}
 }
 
 .btn {
@@ -175,6 +185,12 @@ h1, h2, h3, h4, h5, h6, h7 {
   &:hover {
 	  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.33);
   }
+  
+  &.btn-horizontal {
+    width: 100%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
 }
 
 ::-webkit-input-placeholder {
@@ -188,11 +204,11 @@ body {
   background: asset-url('grid.png', image) repeat 0 0;
 }
 
-.wrapper {
+.section {
   padding: 8px;
   margin: 16px;
   
-  background-color: #ccc;
+  background-color: #fff;
 }
 
 #header {
@@ -218,24 +234,70 @@ body {
   
   #account_info {
     float: right;
-    height: 48px;
+    height: 24px;
+    padding: 12px;
     
     .btn {
       padding: 0 1em !important;
-      height: 48px;
-      line-height: 48px;
+      height: 24px;
+      line-height: 24px;
+    }
+    
+    .avator {
+      width: auto;
+      height: 24px;
+      display: block;
     }
   }
 }
 
+.notice {
+  text-align: center;
+  background-color: $yellow;
+}
+
+.add_new_snippet {
+  width: 240px;
+  margin: 0 auto;
+}
+
 .snippet {
-  &.title {
-    margin-bottom: 8px;
-    font-size: $font-size-large;
+  position: relative;
+  
+  .title {
+    padding: 0 8px 8px;
+    
+    color: $black;
+    font-size: $font-size;
+    
+    a {
+      color: $black;
+    }
   }
   
-  &.content {
-    background-color: #fff;
+  .content {
+    padding: 8px;
+    
+    @include font(irc);
+    background-color: $black;
+  }
+  
+  .edit {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
+}
+
+footer {
+  #copyrights {
+    float: left;
+    display: block;
+  }
+  
+  #signout {
+    float: right;
+    display: block;
   }
 }
 
