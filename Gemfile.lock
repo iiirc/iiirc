@@ -5,12 +5,6 @@ GIT
     quiet_assets (1.0.1)
       railties (>= 3.1, < 5.0)
 
-GIT
-  remote: git://github.com/paulelliott/fabrication.git
-  revision: 41055cae76ed736758b8e8871a2d8bb353cdcce0
-  specs:
-    fabrication (2.5.4)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -52,9 +46,6 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
       xpath (~> 1.0.0)
-    capybara-webkit (0.14.1)
-      capybara (~> 2.0, >= 2.0.2)
-      json
     childprocess (0.3.7)
       ffi (~> 1.0, >= 1.0.6)
     coderay (1.0.8)
@@ -74,6 +65,7 @@ GEM
     eventmachine (1.0.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    fabrication (2.5.4)
     faker (1.1.2)
       i18n (~> 0.5)
     faraday (0.8.4)
@@ -236,10 +228,9 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   capybara
-  capybara-webkit
   coffee-rails (~> 3.2.1)
   database_cleaner
-  fabrication!
+  fabrication
   faker
   guard-livereload
   guard-rspec
