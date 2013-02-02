@@ -3,7 +3,7 @@
   <div class="content">
     <ol>
       <%- @snippet.messages.each do |message| -%>
-      <li><%= message %></li>
+      <li class="nick_<%= @nick_nums[message.nick] %>"><%= message.content %></li>
       <%- end -%>
     </ol>
   </div>

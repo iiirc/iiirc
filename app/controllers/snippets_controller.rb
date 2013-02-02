@@ -14,6 +14,12 @@ class SnippetsController < ApplicationController
   # GET /snippets/1.json
   def show
     @snippet = Snippet.find(params[:id])
+    @nick_nums = {}
+    nick_count = 0
+    @snippet.messages.each do |message|
+      @nick_nums[message.nick] ||= nick_count
+      nick_count += 1
+    end
 
     respond_to do |format|
       format.html # show.html.erb
