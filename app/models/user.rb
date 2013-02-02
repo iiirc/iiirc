@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  include Gravtastic
+  gravtastic secure: true, size: 24
+
   has_many :snippets, dependent: :destroy
 
   def self.create_with_omniauth(auth)

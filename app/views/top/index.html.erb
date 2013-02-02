@@ -1,5 +1,5 @@
 <% if current_user %>
-  Welcome <%= current_user.username %>!
+  <%= image_tag current_user.gravatar_url %>&nbsp;<%= current_user.username %>
   <%= link_to "Sign out", signout_path, class: 'btn btn-red' %>
 <% else %>
   <%= link_to "Sign in with GitHub", "/auth/github", 'data-no-turbolink' => true, class: 'btn btn-blue' %>
