@@ -28,11 +28,11 @@ $purple-dark: darken($purple, $color-diff);
 
 $font-color: $black;
 $font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-$font-size: 100%;
-$font-size-small: 80%;
-$font-size-large: 144%;
+$font-size: 14px;
+$font-size-small: 12px;
+$font-size-large: 18px;
 $line-height: 1.66;
-$line-height-slim: 1.2;
+$line-height-slim: 20px;
 $line-height-small: $line-height*0.8;
 $letter-spacing: 0;
 
@@ -254,6 +254,8 @@ body {
   
   .title {
     padding-bottom: 8px;
+    
+    color: #fff;
     font-size: $font-size-large;
   }
   
