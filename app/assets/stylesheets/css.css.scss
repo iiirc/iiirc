@@ -36,19 +36,14 @@ $line-height-small: $line-height*0.8;
 $letter-spacing: 0;
 
 @mixin font($type: default) {
-  @if $type == default {
+  @if $type == link {
+    color: $font-color;
+    text-decoration: none;
+  } @else {
     color: $font-color;
     font-size: $font-size;
     line-height: $line-height;
     letter-spacing: $letter-spacing;
-  } @else if $type == reset {
-    color: $font-color;
-    font-size: $font-size;
-    line-height: 1;
-    letter-spacing: $letter-spacing;
-  } @else if $type == link {
-    color: $font-color;
-    text-decoration: none;
   }
   
   font-family: $font-family;
@@ -81,7 +76,10 @@ html {
 }
 
 body {	
-	@include font(reset);
+	color: $font-color;
+  font-size: $font-size;
+  line-height: 1;
+  letter-spacing: $letter-spacing;
 }
 
 a {
@@ -92,30 +90,15 @@ h1, h2, h3, h4, h5, h6, h7 {
 	font-weight: normal;
 }
 
-input[type='text'],
-input[type='email'],
-input[type='password'],
-input[type='search'],
-input[type='number'],
-textarea {
+.input-text,
+.textarea {
   width: 100%;
-  padding: 0;
-  margin-bottom: 2px;
   
 	@include font;
 	border: 0;
 	background-color: #fff;
 	border-top: 1px solid rgba(0, 0, 0, 0.3);
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-input[type='text']:focus,
-input[type='email']:focus,
-input[type='password']:focus,
-input[type='search']:focus,
-input[type='number']:focus,
-textarea:focus {
-  background-color: #fff;
 }
 
 .btn {
@@ -138,7 +121,7 @@ textarea:focus {
 	background: -o-linear-gradient(#3579b0, #2371b0 50%, #1269b0 50%, #0060af);
 	background: linear-gradient(#3579b0, #2371b0 50%, #1269b0 50%, #0060af);
 	
-  &.red {
+  &.btn-red {
     background-color: $red;
   	background: -webkit-linear-gradient($red-light, $red 50%, $red 50%, $red-dark);
   	background: -moz-linear-gradient($red-light, $red 50%, $red 50%, $red-dark);
@@ -148,7 +131,7 @@ textarea:focus {
   	&:hover { background: $red-dark; }
   }
   
-  &.yellow {
+  &.btn-yellow {
     background-color: $yellow;
   	background: -webkit-linear-gradient($yellow-light, $yellow 50%, $yellow 50%, $yellow-dark);
   	background: -moz-linear-gradient($yellow-light, $yellow 50%, $yellow 50%, $yellow-dark);
@@ -158,7 +141,7 @@ textarea:focus {
   	&:hover { background: $yellow-dark; }
   }
   
-  &.green {
+  &.btn-green {
     background-color: $green;
   	background: -webkit-linear-gradient($green-light, $green 50%, $green 50%, $green-dark);
   	background: -moz-linear-gradient($green-light, $green 50%, $green 50%, $green-dark);
@@ -168,7 +151,7 @@ textarea:focus {
   	&:hover { background: $green-dark; }
   }
   
-  &.blue {
+  &.btn-blue {
     background-color: $blue;
   	background: -webkit-linear-gradient($blue-light, $blue 50%, $blue 50%, $blue-dark);
   	background: -moz-linear-gradient($blue-light, $blue 50%, $blue 50%, $blue-dark);
@@ -178,7 +161,7 @@ textarea:focus {
   	&:hover { background: $blue-dark; }
   }
   
-  &.purple {
+  &.btn-purple {
     background-color: $purple;
   	background: -webkit-linear-gradient($purple-light, $purple 50%, $purple 50%, $purple-dark);
   	background: -moz-linear-gradient($purple-light, $purple 50%, $purple 50%, $purple-dark);
