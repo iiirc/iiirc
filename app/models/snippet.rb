@@ -10,8 +10,8 @@ class Snippet < ActiveRecord::Base
     self.class.transaction do
       return unless super
       if @content
-        messages = @content.each_line.collect {|raw_message|
-          Message.new(raw_content: raw_message.chomp)
+        messages = @content.each_line.collect {|raw_content|
+          Message.new(raw_content: raw_content.chomp)
         }
         self.messages = messages
       else
