@@ -1,5 +1,5 @@
 Iiirc::Application.routes.draw do
-  resources :users
+  resources :users, except: %w(edit)
   resources :snippets
   resources :organizations, only: %w(index show)
 

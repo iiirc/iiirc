@@ -38,11 +38,6 @@ class SnippetsController < ApplicationController
     end
   end
 
-  # GET /snippets/1/edit
-  def edit
-    @snippet = Snippet.find(params[:id])
-  end
-
   # POST /snippets
   # POST /snippets.json
   def create
