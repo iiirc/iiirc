@@ -10,21 +10,8 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
-  </div>
-  <div class="field">
-    <%= f.label :published %><br />
-    <%= f.check_box :published %>
-  </div>
-  <div class="actions">
-    <%= f.submit class: 'btn btn-blue' %>
-  </div>
-  
+  <%= f.text_field :title, class: 'input-text input-text-large', placeholder: 'Title (optional)' %>
+  <%= f.text_area :content, class: 'textarea', placeholder: '00:00 YourName: Logged in...' %>
+  <%= f.label :published %><%= f.check_box :published, {:checked => true} %>
+  <%= f.submit class: 'btn btn-blue' %>  
 <% end %>
