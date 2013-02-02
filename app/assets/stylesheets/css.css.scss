@@ -103,7 +103,7 @@ h1, h2, h3, h4, h5, h6, h7 {
   
 	@include font(irc);
 	border: 0;
-	background-color: #fff;
+	background-color: #333;
 	border-top: 1px solid rgba(0, 0, 0, 0.3);
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 	
@@ -194,10 +194,10 @@ h1, h2, h3, h4, h5, h6, h7 {
 }
 
 ::-webkit-input-placeholder {
-	color: #909090 !important;
+	color: $white !important;
 }
 :-moz-placeholder {
-	color: #909090 !important;
+	color: $white !important;
 }
 
 body {
