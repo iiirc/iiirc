@@ -1,0 +1,241 @@
+@charset "UTF-8";
+
+$gap: 20px;
+$color-diff: 5;
+
+$white: #f2f2f2;
+$gray-light: #e0e0e0;
+$gray: #999;
+$gray-dark: #666;
+$black: #333;
+
+$red: #D04255;
+$yellow: #F0BA32;
+$green: #1DAF9E;
+$blue: #1F91BE;
+$purple: #C23685;
+
+$red-light: lighten($red, $color-diff);
+$red-dark: darken($red, $color-diff);
+$blue-light: lighten($blue, $color-diff);
+$blue-dark: darken($blue, $color-diff);
+$green-light: lighten($green, $color-diff);
+$green-dark: darken($green, $color-diff);
+$yellow-light: lighten($yellow, $color-diff);
+$yellow-dark: darken($yellow, $color-diff);
+$purple-light: lighten($purple, $color-diff);
+$purple-dark: darken($purple, $color-diff);
+
+$font-color: $black;
+$font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+$font-size: 100%;
+$font-size-small: 80%;
+$font-size-large: 144%;
+$line-height: 1.66;
+$line-height-small: $line-height*0.8;
+$letter-spacing: 0;
+
+@mixin font($type: default) {
+  @if $type == link {
+    color: $font-color;
+    text-decoration: none;
+  } @else {
+    color: $font-color;
+    font-size: $font-size;
+    line-height: $line-height;
+    letter-spacing: $letter-spacing;
+  }
+  
+  font-family: $font-family;
+}
+
+@mixin link {
+  @include font(link);
+  
+  &:hover {
+	  @include font(link);
+  }
+}
+
+@mixin border-radius($size: small) {
+  @if $size == small {
+    @each $prefix in -webkit-, -moz-, -ms-, -o-, '' {  
+      #{$prefix}border-radius: 5px;  
+    }
+  } @else if $size == large {
+	  @each $prefix in -webkit-, -moz-, -ms-, -o-, '' {  
+      #{$prefix}border-radius: 10px;  
+    } 
+  }
+}
+
+html {
+	font-size: $font-size;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+body {	
+	color: $font-color;
+  font-size: $font-size;
+  font-family: $font-family;
+  line-height: 1;
+  letter-spacing: $letter-spacing;
+}
+
+a {
+	@include link;
+}
+
+h1, h2, h3, h4, h5, h6, h7 {
+	font-weight: normal;
+}
+
+.input-text,
+.textarea {
+  width: 100%;
+  
+	@include font;
+	border: 0;
+	background-color: #fff;
+	border-top: 1px solid rgba(0, 0, 0, 0.3);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+	padding: 10px 1em !important;
+	display: inline-block;
+	text-align: center;
+	
+	color: #ffffff !important;
+	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+	font-size: 100%;
+	font-weight: bold;
+	text-shadow: 0 -1px #909090;
+	border: 0px solid #909090;
+	cursor: pointer;
+	
+	/* default */
+	background-color: #0060af;
+	background: -webkit-linear-gradient(#3579b0, #2371b0 50%, #1269b0 50%, #0060af);
+	background: -moz-linear-gradient(#3579b0, #2371b0 50%, #1269b0 50%, #0060af);
+	background: -o-linear-gradient(#3579b0, #2371b0 50%, #1269b0 50%, #0060af);
+	background: linear-gradient(#3579b0, #2371b0 50%, #1269b0 50%, #0060af);
+	
+  &.btn-red {
+    background-color: $red;
+  	background: -webkit-linear-gradient($red-light, $red 50%, $red 50%, $red-dark);
+  	background: -moz-linear-gradient($red-light, $red 50%, $red 50%, $red-dark);
+  	background: -o-linear-gradient($red-light, $red 50%, $red 50%, $red-dark);
+  	background: linear-gradient($red-light, $red 50%, $red 50%, $red-dark);
+  	
+  	&:hover { background: $red-dark; }
+  }
+  
+  &.btn-yellow {
+    background-color: $yellow;
+  	background: -webkit-linear-gradient($yellow-light, $yellow 50%, $yellow 50%, $yellow-dark);
+  	background: -moz-linear-gradient($yellow-light, $yellow 50%, $yellow 50%, $yellow-dark);
+  	background: -o-linear-gradient($yellow-light, $yellow 50%, $yellow 50%, $yellow-dark);
+  	background: linear-gradient($yellow-light, $yellow 50%, $yellow 50%, $yellow-dark);
+  	
+  	&:hover { background: $yellow-dark; }
+  }
+  
+  &.btn-green {
+    background-color: $green;
+  	background: -webkit-linear-gradient($green-light, $green 50%, $green 50%, $green-dark);
+  	background: -moz-linear-gradient($green-light, $green 50%, $green 50%, $green-dark);
+  	background: -o-linear-gradient($green-light, $green 50%, $green 50%, $green-dark);
+  	background: linear-gradient($green-light, $green 50%, $green 50%, $green-dark);
+  	
+  	&:hover { background: $green-dark; }
+  }
+  
+  &.btn-blue {
+    background-color: $blue;
+  	background: -webkit-linear-gradient($blue-light, $blue 50%, $blue 50%, $blue-dark);
+  	background: -moz-linear-gradient($blue-light, $blue 50%, $blue 50%, $blue-dark);
+  	background: -o-linear-gradient($blue-light, $blue 50%, $blue 50%, $blue-dark);
+  	background: linear-gradient($blue-light, $blue 50%, $blue 50%, $blue-dark);
+  	
+  	&:hover { background: $blue-dark; }
+  }
+  
+  &.btn-purple {
+    background-color: $purple;
+  	background: -webkit-linear-gradient($purple-light, $purple 50%, $purple 50%, $purple-dark);
+  	background: -moz-linear-gradient($purple-light, $purple 50%, $purple 50%, $purple-dark);
+  	background: -o-linear-gradient($purple-light, $purple 50%, $purple 50%, $purple-dark);
+  	background: linear-gradient($purple-light, $purple 50%, $purple 50%, $purple-dark);
+  	
+  	&:hover { background: $purple-dark; }
+  }
+    
+  &:hover {
+	  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.33);
+  }
+}
+
+::-webkit-input-placeholder {
+	color: #909090 !important;
+}
+:-moz-placeholder {
+	color: #909090 !important;
+}
+
+body {
+  background: asset-url('grid.png', image) repeat 0 0;
+}
+
+.wrapper {
+  padding: 8px;
+  margin: 16px;
+  
+  background-color: #ccc;
+}
+
+#header {
+  padding: 0;
+  height: 48px;
+  
+  #brand {
+    float: left;
+    width: 116px;
+    height: 48px;
+    display: block;
+    
+    a {
+      width: 116px;
+      height: 48px;
+      text-indent: 100%;
+      display: block;
+      overflow: hidden;
+      
+      background: asset-url('iiirc.png', image) no-repeat 8px 8px;
+    }
+  }
+  
+  #account_info {
+    float: right;
+    height: 48px;
+    
+    .btn {
+      padding: 0 1em !important;
+      height: 48px;
+      line-height: 48px;
+    }
+  }
+}
+
+.snippet {
+  &.title {
+    margin-bottom: 8px;
+    font-size: $font-size-large;
+  }
+  
+  &.content {
+    background-color: #fff;
+  }
+}
+

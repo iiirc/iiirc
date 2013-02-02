@@ -1,6 +1,21 @@
-<% if current_user %>
-  Welcome <%= current_user.username %>!
-  <%= link_to "Sign out", signout_path %>
-<% else %>
-  <%= link_to "Sign in with GitHub", "/auth/github", 'data-no-turbolink' => true %>
+<% @snippets.each do |snippet| %>
+
+  <h2 class="snippet title"><%= snippet.title %></h2>
+  
+  <div class="snippet content">
+    <%= simple_format(snippet.content) %>
+  </div>
+  
+  <div class="snippet meta">
+    <p><b>Published:</b><%= snippet.published %></p>
+    <p><%= link_to 'Edit', edit_snippet_path(snippet) %></p>
+    <p><%= link_to 'Back', root_path %></p>
+    <p><%= link_to 'Show', snippet %></p>
+  </div>
+
 <% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Snippet', new_snippet_path, class: 'btn btn-blue' %>

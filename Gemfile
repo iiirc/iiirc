@@ -6,6 +6,7 @@ gem 'mysql2'
 gem 'omniauth-github'
 gem 'turbolinks'
 gem 'rails_config'
+gem 'gravtastic'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -18,8 +19,10 @@ gem 'jquery-rails'
 group :development do
   gem "tapp"
   gem "awesome_print"
+  gem 'pry-rails'
   gem "wirb"
   gem "hirb-unicode"
+  gem 'sqlite3'
 end
 
 group :development, :test do
@@ -30,7 +33,6 @@ group :development, :test do
   gem "database_cleaner"
   gem "capybara"
   gem "launchy"
-  gem "quiet_assets", github: "evrone/quiet_assets"
   gem 'rb-fsevent', '~> 0.9.1'
   gem "growl" if system('which growlnotify >/dev/null')
   gem "guard-spork"

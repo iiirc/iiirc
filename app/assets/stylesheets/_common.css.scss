@@ -1,0 +1,21 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700");
+
+/* reset */
+html,body,div,h1,h2,h3,h4,h5,h6,p,blockquote,q,pre,table,caption,colgroup,col,tbody,thead,tfoot,tr,th,td,ul,ol,li,dl,dt,dd,form,fieldset,legend,label,span,a,img,em,ins,del,cite,abbr,sup,sub,dfn,code,var,samp,kbd,object,script,noscript,style,iframe,embed,param,map,area,menu,hr,address,small,strong,i,b,article,aside,figure,footer,header,hgroup,nav,section,figcaption,time,video,audio,mark,ruby,rt,rp,bdo,source,canvas,details,summary,command,datalist,keygen,output,progress,meter { margin: 0; padding: 0; font-size: 100%; }
+address,article,aside,figure,figcaption,footer,header,hgroup,hr,legend,menu,nav,section,summary { display: block; }
+li { list-style-type: none; }
+a img { border: none; }
+img { vertical-align: bottom; }
+object,object:focus { outline:none; }
+
+input[type='button'],
+input[type='submit'] {
+  padding: 0;
+}
+
+/* common class */
+.hidden { display: none; }
+.half { -ms-filter: "alpha(opacity=50)"; filter: alpha( opacity=50 ); opacity: 0.5; }
+.clear { zoom: 1; }
+.clear:after { content: ""; display: block; clear: both; }

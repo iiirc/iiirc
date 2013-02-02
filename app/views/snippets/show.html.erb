@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<h2 class="snippet title"><%= @snippet.title %></h2>
+
+<div class="snippet content">
+  <%= simple_format(@snippet.content) %>
+</div>
+
+<div class="snippet meta">
+  <p><b>Published:</b><%= @snippet.published %></p>
+  <p><%= link_to 'Edit', edit_snippet_path(@snippet) %></p>
+  <p><%= link_to 'Back', root_path %></p>
+</div>
