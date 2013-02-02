@@ -41,7 +41,7 @@ $letter-spacing: 0;
     color: $font-color;
     text-decoration: none;
   } @else if $type == irc {
-    color: $font-color;
+    color: $white;
     font-size: $font-size;
     line-height: $line-height-slim;
     letter-spacing: $letter-spacing;
@@ -185,6 +185,12 @@ h1, h2, h3, h4, h5, h6, h7 {
   &:hover {
 	  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.33);
   }
+  
+  &.btn-horizontal {
+    width: 100%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
 }
 
 ::-webkit-input-placeholder {
@@ -202,7 +208,7 @@ body {
   padding: 8px;
   margin: 16px;
   
-  background-color: #ccc;
+  background-color: #fff;
 }
 
 #header {
@@ -254,13 +260,13 @@ body {
   position: relative;
   
   .title {
-    padding-bottom: 8px;
+    padding: 0 8px 8px;
     
-    color: #fff;
-    font-size: $font-size-large;
+    color: $black;
+    font-size: $font-size;
     
     a {
-      color: #fff;
+      color: $black;
     }
   }
   
@@ -268,7 +274,7 @@ body {
     padding: 8px;
     
     @include font(irc);
-    background-color: #fff;
+    background-color: $black;
   }
   
   .edit {
