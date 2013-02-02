@@ -20,8 +20,9 @@ class SessionsController < ApplicationController
   private
 
   def store_auth_params(auth)
-    paramz = auth.slice(:provider, :uid)
-    paramz[:info] = auth[:info].symbolize_keys.slice(:email, :nickname) # nickname is like -> "banyan"
+    paramz               = auth.slice(:provider, :uid)
+    paramz[:info]        = auth[:info].symbolize_keys.slice(:email, :nickname) # nickname is like -> "banyan"
+    paramz[:credentials] = auth[:credentials].symbolize_keys.slice(:token)
     session[:params_from_authenticator] = paramz
   end
 end
