@@ -43,10 +43,9 @@ class SnippetsController < ApplicationController
     return render status: :forbidden, text: "Hey! Forbidden fruit :S" if current_user.blank?
     @snippet = current_user.snippets.build(params[:snippet])
     @content = params[:content]
-    messages = @content.each_line.collect do |raw_message|
-      Rails.logger.debug raw_message.encoding
+    messages = @content.each_line.collect {|raw_message|
       Message.new(raw_content: raw_message.chomp)
-    end
+    }
 
     respond_to do |format|
       if @snippet.save && @snippet.messages = messages
