@@ -359,9 +359,16 @@ footer {
     display: block;
   }
   
-  #signout {
+  #signout,
+  #powered {
     float: right;
     display: block;
+  }
+  
+  #powered {
+    a {
+      color: $font-color;
+    }
   }
 }
 
