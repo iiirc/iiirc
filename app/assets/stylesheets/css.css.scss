@@ -103,7 +103,7 @@ h1, h2, h3, h4, h5, h6, h7 {
   
 	@include font(irc);
 	border: 0;
-	background-color: #fff;
+	background-color: #333;
 	border-top: 1px solid rgba(0, 0, 0, 0.3);
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 	
@@ -194,21 +194,22 @@ h1, h2, h3, h4, h5, h6, h7 {
 }
 
 ::-webkit-input-placeholder {
-	color: #909090 !important;
+	color: $white !important;
 }
 :-moz-placeholder {
-	color: #909090 !important;
+	color: $white !important;
 }
 
 body {
   background: asset-url('grid.png', image) repeat 0 0;
 }
 
-.section {
-  padding: 8px;
-  margin: 16px;
-  
+.wrapper {  
   background-color: #fff;
+}
+
+.container {
+  padding: 0 64px;
 }
 
 #header {
@@ -217,18 +218,18 @@ body {
   
   #brand {
     float: left;
-    width: 116px;
+    width: 140px;
     height: 48px;
     display: block;
     
     a {
-      width: 116px;
+      width: 140px;
       height: 48px;
       text-indent: 100%;
       display: block;
       overflow: hidden;
       
-      background: asset-url('iiirc.png', image) no-repeat 8px 8px;
+      background: asset-url('iiirc.png', image) no-repeat 0 8px;
     }
   }
   
@@ -263,9 +264,10 @@ body {
 
 .snippet {
   position: relative;
+  margin-bottom: 16px;
   
   .title {
-    padding: 0 8px 8px;
+    padding: 8px 0;
     
     color: $black;
     font-size: $font-size;
@@ -276,8 +278,8 @@ body {
   }
   
   .content {
-    padding: 8px;
-    
+    padding: 8px 64px;
+       
     @include font(irc);
     background-color: $black;
   }
@@ -290,6 +292,10 @@ body {
 }
 
 footer {
+  padding: 16px 0;
+  
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.33);
+  
   #copyrights {
     float: left;
     display: block;

@@ -7,29 +7,33 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <header id="header" class="section clear">
-    <h1 id="brand">
-      <%= link_to "iiirc", root_path %>
-    </h1>
-    <div id="account_info">
-      <% if current_user %>
-        <%= image_tag current_user.gravatar_url(size: 48), class: 'avator' %>
-      <% else %>
-        <%= link_to "Sign in with GitHub", "/auth/github", 'data-no-turbolink' => true, class: 'btn btn-blue' %>
-      <% end %>
+  <header id="header" class="wrapper clear">
+    <div class="container">
+      <h1 id="brand">
+        <%= link_to "iiirc", root_path %>
+      </h1>
+      <div id="account_info">
+        <% if current_user %>
+          <%= image_tag current_user.gravatar_url(size: 48), class: 'avator' %>
+        <% else %>
+          <%= link_to "Sign in with GitHub", "/auth/github", 'data-no-turbolink' => true, class: 'btn btn-blue' %>
+        <% end %>
+      </div>
     </div>
   </header>
   <% if notice %>
-    <div class="notice section">
+    <div class="notice wrapper">
       <p><%= notice %></p>
     </div>
   <% end %>
   <%= yield %>
-  <footer id="footer" class="section clear">
-    <p id="copyrights">&copy;&nbsp;iiirc</p>
-    <% if current_user %>
-      <p id="signout"><%= current_user.username %>&nbsp;(<%= link_to "signout", signout_path %>)</p>
-    <% end %>
+  <footer id="footer" class="wrapper clear">
+    <div class="container">
+      <p id="copyrights">iiirc</p>
+      <% if current_user %>
+        <p id="signout"><%= current_user.username %>&nbsp;(<%= link_to "signout", signout_path %>)</p>
+      <% end %>
+    </div>
   </footer>
 </body>
 </html>
