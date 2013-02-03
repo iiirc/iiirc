@@ -332,6 +332,12 @@ body {
     .nick_9 { color: lighten(#306, 32) !important; }
     .nick_10 { color: lighten(#063, 32) !important; }
     .nick_11 { color: lighten(#630, 32) !important; }
+    
+    .star {
+      a {
+        color: $yellow;
+      }
+    }
   }
   
   .embed_code {
