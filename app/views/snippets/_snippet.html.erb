@@ -5,7 +5,13 @@
   <dt class="nick_<%= nick_nums[message.nick] %>"><%= message.time %> <%= message.nick %></dt>
   <dd class="nick_<%= nick_nums[message.nick] %>">
     <p><%= raw Rinku.auto_link(h(message.content), :all) %></p>
-    <p>Star: <span class="count"><%= message.stars.reduce(0) {|sum, star| sum + star.count} %></span><%= link_to 'Star!', snippet_message_stars_path(snippet, message), method: :post, remote: true %></p>
+    <p>Star: <span class="count"><%= message.stars.reduce(0) {|sum, star| sum + star.count} %></span>
+      <%- if current_user -%>
+      <%= link_to 'Star!', snippet_message_stars_path(snippet, message), method: :post, remote: true %>
+      <%- else -%>
+      <%= link_to 'Star!', signin_url %>
+      <%- end -%>
+    </p>
     <%- if show_destroy -%>
     <p><%= link_to 'Destroy', [snippet, message], method: :delete, remote: true, data: {confirm: 'Are you sure?', type: :json} %></p>
     <%- end -%>
