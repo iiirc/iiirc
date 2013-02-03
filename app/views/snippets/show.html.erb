@@ -1,6 +1,5 @@
 <article class="snippet wrapper">
-  <hgroup class="container">
-    <img src="<%= @snippet.user.gravatar_url(size: 32) %>">
+  <hgroup class="container" style="background: url(<%= @snippet.user.gravatar_url(size: 48) %>) no-repeat top right">
     <h2 class="title"><%= @snippet.title %></h2>
   </hgroup>
   <div class="content container">
