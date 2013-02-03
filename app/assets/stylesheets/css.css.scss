@@ -112,6 +112,10 @@ h1, h2, h3, h4, h5, h6, h7 {
 	}
 }
 
+.textarea {
+  height: 40em;
+}
+
 .btn {
 	padding: 10px 1em !important;
 	display: inline-block;
@@ -201,21 +205,26 @@ h1, h2, h3, h4, h5, h6, h7 {
 }
 
 body {
-  background: asset-url('grid.png', image) repeat 0 0;
+  padding: 16px 0;
+  //background: asset-url('grid.png', image) repeat 0 0;
 }
 
-.wrapper {  
+.wrapper {
+  width: 640px;
+  margin: 0 auto 16px 16px;
   background-color: #fff;
 }
 
 .container {
-  padding: 0 64px;
+  width: 640px;
+  margin: 0 auto;
 }
 
 #header {
   padding: 0;
   height: 48px;
   
+  background-color: transparent;
   box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.33);
   
   #brand {
@@ -231,7 +240,7 @@ body {
       display: block;
       overflow: hidden;
       
-      background: asset-url('iiirc.png', image) no-repeat 0 8px;
+      background: asset-url('iiirc.gif', image) no-repeat 8px 8px;
     }
   }
   
@@ -255,8 +264,11 @@ body {
 }
 
 .notice {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  
   text-align: center;
-  background-color: $yellow;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.33);
 }
 
 .add_new_snippet {
@@ -273,10 +285,14 @@ body {
   position: relative;
   
   .title {
-    padding: 8px 0;
+    height: 24px;
+    padding: 12px 16px;
+    overflow: hidden;
     
     color: $black;
     font-size: $font-size;
+    line-height: 24px;
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.33);
     
     a {
       color: $black;
@@ -284,17 +300,25 @@ body {
   }
   
   .content {
-    padding: 8px 64px;
+    width: 608px;
+    padding: 8px 16px;
        
     @include font(irc);
     background-color: $black;
     box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.99);
     
-    dt.nick_4 { color: #e02254 !important; }
-    dt.nick_0 { color: #67cc5d !important; }
-    dt.nick_2 { color: #c2ca5f !important; }
-    dt.nick_1 { color: #00c2c9 !important; }
-    dt.nick_3 { color: #e339bf !important; }
+    .nick_0 { color: lighten(#066, 32) !important; }
+    .nick_1 { color: lighten(#660, 32) !important; }
+    .nick_2 { color: lighten(#606, 32) !important; }
+    .nick_3 { color: lighten(#060, 32) !important; }
+    .nick_4 { color: lighten(#600, 32) !important; }
+    .nick_5 { color: lighten(#006, 32) !important; }
+    .nick_6 { color: lighten(#036, 32) !important; }
+    .nick_7 { color: lighten(#360, 32) !important; }
+    .nick_8 { color: lighten(#603, 32) !important; }
+    .nick_9 { color: lighten(#306, 32) !important; }
+    .nick_10 { color: lighten(#063, 32) !important; }
+    .nick_11 { color: lighten(#630, 32) !important; }
   }
   
   .edit {
@@ -305,9 +329,7 @@ body {
 }
 
 footer {
-  padding: 16px 0;
-  
-  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.33);
+  background-color: transparent !important;
   
   #copyrights {
     float: left;

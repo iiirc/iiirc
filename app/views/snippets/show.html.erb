@@ -1,10 +1,9 @@
 <article class="snippet wrapper">
-  <hgroup class="container">
-    <img src="<%= @snippet.user.gravatar_url(size: 32) %>">
+  <hgroup class="container" style="background: url(<%= @snippet.user.gravatar_url(size: 48) %>) no-repeat top right">
     <h2 class="title"><%= @snippet.title %></h2>
   </hgroup>
   <div class="content container">
-    <%= render 'snippet', snippet: @snippet, show_destroy: (current_user == @snippet.user) %>
+    <%= render 'snippet', snippet: @snippet %>
     <p>Embed this snippet! <%= url_field_tag "snippet_#{@snippet.id}", url_for(controller: 'api/snippets', action: 'show', id: @snippet.id, format: :js, only_path: false), readonly: true %></p>
   </div>
 </article>

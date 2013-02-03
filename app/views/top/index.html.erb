@@ -1,7 +1,11 @@
 <% if current_user %>
-  <%= link_to new_snippet_path, class: 'add_new_snippet' do %>
-    add
-  <% end %>
+  <div class="wrapper">
+    <div class="container">
+      <%= link_to new_snippet_path, class: 'btn btn-green btn-horizontal' do %>
+        + Add New Snipet!
+      <% end %>
+    </div>
+  </div>
 <% end %>
 
 <% @snippets.each do |snippet| %>
@@ -11,7 +15,6 @@
     </hgroup>
     <div class="content">
       <%= render 'snippets/snippet' , snippet: snippet, show_destroy: false %>
-      <p><%= link_to 'more', snippet %></p>
     </div>
   </article>
 <% end %>
