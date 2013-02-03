@@ -4,6 +4,8 @@
   </hgroup>
   <div class="content container">
     <%= render 'snippet', snippet: @snippet %>
-    <p>Embed this snippet! <%= url_field_tag "snippet_#{@snippet.id}", url_for(controller: 'api/snippets', action: 'show', id: @snippet.id, format: :js, only_path: false), readonly: true %></p>
+  </div>
+  <div class="embed_code">
+    <%= url_field_tag "snippet_#{@snippet.id}", url_for(controller: 'api/snippets', action: 'show', id: @snippet.id, format: :js, only_path: false), readonly: true, class: 'input-text' %>
   </div>
 </article>

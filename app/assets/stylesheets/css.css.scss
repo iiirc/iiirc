@@ -334,10 +334,11 @@ body {
     .nick_11 { color: lighten(#630, 32) !important; }
   }
   
-  .edit {
-    position: absolute;
-    top: 8px;
-    right: 8px;
+  .embed_code {
+    .input-text {
+      color: $gray;
+      font-size: 12px !important;
+    }
   }
 }
 
