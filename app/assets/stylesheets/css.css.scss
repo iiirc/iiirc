@@ -38,7 +38,7 @@ $letter-spacing: 0;
 
 @mixin font($type: default) {
   @if $type == link {
-    color: $font-color;
+    color: $blue;
     text-decoration: none;
   } @else if $type == irc {
     color: $white;
