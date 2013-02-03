@@ -5,9 +5,10 @@
 <% end %>
 
 <% @snippets.each do |snippet| %>
-  <article class="snippet section">
-    <%= snippet.user.gravatar_url(size: 48) %>
-    <h2 class="title"><%= link_to snippet do %><%= snippet.title %><% end %></h2>
+  <article class="snippet wrapper">
+    <hgroup class="container">
+      <h2 class="title"><%= link_to snippet do %><%= snippet.title %><% end %></h2>
+    </hgroup>
     <div class="content">
       <%= simple_format(snippet.content) %>
     </div>

@@ -204,11 +204,12 @@ body {
   background: asset-url('grid.png', image) repeat 0 0;
 }
 
-.section {
-  padding: 8px;
-  margin: 16px;
-  
+.wrapper {  
   background-color: #fff;
+}
+
+.container {
+  padding: 0 32px;
 }
 
 #header {
@@ -263,9 +264,10 @@ body {
 
 .snippet {
   position: relative;
+  margin-bottom: 16px;
   
   .title {
-    padding: 0 8px 8px;
+    padding: 8px 0;
     
     color: $black;
     font-size: $font-size;
@@ -276,8 +278,8 @@ body {
   }
   
   .content {
-    padding: 8px;
-    
+    padding: 8px 32px;
+       
     @include font(irc);
     background-color: $black;
   }
@@ -290,6 +292,10 @@ body {
 }
 
 footer {
+  padding: 16px 0;
+  
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.33);
+  
   #copyrights {
     float: left;
     display: block;

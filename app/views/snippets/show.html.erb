@@ -1,6 +1,9 @@
-<article class="section snippet">
-  <h2 class="title"><%= @snippet.title %></h2>
-  <div class="content">
+<article class="snippet wrapper">
+  <hgroup class="container">
+    <img src="<%= @snippet.user.gravatar_url(size: 32) %>">
+    <h2 class="title"><%= @snippet.title %></h2>
+  </hgroup>
+  <div class="content container">
     <%= simple_format(@snippet.content) %>
   </div>
   <%= link_to 'Edit', edit_snippet_path(@snippet), class: 'edit' %>
