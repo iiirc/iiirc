@@ -282,6 +282,12 @@ body {
        
     @include font(irc);
     background-color: $black;
+    
+    dt.nick_4 { color: #e02254 !important; }
+    dt.nick_0 { color: #67cc5d !important; }
+    dt.nick_2 { color: #c2ca5f !important; }
+    dt.nick_1 { color: #00c2c9 !important; }
+    dt.nick_3 { color: #e339bf !important; }
   }
   
   .edit {
