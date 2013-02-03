@@ -1,6 +1,6 @@
 class TopController < ApplicationController
   def index
-    @snippets = Snippet.all(order: 'id DESC')
+    @snippets = Snippet.published.date_desc
 
     respond_to do |format|
       format.html

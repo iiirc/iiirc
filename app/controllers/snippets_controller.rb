@@ -37,7 +37,6 @@ class SnippetsController < ApplicationController
   end
 
   # POST /snippets
-  # POST /snippets.json
   def create
     return render status: :forbidden, text: "Hey! Forbidden fruit :S" if current_user.blank?
     @content = params[:content].strip
@@ -51,11 +50,10 @@ class SnippetsController < ApplicationController
 
     respond_to do |format|
       if @snippet.save
-        format.html { redirect_to @snippet, notice: 'Snippet was successfully created.' }
-        format.json { render json: @snippet, status: :created, location: @snippet }
+        redirect_to = @snippet.published? ? @snippet : "/snippets/#{@snippet.hash_id}"
+        format.html { redirect_to redirect_to, notice: 'Snippet was successfully created.' }
       else
         format.html { render action: "new" }
-        format.json { render json: @snippet.errors, status: :unprocessable_entity }
       end
     end
   end
