@@ -2,7 +2,7 @@ class SnippetsController < ApplicationController
   # GET /snippets
   # GET /snippets.json
   def index
-    @snippets = Snippet.all
+    @snippets = Snippet.published
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +13,11 @@ class SnippetsController < ApplicationController
   # GET /snippets/1
   # GET /snippets/1.json
   def show
-    @snippet = Snippet.find(params[:id])
+    @snippet = Snippet.find_by_hash_id(params[:id])
+    if @snippet.blank?
+      @snippet = Snippet.find_by_id(params[:id])
+      return render status: :not_found, text: "404 not found" unless @snippet.published?
+    end
 
     respond_to do |format|
       format.html # show.html.erb
