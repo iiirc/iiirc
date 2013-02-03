@@ -218,18 +218,18 @@ body {
   
   #brand {
     float: left;
-    width: 116px;
+    width: 140px;
     height: 48px;
     display: block;
     
     a {
-      width: 116px;
+      width: 140px;
       height: 48px;
       text-indent: 100%;
       display: block;
       overflow: hidden;
       
-      background: asset-url('iiirc.png', image) no-repeat 8px 8px;
+      background: asset-url('iiirc.png', image) no-repeat 0 8px;
     }
   }
   

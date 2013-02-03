@@ -8,15 +8,17 @@
 </head>
 <body>
   <header id="header" class="wrapper clear">
-    <h1 id="brand">
-      <%= link_to "iiirc", root_path %>
-    </h1>
-    <div id="account_info">
-      <% if current_user %>
-        <%= image_tag current_user.gravatar_url(size: 48), class: 'avator' %>
-      <% else %>
-        <%= link_to "Sign in with GitHub", "/auth/github", 'data-no-turbolink' => true, class: 'btn btn-blue' %>
-      <% end %>
+    <div class="container">
+      <h1 id="brand">
+        <%= link_to "iiirc", root_path %>
+      </h1>
+      <div id="account_info">
+        <% if current_user %>
+          <%= image_tag current_user.gravatar_url(size: 48), class: 'avator' %>
+        <% else %>
+          <%= link_to "Sign in with GitHub", "/auth/github", 'data-no-turbolink' => true, class: 'btn btn-blue' %>
+        <% end %>
+      </div>
     </div>
   </header>
   <% if notice %>
