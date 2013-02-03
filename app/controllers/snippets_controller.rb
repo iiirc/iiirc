@@ -38,6 +38,7 @@ class SnippetsController < ApplicationController
     return render status: :forbidden, text: "Hey! Forbidden fruit :S" if current_user.blank?
     @content = params[:content].strip
     @snippet = current_user.snippets.build(params[:snippet])
+    @snippet.published = params[:commit] == "public"  # あとでもうちょっとちゃんとします...
     @snippet.content = @content
 
     respond_to do |format|
