@@ -1,12 +1,14 @@
 <% if current_user %>
-  <div class="add_new_snippet ballon ballon-bottom">
-    <%= link_to 'New Snippet', new_snippet_path, class: 'btn btn-blue btn-horizontal' %>
-  </div>
+  <%= link_to new_snippet_path, class: 'add_new_snippet' do %>
+    add
+  <% end %>
 <% end %>
 
 <% @snippets.each do |snippet| %>
-  <article class="snippet section">
-    <h2 class="title"><%= link_to snippet do %><%= snippet.title %><% end %></h2>
+  <article class="snippet wrapper">
+    <hgroup class="container">
+      <h2 class="title"><%= link_to snippet do %><%= snippet.title %><% end %></h2>
+    </hgroup>
     <div class="content">
       <%= render 'snippets/snippet' , snippet: snippet, show_destroy: false %>
       <p><%= link_to 'more', snippet %></p>
