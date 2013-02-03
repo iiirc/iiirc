@@ -1,6 +1,6 @@
 <article class="section snippet">
   <h2 class="title"><%= @snippet.title %></h2>
   <div class="content">
-    <%= render 'snippet', snippet: @snippet %>
+    <%= render 'snippet', snippet: @snippet, show_destroy: (current_user == @snippet.user) %>
   </div>
 </article>
