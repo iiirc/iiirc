@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <article class="snippet wrapper">
   <hgroup class="container">
     <img src="<%= @snippet.user.gravatar_url(size: 32) %>">
@@ -9,5 +10,12 @@
       <li class="nick_<%= @nick_nums[message.nick] %>"><%= message.content %></li>
       <%- end -%>
     </ol>
+=======
+<article class="section snippet">
+  <h2 class="title"><%= @snippet.title %></h2>
+  <div class="content">
+    <%= render 'snippet', snippet: @snippet, show_destroy: (current_user == @snippet.user) %>
+    <p>Embed this snippet! <%= url_field_tag "snippet_#{@snippet.id}", url_for(controller: 'api/snippets', action: 'show', id: @snippet.id, format: :js, only_path: false), readonly: true %></p>
+>>>>>>> 3601ab15ed9b7ac06a360d0d0bdc2bb1441d4497
   </div>
 </article>

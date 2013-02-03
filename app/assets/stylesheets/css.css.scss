@@ -209,7 +209,7 @@ body {
 }
 
 .container {
-  padding: 0 32px;
+  padding: 0 64px;
 }
 
 #header {
@@ -278,7 +278,7 @@ body {
   }
   
   .content {
-    padding: 8px 32px;
+    padding: 8px 64px;
        
     @include font(irc);
     background-color: $black;
