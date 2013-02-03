@@ -129,7 +129,7 @@ GEM
       jwt (~> 0.1.4)
       multi_json (~> 1.0)
       rack (~> 1.2)
-    octokit (1.22.0)
+    octokit (1.21.0)
       addressable (~> 2.2)
       faraday (~> 0.8)
       faraday_middleware (~> 0.9)
@@ -256,7 +256,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   mysql2
-  octokit
+  octokit (= 1.21.0)
   omniauth-github
   pry-rails
   rails (= 3.2.11)

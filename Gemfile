@@ -5,7 +5,7 @@ gem 'rails', '3.2.11'
 gem 'mysql2'
 gem 'omniauth-github'
 gem 'turbolinks'
-gem 'octokit'
+gem 'octokit', '1.21.0'
 gem 'rails_config'
 gem 'gravtastic'
 gem 'verification', github: "sikachu/verification"
