@@ -3,6 +3,11 @@
   <%- snippet.messages.each do |message| -%>
   <%- unless nick_nums[message.nick] then nick_nums[message.nick] = nick_count; nick_count += 1 end -%>
   <dt class="nick_<%= nick_nums[message.nick] %>"><%= message.nick %></dt>
-  <dd class="nick_<%= nick_nums[message.nick] %>"><%= raw Rinku.auto_link(h(message.content), :all) %></dd>
+  <dd class="nick_<%= nick_nums[message.nick] %>">
+    <p><%= raw Rinku.auto_link(h(message.content), :all) %></p>
+    <%- if current_user == snippet.user -%>
+    <p><%= link_to 'Destroy', [snippet, message], method: :delete, remote: true, data: {confirm: 'Are you sure?', type: :json} %></p>
+    <%- end -%>
+  </dd>
   <%- end -%>
 </dl>
