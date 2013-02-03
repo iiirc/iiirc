@@ -5,9 +5,6 @@
   <dt class="nick_<%= nick_nums[message.nick] %>"><%= message.time %> <%= message.nick %></dt>
   <dd class="nick_<%= nick_nums[message.nick] %>">
     <p><%= raw Rinku.auto_link(h(message.content), :all) %></p>
-    <%- if show_destroy -%>
-    <p><%= link_to 'Destroy', [snippet, message], method: :delete, remote: true, data: {confirm: 'Are you sure?', type: :json} %></p>
-    <%- end -%>
   </dd>
   <%- end -%>
 </dl>
