@@ -277,14 +277,17 @@ body {
 }
 
 .signup_organization {
-  padding-top: 16px;
-  padding-bottom: 16px;
+  width: 608px;
+  padding: 16px;
+  
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.33);
 }
 
 .form-org-question {
   padding-top: 16px;
   
   font-size: 16px;
+  line-height: 1.5;
 }
 
 .form-org-radiobox {
@@ -356,9 +359,16 @@ footer {
     display: block;
   }
   
-  #signout {
+  #signout,
+  #powered {
     float: right;
     display: block;
+  }
+  
+  #powered {
+    a {
+      color: $font-color;
+    }
   }
 }
 

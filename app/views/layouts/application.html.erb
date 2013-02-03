@@ -32,6 +32,8 @@
       <p id="copyrights">iiirc&trade;</p>
       <% if current_user %>
         <p id="signout"><%= current_user.username %>&nbsp;(<%= link_to "signout", signout_path %>)</p>
+      <% else %>
+        <p id="powered"><a href="http://sqale.jp/" target="_blank">iiirc&nbsp;は&nbsp;Sqale&nbsp;でうごいてます</a></p>
       <% end %>
     </div>
   </footer>
