@@ -43,7 +43,10 @@ class SnippetsController < ApplicationController
     @content = params[:content].strip
     @snippet = current_user.snippets.build(params[:snippet])
     @snippet.published = params[:commit] == "public"  # あとでもうちょっとちゃんとします...
-    @snippet.content = @content
+
+    @content.each_line.collect do |raw_content|
+      @snippet.messages.build(raw_content: raw_content.chomp)
+    end
     @snippet.hash_id = Digest::SHA512.hexdigest(Time.now.to_i.to_s)[0..19] unless @snippet.published?
 
     respond_to do |format|
