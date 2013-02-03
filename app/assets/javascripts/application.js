@@ -13,3 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function() {
+  $(".star").hide();
+  $(".tweet").hover(
+  function () {
+    $(this).find(".star").show();
+  },
+  function () {
+    $(this).find(".star").hide();
+  }
+);
+});

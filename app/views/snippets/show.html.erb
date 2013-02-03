@@ -1,11 +1,11 @@
-<article class="section snippet">
-  <h2 class="title"><%= @snippet.title %></h2>
-  <div class="content">
-    <ol>
-      <%- @snippet.messages.each do |message| -%>
-      <li class="nick_<%= @nick_nums[message.nick] %>"><%= message.content %></li>
-      <%- end -%>
-    </ol>
+<article class="snippet wrapper">
+  <hgroup class="container" style="background: url(<%= @snippet.user.gravatar_url(size: 48) %>) no-repeat top right">
+    <h2 class="title"><%= @snippet.title %></h2>
+  </hgroup>
+  <div class="content container">
+    <%= render 'snippet', snippet: @snippet %>
   </div>
-  <%= link_to 'Edit', edit_snippet_path(@snippet), class: 'edit' %>
+  <div class="embed_code">
+    <%= url_field_tag "snippet_#{@snippet.id}", url_for(controller: 'api/snippets', action: 'show', id: @snippet.id, format: :js, only_path: false), readonly: true, class: 'input-text' %>
+  </div>
 </article>

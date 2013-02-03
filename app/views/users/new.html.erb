@@ -1,0 +1,22 @@
+<section class="wrapper">
+  <div class="signup_organization container">
+    <p>
+      あなたが参加している Organization の一覧です。<br>
+      iiirc では、あなたの投稿と Organization を結びつけることができます。<br>
+      結びつけるかどうかは、投稿するときに選ぶことができます。<br>
+      結びつけてもいい Organization にチェックを入れてください。
+    </p>
+    <%= form_for @user do |f| %>
+      <%= render "shared/error_messages", :target => @user %>
+      <ul>
+        <% @organizations.each do |org| %>
+          <li>
+            <%= f.check_box :organization_ids, { :checked => @user.organizations.include?(org), :name => 'user[organization_ids][]' }, org.id, "" %>
+            <%= f.label org.login  %>
+          </li>
+        <% end %>
+      </ul>
+      <%= f.submit "Sign up!", class: 'btn btn-blue btn-horizontal' %>
+    <% end %>
+  </div>
+</section>

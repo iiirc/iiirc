@@ -2,7 +2,7 @@ class SnippetsController < ApplicationController
   # GET /snippets
   # GET /snippets.json
   def index
-    @snippets = Snippet.all
+    @snippets = Snippet.published
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,12 +13,10 @@ class SnippetsController < ApplicationController
   # GET /snippets/1
   # GET /snippets/1.json
   def show
-    @snippet = Snippet.find(params[:id])
-    @nick_nums = {}
-    nick_count = 0
-    @snippet.messages.each do |message|
-      @nick_nums[message.nick] ||= nick_count
-      nick_count += 1
+    @snippet = Snippet.find_by_hash_id(params[:id])
+    if @snippet.blank?
+      @snippet = Snippet.find_by_id(params[:id])
+      return render status: :not_found, text: "404 not found" unless @snippet.published?
     end
 
     respond_to do |format|
@@ -38,26 +36,24 @@ class SnippetsController < ApplicationController
     end
   end
 
-  # GET /snippets/1/edit
-  def edit
-    @snippet = Snippet.find(params[:id])
-  end
-
   # POST /snippets
-  # POST /snippets.json
   def create
     return render status: :forbidden, text: "Hey! Forbidden fruit :S" if current_user.blank?
     @content = params[:content].strip
     @snippet = current_user.snippets.build(params[:snippet])
-    @snippet.content = @content
+    @snippet.published = params[:commit] == "public"  # あとでもうちょっとちゃんとします...
+
+    @content.each_line.collect do |raw_content|
+      @snippet.messages.build(raw_content: raw_content.chomp)
+    end
+    @snippet.hash_id = Digest::SHA512.hexdigest(Time.now.to_i.to_s)[0..19] unless @snippet.published?
 
     respond_to do |format|
       if @snippet.save
-        format.html { redirect_to @snippet, notice: 'Snippet was successfully created.' }
-        format.json { render json: @snippet, status: :created, location: @snippet }
+        redirect_to = @snippet.published? ? @snippet : "/snippets/#{@snippet.hash_id}"
+        format.html { redirect_to redirect_to, notice: 'Snippet was successfully created.' }
       else
         format.html { render action: "new" }
-        format.json { render json: @snippet.errors, status: :unprocessable_entity }
       end
     end
   end

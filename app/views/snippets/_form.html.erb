@@ -12,8 +12,19 @@
   <% end %>
   <%= f.text_field :title, class: 'input-text input-text-large', placeholder: 'Title (optional)' %>
   <%= text_area_tag :content, @content, class: 'textarea', placeholder: '00:00 YourName: Logged in...' %>
-  <%= f.label :published %><%= f.check_box :published, {:checked => true} %>
-  <% if current_user.present? %>
-    <%= f.submit class: 'btn btn-blue' %>
-  <% end %>
+  <div class="wrapper">
+    <div class="form-org-question container">
+      どの Organization の会話ですか??
+    </div>
+    <div class="form-org-radiobox container">
+      <% current_user.organizations.each do |organization| %>
+        <%= f.radio_button :organization_id, organization.id %><%= organization.login %>
+      <% end %>
+    </div>
+    <div class="container">
+      <% if current_user.present? %>
+        <%= f.submit "Public post to iiirc!********************", class: 'btn btn-green' %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.submit "Secret post!", class: 'btn btn-yellow' %>
+      <% end %>
+    </div>
+  </div>
 <% end %>
