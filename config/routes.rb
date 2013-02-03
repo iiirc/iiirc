@@ -1,6 +1,8 @@
 Iiirc::Application.routes.draw do
   resources :users, except: %w(edit)
-  resources :snippets
+  resources :snippets do
+    resources :messages, only: %w(destroy)
+  end
   resources :organizations, only: %w(index show)
 
   get '/signin'                  => redirect('/auth/github'), as: :signin
