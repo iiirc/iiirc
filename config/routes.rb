@@ -10,5 +10,9 @@ Iiirc::Application.routes.draw do
   get '/auth/:provider/callback' => 'sessions#callback',      as: :callback
   get '/signup'                  => 'users#new',              as: :signup
 
+  scope '/api' do
+    resources :snippets, controller: 'api/snippets', only: %w[show]
+  end
+
   root :to => 'top#index'
 end
