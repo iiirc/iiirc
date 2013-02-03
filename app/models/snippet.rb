@@ -7,6 +7,9 @@ class Snippet < ActiveRecord::Base
 
   attr_writer :content
 
+  scope :published,   where(published: true)
+  scope :unpublished, where(published: false)
+
   def save
     self.class.transaction do
       return unless super
