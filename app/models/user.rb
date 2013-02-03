@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :snippets, dependent: :destroy
   has_many :user_organizations, dependent: :destroy
   has_many :organizations, through: :user_organizations
+  has_many :stars, dependent: :destroy
   accepts_nested_attributes_for :user_organizations
 
   def self.new_with_omniauth(auth)

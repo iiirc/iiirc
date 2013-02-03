@@ -1,5 +1,6 @@
 class Message < ActiveRecord::Base
   belongs_to :snippet
+  has_many :stars, dependent: :destroy
 
   attr_accessible :content, :nick, :time, :raw_content
 
