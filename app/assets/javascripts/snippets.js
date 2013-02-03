@@ -6,8 +6,7 @@ $(document).ready(function() {
     $readonly.click(function() {
         $(this).select();
     });
-    $('a').on("ajax:complete", function(data, status, xhr) {
-
+    $('a[data-method="delete"]').on("ajax:complete", function(data, status, xhr) {
         if (status.status < 300) {
             $(this).closest("dd").slideUp("slow", function () {
                 var $dd = $(this);
@@ -19,5 +18,8 @@ $(document).ready(function() {
         } else {
             alert("Something wrong happened!");
         }
+    });
+    $('a[data-method="post"]').on("ajax:success", function(data, status, xhr) {
+        $(this).closest("p").find(".count").text(status.count);
     });
 });
