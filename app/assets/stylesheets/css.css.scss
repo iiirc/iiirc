@@ -38,7 +38,7 @@ $letter-spacing: 0;
 
 @mixin font($type: default) {
   @if $type == link {
-    color: $font-color;
+    color: $blue;
     text-decoration: none;
   } @else if $type == irc {
     color: $white;
@@ -216,6 +216,8 @@ body {
   padding: 0;
   height: 48px;
   
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.33);
+  
   #brand {
     float: left;
     width: 140px;
@@ -264,7 +266,6 @@ body {
 
 .snippet {
   position: relative;
-  margin-bottom: 16px;
   
   .title {
     padding: 8px 0;
@@ -282,6 +283,13 @@ body {
        
     @include font(irc);
     background-color: $black;
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.99);
+    
+    dt.nick_4 { color: #e02254 !important; }
+    dt.nick_0 { color: #67cc5d !important; }
+    dt.nick_2 { color: #c2ca5f !important; }
+    dt.nick_1 { color: #00c2c9 !important; }
+    dt.nick_3 { color: #e339bf !important; }
   }
   
   .edit {
