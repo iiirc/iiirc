@@ -12,14 +12,19 @@
   <% end %>
   <%= f.text_field :title, class: 'input-text input-text-large', placeholder: 'Title (optional)' %>
   <%= text_area_tag :content, @content, class: 'textarea', placeholder: '00:00 YourName: Logged in...' %>
-  <br />
-  どこの Organization に紐づける？
-  <% current_user.organizations.each do |organization| %>
-    <%= f.radio_button :organization_id, organization.id %><%= organization.login %>
-  <% end %>
-  <br />
-  <% if current_user.present? %>
-    <%= f.submit "secret", class: 'btn btn-blue btn-horizontal' %>
-    <%= f.submit "public", class: 'btn btn-blue btn-horizontal' %>
-  <% end %>
+  <div class="wrapper">
+    <div class="form-org-question container">
+      どの Organization の会話ですか??
+    </div>
+    <div class="form-org-radiobox container">
+      <% current_user.organizations.each do |organization| %>
+        <%= f.radio_button :organization_id, organization.id %><%= organization.login %>
+      <% end %>
+    </div>
+    <div class="container">
+      <% if current_user.present? %>
+        <%= f.submit "Public post to iiirc!********************", class: 'btn btn-green' %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.submit "Secret post!", class: 'btn btn-yellow' %>
+      <% end %>
+    </div>
+  </div>
 <% end %>
