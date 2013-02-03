@@ -9,6 +9,7 @@
     <h2 class="title"><%= link_to snippet do %><%= snippet.title %><% end %></h2>
     <div class="content">
       <%= render 'snippets/snippet' , snippet: snippet %>
+      <p><%= link_to 'more', snippet %></p>
     </div>
   </article>
 <% end %>
