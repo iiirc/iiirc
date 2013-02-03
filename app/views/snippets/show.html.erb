@@ -4,7 +4,10 @@
     <h2 class="title"><%= @snippet.title %></h2>
   </hgroup>
   <div class="content container">
-    <%= simple_format(@snippet.content) %>
+    <ol>
+      <%- @snippet.messages.each do |message| -%>
+      <li class="nick_<%= @nick_nums[message.nick] %>"><%= message.content %></li>
+      <%- end -%>
+    </ol>
   </div>
-  <%= link_to 'Edit', edit_snippet_path(@snippet), class: 'edit' %>
 </article>

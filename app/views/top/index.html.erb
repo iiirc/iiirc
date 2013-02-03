@@ -10,8 +10,11 @@
       <h2 class="title"><%= link_to snippet do %><%= snippet.title %><% end %></h2>
     </hgroup>
     <div class="content">
-      <%= simple_format(snippet.content) %>
+      <ol>
+        <%- snippet.messages.each do |message| -%>
+          <li><%= raw Rinku.auto_link(h(message.raw_content), :all, 'target="_blank"') %></li>
+        <%- end -%>
+      </ol>
     </div>
-    <%= link_to 'Edit', edit_snippet_path(snippet), class: 'edit' %>
   </article>
 <% end %>

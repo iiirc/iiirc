@@ -14,6 +14,12 @@ class SnippetsController < ApplicationController
   # GET /snippets/1.json
   def show
     @snippet = Snippet.find(params[:id])
+    @nick_nums = {}
+    nick_count = 0
+    @snippet.messages.each do |message|
+      @nick_nums[message.nick] ||= nick_count
+      nick_count += 1
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -32,16 +38,13 @@ class SnippetsController < ApplicationController
     end
   end
 
-  # GET /snippets/1/edit
-  def edit
-    @snippet = Snippet.find(params[:id])
-  end
-
   # POST /snippets
   # POST /snippets.json
   def create
     return render status: :forbidden, text: "Hey! Forbidden fruit :S" if current_user.blank?
+    @content = params[:content].strip
     @snippet = current_user.snippets.build(params[:snippet])
+    @snippet.content = @content
 
     respond_to do |format|
       if @snippet.save

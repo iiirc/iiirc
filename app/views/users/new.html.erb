@@ -1,0 +1,14 @@
+<h1>Users#new</h1>
+<%= form_for @user do |f| %>
+  <%= render "shared/error_messages", :target => @user %>
+
+  <table>
+    <% @organizations.each do |org| %>
+      <%= org.login %>
+      <%= f.check_box :organization_ids, { :checked => @user.organizations.include?(org), :name => 'user[organization_ids][]' }, org.id, "" %>
+    <% end %>
+  </table>
+  <div class="actions">
+    <%= f.submit "Create User" %>
+  </div>
+<% end %>
