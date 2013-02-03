@@ -8,11 +8,7 @@
   <article class="snippet section">
     <h2 class="title"><%= link_to snippet do %><%= snippet.title %><% end %></h2>
     <div class="content">
-      <ol>
-        <%- snippet.messages.each do |message| -%>
-          <li><%= raw Rinku.auto_link(h(message.raw_content), :all, 'target="_blank"') %></li>
-        <%- end -%>
-      </ol>
+      <%= render 'snippets/snippet' , snippet: snippet %>
     </div>
   </article>
 <% end %>
