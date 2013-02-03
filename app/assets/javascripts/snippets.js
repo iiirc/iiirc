@@ -1,5 +1,9 @@
 $(document).ready(function() {
-  $('input[readonly="readonly"]').focus(function() {
+  var $readonly = $('input[readonly="readonly"]');
+  $readonly.focus(function() {
+    $(this).select();
+  });
+  $readonly.click(function() {
     $(this).select();
   });
 });
