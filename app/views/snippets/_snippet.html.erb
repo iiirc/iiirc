@@ -1,5 +1,5 @@
 <%- nick_nums = {}; nick_count = 0 -%>
-<dl class="snippet_<%= snippet.id %>">
+<dl id="snippet_<%= snippet.id %>">
   <%- snippet.messages.each do |message| -%>
   <%- unless nick_nums[message.nick] then nick_nums[message.nick] = nick_count; nick_count += 1 end -%>
   <dt class="nick_<%= nick_nums[message.nick] %>"><%= message.time %> <%= message.nick %></dt>
