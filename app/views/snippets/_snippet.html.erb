@@ -6,7 +6,7 @@
     <%- if current_user -%>
       <%= link_to '★', snippet_message_stars_path(snippet, message), method: :post, remote: true %>
     <%- else -%>
-      <%= link_to 'Star!', signin_url %>
+      <%= link_to '★', signin_url %>
     <%- end -%>
     <span class="count"><%= message.stars.reduce(0) {|sum, star| sum + star.count} %></span></span></p>
   <%- end -%>
