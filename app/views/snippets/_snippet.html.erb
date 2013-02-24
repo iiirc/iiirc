@@ -10,9 +10,10 @@
       <%- else -%>
         <%= link_to '★', signin_url %>
       <%- end -%>
-      <span class="count"><%= message.stars.reduce(0) {|sum, star| sum + star.count} %></span></span></p>
+      <span class="count"><%= message.stars.reduce(0) {|sum, star| sum + star.count} %></span></span>
     <%- else -%>
       <%= message.raw_content %>
     <%- end -%>
+  </p>
   <%- end -%>
 </dl>
