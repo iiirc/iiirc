@@ -1,4 +1,6 @@
 class Snippet < ActiveRecord::Base
+  SALT = "X+w3KGECgYEA4OOyrIrQ66sf+1ZV14hCFSHdgPjyIcwI/3HzOlPhsCAkkyI4oBm/"
+
   belongs_to :user
   belongs_to :organization
   has_many :messages, dependent: :destroy
