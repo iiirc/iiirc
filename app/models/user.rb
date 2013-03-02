@@ -19,11 +19,11 @@ class User < ActiveRecord::Base
 
   def self.new_with_omniauth(auth)
     new do |user|
-      user.provider = auth['provider']
-      user.uid      = auth['uid']
-      user.username = auth['info']['nickname']
-      user.email    = auth['info']['email']
-      user.token    = auth['credentials']['token']
+      user.provider = auth[:provider]
+      user.uid      = auth[:uid]
+      user.username = auth[:info][:nickname]
+      user.email    = auth[:info][:email]
+      user.token    = auth[:credentials][:token]
     end
   end
 
