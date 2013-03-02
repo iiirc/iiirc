@@ -3,4 +3,5 @@ Fabricator(:user) do
   email    { sequence(:email)    { |i| "alice_#{i}@example.org" } }
   provider "github"
   uid      { sequence(:uid)      { |i| "foobar#{i}" } }
+  token    { sequence(:token)    { |i| "token#{i}" } }
 end
