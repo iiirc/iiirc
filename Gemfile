@@ -29,6 +29,7 @@ end
 
 group :development, :test do
   gem "rspec-rails"
+  gem 'fuubar'
   gem "fabrication"
   gem "timecop"
   gem "faker"
