@@ -14,6 +14,9 @@ describe User do
           "info" => {
             "nickname" => "banyan",
             "email"    => "ameutau@gmail.com"
+          },
+          "credentials" => {
+            "token" => "foobar"
           }
         }
       }
