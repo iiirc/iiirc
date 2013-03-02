@@ -16,5 +16,6 @@ class Message < ActiveRecord::Base
       self.nick    ||= matched[:nick].delete(':()')
       self.time    ||= matched[:time]
     end
+    self
   end
 end
