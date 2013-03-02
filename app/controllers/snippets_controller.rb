@@ -59,22 +59,6 @@ class SnippetsController < ApplicationController
     end
   end
 
-  # PUT /snippets/1
-  # PUT /snippets/1.json
-  def update
-    @snippet = Snippet.find(params[:id])
-
-    respond_to do |format|
-      if @snippet.update_attributes(params[:snippet])
-        format.html { redirect_to @snippet, notice: 'Snippet was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @snippet.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # DELETE /snippets/1
   # DELETE /snippets/1.json
   def destroy
