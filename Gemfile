@@ -8,7 +8,7 @@ gem 'turbolinks'
 gem 'octokit'
 gem 'rails_config'
 gem 'gravtastic'
-gem 'verification', github: "sikachu/verification"
+gem 'verification', github: 'sikachu/verification'
 gem 'rinku'
 
 group :assets do
@@ -20,26 +20,26 @@ end
 gem 'jquery-rails'
 
 group :development do
-  gem "awesome_print"
+  gem 'awesome_print'
   gem 'pry-rails'
-  gem "wirb"
-  gem "hirb-unicode"
+  gem 'wirb'
+  gem 'hirb-unicode'
   gem 'sqlite3'
 end
 
 group :development, :test do
-  gem "rspec-rails"
+  gem 'rspec-rails'
   gem 'fuubar'
-  gem "fabrication"
-  gem "timecop"
-  gem "faker"
-  gem "database_cleaner"
-  gem "capybara"
-  gem "launchy"
+  gem 'fabrication'
+  gem 'timecop'
+  gem 'faker'
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'launchy'
   gem 'rb-fsevent', '~> 0.9.1'
-  gem "growl" if system('which growlnotify >/dev/null')
-  gem "guard-spork"
-  gem "guard-rspec"
+  gem 'growl' if system('which growlnotify >/dev/null')
+  gem 'guard-spork'
+  gem 'guard-rspec'
   gem 'guard-livereload'
-  gem "tapp"
+  gem 'tapp'
 end
