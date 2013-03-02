@@ -10,13 +10,20 @@ class User < ActiveRecord::Base
   has_many :stars, dependent: :destroy
   accepts_nested_attributes_for :user_organizations
 
+  def find_or_create_organizations
+    octokit_client = Octokit::Client.new(login: username, oauth_token: token)
+    return octokit_client.organizations(username).map do |organization|
+      Organization.find_or_create_by_login_and_original_id(organization.login, organization.id)
+    end
+  end
+
   def self.new_with_omniauth(auth)
     new do |user|
-      user.provider = auth['provider']
-      user.uid      = auth['uid']
-      user.username = auth['info']['nickname']
-      user.email    = auth['info']['email']
-      user.token    = auth['credentials']['token']
+      user.provider = auth[:provider]
+      user.uid      = auth[:uid]
+      user.username = auth[:info][:nickname]
+      user.email    = auth[:info][:email]
+      user.token    = auth[:credentials][:token]
     end
   end
 

@@ -20,7 +20,6 @@ end
 gem 'jquery-rails'
 
 group :development do
-  gem "tapp"
   gem "awesome_print"
   gem 'pry-rails'
   gem "wirb"
@@ -41,4 +40,5 @@ group :development, :test do
   gem "guard-spork"
   gem "guard-rspec"
   gem 'guard-livereload'
+  gem "tapp"
 end
