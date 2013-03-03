@@ -1,4 +1,14 @@
-# Setup
+# iiirc
+
+## what is the fuckup?
+
+iiirc was born to start a IRC revolution.
+
+## serirously?
+
+yep :P
+
+## setup
 
 ```
 $ git clone git@github.com:iiirc/iiirc.git

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+set -e
+ln -s /home/sqale/etc/config/database.yml /home/sqale/current/config/database.yml
+ln -s /home/sqale/etc/config/settings/production.yml /home/sqale/current/config/settings/production.yml
+ln -s /home/sqale/etc/config/initializers/secret_token.rb /home/sqale/current/config/initializers/secret_token.rb
