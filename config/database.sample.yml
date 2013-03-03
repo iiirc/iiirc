@@ -17,7 +17,7 @@ test:
   username:
   password:
   socket: /tmp/mysql.sock
-  host: localhost
+  host: 127.0.0.1
 
 production:
   adapter: mysql2
