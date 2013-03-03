@@ -22,5 +22,5 @@ $ open http://iiirc.dev
 ## Test
 
 ```
-$ bundle exec rake spec # you can test if u want
+$ bundle exec rake spec
 ```
