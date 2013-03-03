@@ -1,0 +1,20 @@
+language: ruby
+
+rvm:
+  - 1.9.3
+  - 2.0.0
+
+bundler_args: --without development:production
+
+script:
+  - bundle exec rake setup db:create db:migrate spec
+
+notifications:
+  email:
+    - ameutau@gmail.com
+    - kitaitimakoto@gmail.com
+  irc:
+    on_success: change
+    on_failure: always
+    channels:
+      - "irc.freenode.org#shikakun"

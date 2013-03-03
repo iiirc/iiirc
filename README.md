@@ -1,4 +1,4 @@
-# iiirc
+# iiirc [![BuildStatus](https://secure.travis-ci.org/iiirc/iiirc.png)](http://travis-ci.org/iiirc/iiirc)
 
 ## setup
 
