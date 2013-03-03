@@ -15,13 +15,17 @@
 /tmp
 
 /config/database.yml
+/config/initializers/secret_token.rb
 /db/schema.rb
 /db/structure.sql
 /public/assets/
 
-config/settings.local.yml
-config/settings/*.local.yml
-config/environments/*.local.yml
+/config/settings/development.yml
+/config/settings/test.yml
+/config/settings/production.yml
+/config/settings.local.yml
+/config/settings/*.local.yml
+/config/environments/*.local.yml
 
 # Ignore .DS_Store
 .DS_Store

@@ -1,6 +1,10 @@
 class Api::SnippetsController < ApplicationController
   def show
-    snippet = Snippet.find(params[:id])
+    snippet = Snippet.find_by_hash_id(params[:id])
+    if snippet.blank?
+      snippet = Snippet.find_by_id(params[:id])
+      return render status: :not_found, text: "404 not found" unless snippet.try(:published?)
+    end
     @html = render_to_string(partial: 'snippets/snippet', layout: false, locals: {snippet: snippet, current_user: nil})
 
     respond_to do |format|

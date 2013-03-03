@@ -41,12 +41,13 @@ class SnippetsController < ApplicationController
     return render status: :forbidden, text: "Hey! Forbidden fruit :S" if current_user.blank?
     @content = params[:content].strip
     @snippet = current_user.snippets.build(params[:snippet])
-    @snippet.published = params[:commit] == "public"  # あとでもうちょっとちゃんとします...
+    @snippet.title = Time.now.to_s if @snippet.title.blank? # これも汚くてすません...
+    @snippet.published = params[:commit] != "Secret post!"  # あとでもうちょっとちゃんとします...
 
     @content.each_line.collect do |raw_content|
       @snippet.messages.build(raw_content: raw_content.chomp)
     end
-    @snippet.hash_id = Digest::SHA512.hexdigest(Time.now.to_i.to_s)[0..19] unless @snippet.published?
+    @snippet.hash_id = Digest::SHA512.hexdigest(Snippet::SALT + Time.now.to_i.to_s)[0..19] unless @snippet.published?
 
     respond_to do |format|
       if @snippet.save
@@ -54,22 +55,6 @@ class SnippetsController < ApplicationController
         format.html { redirect_to redirect_to, notice: 'Snippet was successfully created.' }
       else
         format.html { render action: "new" }
-      end
-    end
-  end
-
-  # PUT /snippets/1
-  # PUT /snippets/1.json
-  def update
-    @snippet = Snippet.find(params[:id])
-
-    respond_to do |format|
-      if @snippet.update_attributes(params[:snippet])
-        format.html { redirect_to @snippet, notice: 'Snippet was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @snippet.errors, status: :unprocessable_entity }
       end
     end
   end

@@ -6,6 +6,6 @@
     <%= render 'snippet', snippet: @snippet %>
   </div>
   <div class="embed_code">
-    <%= url_field_tag "snippet_#{@snippet.id}", url_for(controller: 'api/snippets', action: 'show', id: @snippet.id, format: :js, only_path: false), readonly: true, class: 'input-text' %>
+    <%= text_field_tag "snippet_#{@snippet.published? ? @snippet.id : @snippet.hash_id}", '<script type="text/javascript" src="' + url_for(controller: 'api/snippets', action: 'show', id: (@snippet.published? ? @snippet.id : @snippet.hash_id), format: :js, only_path: false) + '"></script>', readonly: true, class: 'input-text' %>
   </div>
 </article>

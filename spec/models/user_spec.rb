@@ -9,11 +9,14 @@ describe User do
     context "with valid params" do
       let(:auth) {
         {
-          "provider" => "github",
-          "uid"      => "bogus_id",
-          "info" => {
-            "nickname" => "banyan",
-            "email"    => "ameutau@gmail.com"
+          provider: "github",
+          uid: "bogus_id",
+          info: {
+            nickname: "banyan",
+            email:    "ameutau@gmail.com"
+          },
+          credentials: {
+            token: "foobar"
           }
         }
       }
