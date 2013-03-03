@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails', '4.0.0.beta1'
 
 gem 'mysql2'
 gem 'omniauth-github'
@@ -12,9 +12,10 @@ gem 'verification', github: 'sikachu/verification'
 gem 'rinku'
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'sass-rails',   github: 'rails/sass-rails'
+  gem 'coffee-rails', github: 'rails/coffee-rails'
+  gem 'jquery-rails'
+  gem 'uglifier',     '>= 1.0.3'
 end
 
 gem 'jquery-rails'
