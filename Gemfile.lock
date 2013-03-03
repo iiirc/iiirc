@@ -1,6 +1,7 @@
 GIT
-  remote: git://github.com/sikachu/verification.git
-  revision: 344ad2535da3dc9671872628ff9c79d6f59af9da
+  remote: git://github.com/banyan/verification.git
+  revision: 6a9382106aa12d36c98a5e3cf76b86708fd16051
+  branch: relax-dependency
   specs:
     verification (1.0.3)
       actionpack (>= 3.0.0, < 5.0)

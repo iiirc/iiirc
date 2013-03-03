@@ -8,7 +8,7 @@ gem 'turbolinks'
 gem 'octokit', '1.21.0'
 gem 'rails_config'
 gem 'gravtastic'
-gem 'verification', github: 'sikachu/verification'
+gem 'verification', github: 'banyan/verification', branch: 'relax-dependency'
 gem 'rinku'
 
 group :assets do
