@@ -13,9 +13,9 @@ class StarsController < ApplicationController
 
     respond_to do |format|
       if message.stars << star
-        format.json { render json: star }
+        format.json { render json: star, include: { user: { only: [:username, :gravatar_url], methods: [:gravatar_url] } } }
       else
-        formatjson { render json: message.errors, status: unprocessable_entity }
+        format.json { render json: message.errors, status: unprocessable_entity }
       end
     end
   end
