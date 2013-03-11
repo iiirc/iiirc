@@ -37,4 +37,14 @@ describe Message do
 
     it_behaves_like '#parse_content'
   end
+
+  context 'WeeChat log' do
+    let(:regular_message) { '2013-03-04 03:51:33 tikeda これ取り込みたいんですけど' }
+
+    it {
+      subject.raw_content = regular_message
+      subject.parse_content
+      expect(subject.time).to eq('2013-03-04 03:51:33')
+    }
+  end
 end
