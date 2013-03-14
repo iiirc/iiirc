@@ -39,7 +39,7 @@ describe Message do
   end
 
   context 'WeeChat log' do
-    let(:regular_message) { '2013-03-04 03:51:33 tikeda これ取り込みたいんですけど' }
+    let(:regular_message) { "2013-03-04 03:51:33\ttikeda\tこれ取り込みたいんですけど" }
 
     it {
       subject.raw_content = regular_message
