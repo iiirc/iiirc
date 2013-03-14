@@ -3,6 +3,7 @@ require 'spec_helper'
 
 describe Message do
   it { should belong_to :snippet }
+  it { should have_many :stars }
   it { should validate_presence_of :raw_content }
 
   subject { described_class.new }
