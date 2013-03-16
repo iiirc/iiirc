@@ -13,9 +13,11 @@ describe "Snippets" do
   describe 'GET /snippets/1' do
     subject { page }
 
-    it 'should not render' do
-      visit snippet_path id: 1
-      expect(page.status_code).to be(404)
+    context 'when specified snippet not exist' do
+      it 'should not render' do
+        visit snippet_path id: 1
+        expect(page.status_code).to be(404)
+      end
     end
   end
 end
