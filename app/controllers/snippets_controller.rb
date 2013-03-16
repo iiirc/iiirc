@@ -16,7 +16,7 @@ class SnippetsController < ApplicationController
     @snippet = Snippet.find_by_hash_id(params[:id])
     if @snippet.blank?
       @snippet = Snippet.find_by_id(params[:id])
-      return render status: :not_found, text: "404 not found" unless @snippet.published?
+      return render status: :not_found, text: "404 not found" if @snippet.blank? or @snippet.unpublished?
     end
 
     respond_to do |format|
