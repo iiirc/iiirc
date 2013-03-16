@@ -16,7 +16,7 @@ describe SnippetsController do
     end
 
     it "routes to #edit" do
-      expect(get("/snippets/1/edit")).to route_to("snippets#edit", :id => "1")
+      expect(get("/snippets/1/edit")).not_to be_routable
     end
 
     it "routes to #create" do
@@ -24,7 +24,7 @@ describe SnippetsController do
     end
 
     it "routes to #update" do
-      expect(put("/snippets/1")).to route_to("snippets#update", :id => "1")
+      expect(put("/snippets/1")).not_to be_routable
     end
 
     it "routes to #destroy" do
