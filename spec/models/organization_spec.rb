@@ -1,5 +1,7 @@
 require 'spec_helper'
 
 describe Organization do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should have_many :user_organizations }
+  it { should have_many :users }
+  it { should have_many :snippets }
 end

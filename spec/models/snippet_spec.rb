@@ -1,5 +1,7 @@
 require 'spec_helper'
 
 describe Snippet do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to :user         }
+  it { should belong_to :organization }
+  it { should have_many :messages     }
 end

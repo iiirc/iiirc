@@ -3,6 +3,11 @@
 require 'spec_helper'
 
 describe User do
+  it { should have_many :snippets }
+  it { should have_many :user_organizations }
+  it { should have_many :organizations }
+  it { should have_many :stars }
+
   describe ".create_with_omniauth" do
     subject { described_class.create_with_omniauth(auth) }
 
