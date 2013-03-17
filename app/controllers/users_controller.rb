@@ -3,6 +3,15 @@
 class UsersController < ApplicationController
   verify session: :params_from_authenticator, only: %w(new create), redirect_to: :login_path
 
+  # GET /users/1
+  def show
+    @user = User.find_by_username(params[:id])
+    if @user
+      @snippets = @user.snippets.order('created_at DESC')
+      @snippets = @snippets.published unless @user.id == current_user.try(:id)
+    end
+  end
+
   # GET /users
   def new
     @user = User.new_with_omniauth(session[:params_from_authenticator])
