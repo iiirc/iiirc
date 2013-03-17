@@ -1,5 +1,12 @@
 <h2 class="title"><%= @user.username %></h2>
 
+<h3>Organizations <%= @user.username %> belongs to</h3>
+<ul>
+  <%- @user.organizations.each do |organization| -%>
+  <li><%= organization.login %></li>
+  <%- end -%>
+</ul>
+
 <h3><%= @user.username %>'s recent snippets</h3>
 <article class="snippet wrapper">
 <ul>
