@@ -10,9 +10,10 @@
 
 <% @snippets.each do |snippet| %>
   <article class="snippet wrapper">
-    <hgroup class="container" style="background: url(<%= snippet.user.gravatar_url(size: 48) %>) no-repeat top right">
+    <hgroup class="container">
       <h2 class="title"><%= link_to snippet do %><%= snippet.title %><% end %></h2>
     </hgroup>
+    <p class="user_icon"><%= link_to image_tag(snippet.user.gravatar_url(size: 48), alt: snippet.user.username), user_path(snippet.user.username) %></p>
     <div class="content">
       <%= render 'snippets/snippet' , snippet: snippet %>
     </div>
