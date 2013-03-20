@@ -8,6 +8,33 @@ describe "Snippets" do
       visit snippets_path
       expect(page.status_code).to be == 200
     end
+
+    context 'no snippet exists' do
+      it 'show no snippet' do
+        visit snippets_path
+        expect(page).not_to have_css("[id~='snippet_']")
+      end
+    end
+
+    context 'some snippets exist' do
+      let!(:snippet) { Fabricate(:snippet) }
+
+      it 'show snippets' do
+        visit snippets_path
+        expect(page).to have_css("#snippet_#{snippet.id}")
+      end
+
+      context 'unpublished snippets exist' do
+        before do
+          snippet.update_column :published, false
+        end
+
+        it "don't show unpublished snippets" do
+          visit snippets_path
+          expect(page).not_to have_css("#snippet_#{snippet.id}")
+        end
+      end
+    end
   end
 
   describe 'GET /snippets/1' do
