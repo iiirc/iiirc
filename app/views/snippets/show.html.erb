@@ -2,7 +2,7 @@
   <hgroup class="container">
     <h2 class="title"><%= @snippet.title %></h2>
   </hgroup>
-  <p class="user_icon"><%= link_to image_tag(@snippet.user.gravatar_url(size: 48), alt: @snippet.user.username), user_path(@snippet.user.username) %></p>
+  <p class="user_icon"><%= link_to image_tag(@snippet.user.gravatar_url(size: 48), alt: @snippet.user.username), user_path(@snippet.user) %></p>
   <div class="content container">
     <%= render 'snippet', snippet: @snippet %>
   </div>
