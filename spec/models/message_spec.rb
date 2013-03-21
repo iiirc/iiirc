@@ -2,6 +2,10 @@
 require 'spec_helper'
 
 describe Message do
+  it { should belong_to :snippet }
+  it { should have_many :stars }
+  it { should validate_presence_of :raw_content }
+
   subject { described_class.new }
 
   shared_examples '#parse_content' do
@@ -36,5 +40,15 @@ describe Message do
     let(:server_message) { '12:06 *shikakun quit (Ping timeout: 252 seconds)' }
 
     it_behaves_like '#parse_content'
+  end
+
+  context 'WeeChat log' do
+    let(:regular_message) { "2013-03-04 03:51:33\ttikeda\tこれ取り込みたいんですけど" }
+
+    it {
+      subject.raw_content = regular_message
+      subject.parse_content
+      expect(subject.time).to eq('2013-03-04 03:51:33')
+    }
   end
 end

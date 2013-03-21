@@ -1,11 +1,20 @@
 require 'spec_helper'
 
 describe "Snippets" do
+  subject { page }
+
   describe "GET /snippets" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get snippets_path
-      response.status.should be(200)
+    it "should render" do
+      visit snippets_path
+      expect(page.status_code).to be == 200
+    end
+  end
+
+  describe "GET /snippet/1" do
+    it "show the requested snippet as @snippet" do
+      snippet = Fabricate(:snippet)
+      visit snippet_path(snippet.id)
+      expect(page).to have_content snippet.title
     end
   end
 end

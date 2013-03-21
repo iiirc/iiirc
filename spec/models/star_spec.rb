@@ -1,5 +1,6 @@
 require 'spec_helper'
 
 describe Star do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to :user }
+  it { should belong_to :message }
 end

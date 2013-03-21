@@ -10,22 +10,6 @@ describe SnippetsController do
     {}
   end
 
-  describe "GET index" do
-    it "assigns all snippets as @snippets" do
-      snippet = Snippet.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:snippets).should eq([snippet])
-    end
-  end
-
-  describe "GET show" do
-    it "assigns the requested snippet as @snippet" do
-      snippet = Snippet.create! valid_attributes
-      get :show, {:id => snippet.to_param}, valid_session
-      assigns(:snippet).should eq(snippet)
-    end
-  end
-
   describe "GET new" do
     it "assigns a new snippet as @snippet" do
       get :new, {}, valid_session
