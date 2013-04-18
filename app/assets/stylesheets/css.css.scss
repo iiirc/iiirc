@@ -51,13 +51,13 @@ $letter-spacing: 0;
     line-height: $line-height;
     letter-spacing: $letter-spacing;
   }
-  
+
   font-family: $font-family;
 }
 
 @mixin link {
   @include font(link);
-  
+
   &:hover {
 	  @include font(link);
   }
@@ -65,13 +65,13 @@ $letter-spacing: 0;
 
 @mixin border-radius($size: small) {
   @if $size == small {
-    @each $prefix in -webkit-, -moz-, -ms-, -o-, '' {  
-      #{$prefix}border-radius: 5px;  
+    @each $prefix in -webkit-, -moz-, -ms-, -o-, '' {
+      #{$prefix}border-radius: 5px;
     }
   } @else if $size == large {
-	  @each $prefix in -webkit-, -moz-, -ms-, -o-, '' {  
-      #{$prefix}border-radius: 10px;  
-    } 
+	  @each $prefix in -webkit-, -moz-, -ms-, -o-, '' {
+      #{$prefix}border-radius: 10px;
+    }
   }
 }
 
@@ -81,7 +81,7 @@ html {
 	-ms-text-size-adjust: 100%;
 }
 
-body {	
+body {
 	color: $font-color;
   font-size: $font-size;
   font-family: $font-family;
@@ -100,13 +100,13 @@ h1, h2, h3, h4, h5, h6, h7 {
 .input-text,
 .textarea {
   width: 100%;
-  
+
 	@include font(irc);
 	border: 0;
 	background-color: #333;
 	border-top: 1px solid rgba(0, 0, 0, 0.3);
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-	
+
 	&.input-text-large {
   	font-size: $font-size-large;
 	}
@@ -120,7 +120,7 @@ h1, h2, h3, h4, h5, h6, h7 {
 	padding: 10px 1em !important;
 	display: inline-block;
 	text-align: center;
-	
+
 	color: #ffffff !important;
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 	font-size: 100%;
@@ -128,68 +128,68 @@ h1, h2, h3, h4, h5, h6, h7 {
 	text-shadow: 0 -1px #909090;
 	border: 0px solid #909090;
 	cursor: pointer;
-	
+
 	/* default */
 	background-color: #0060af;
 	background: -webkit-linear-gradient(#3579b0, #2371b0 50%, #1269b0 50%, #0060af);
 	background: -moz-linear-gradient(#3579b0, #2371b0 50%, #1269b0 50%, #0060af);
 	background: -o-linear-gradient(#3579b0, #2371b0 50%, #1269b0 50%, #0060af);
 	background: linear-gradient(#3579b0, #2371b0 50%, #1269b0 50%, #0060af);
-	
+
   &.btn-red {
     background-color: $red;
   	background: -webkit-linear-gradient($red-light, $red 50%, $red 50%, $red-dark);
   	background: -moz-linear-gradient($red-light, $red 50%, $red 50%, $red-dark);
   	background: -o-linear-gradient($red-light, $red 50%, $red 50%, $red-dark);
   	background: linear-gradient($red-light, $red 50%, $red 50%, $red-dark);
-  	
+
   	&:hover { background: $red-dark; }
   }
-  
+
   &.btn-yellow {
     background-color: $yellow;
   	background: -webkit-linear-gradient($yellow-light, $yellow 50%, $yellow 50%, $yellow-dark);
   	background: -moz-linear-gradient($yellow-light, $yellow 50%, $yellow 50%, $yellow-dark);
   	background: -o-linear-gradient($yellow-light, $yellow 50%, $yellow 50%, $yellow-dark);
   	background: linear-gradient($yellow-light, $yellow 50%, $yellow 50%, $yellow-dark);
-  	
+
   	&:hover { background: $yellow-dark; }
   }
-  
+
   &.btn-green {
     background-color: $green;
   	background: -webkit-linear-gradient($green-light, $green 50%, $green 50%, $green-dark);
   	background: -moz-linear-gradient($green-light, $green 50%, $green 50%, $green-dark);
   	background: -o-linear-gradient($green-light, $green 50%, $green 50%, $green-dark);
   	background: linear-gradient($green-light, $green 50%, $green 50%, $green-dark);
-  	
+
   	&:hover { background: $green-dark; }
   }
-  
+
   &.btn-blue {
     background-color: $blue;
   	background: -webkit-linear-gradient($blue-light, $blue 50%, $blue 50%, $blue-dark);
   	background: -moz-linear-gradient($blue-light, $blue 50%, $blue 50%, $blue-dark);
   	background: -o-linear-gradient($blue-light, $blue 50%, $blue 50%, $blue-dark);
   	background: linear-gradient($blue-light, $blue 50%, $blue 50%, $blue-dark);
-  	
+
   	&:hover { background: $blue-dark; }
   }
-  
+
   &.btn-purple {
     background-color: $purple;
   	background: -webkit-linear-gradient($purple-light, $purple 50%, $purple 50%, $purple-dark);
   	background: -moz-linear-gradient($purple-light, $purple 50%, $purple 50%, $purple-dark);
   	background: -o-linear-gradient($purple-light, $purple 50%, $purple 50%, $purple-dark);
   	background: linear-gradient($purple-light, $purple 50%, $purple 50%, $purple-dark);
-  	
+
   	&:hover { background: $purple-dark; }
   }
-    
+
   &:hover {
 	  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.33);
   }
-  
+
   &.btn-horizontal {
     width: 100%;
     padding-left: 0 !important;
@@ -223,38 +223,38 @@ body {
 #header {
   padding: 0;
   height: 48px;
-  
+
   background-color: transparent;
   box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.33);
-  
+
   #brand {
     float: left;
     width: 140px;
     height: 48px;
     display: block;
-    
+
     a {
       width: 140px;
       height: 48px;
       text-indent: 100%;
       display: block;
       overflow: hidden;
-      
+
       background: asset-url('iiirc.gif', image) no-repeat 8px 8px;
     }
   }
-  
+
   #account_info {
     float: right;
     height: 24px;
     padding: 12px;
-    
+
     .btn {
       padding: 0 1em !important;
       height: 24px;
       line-height: 24px;
     }
-    
+
     .avator {
       width: auto;
       height: 24px;
@@ -266,7 +266,7 @@ body {
 .notice {
   padding-top: 16px;
   padding-bottom: 16px;
-  
+
   text-align: center;
   box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.33);
 }
@@ -279,13 +279,13 @@ body {
 .signup_organization {
   width: 608px;
   padding: 16px;
-  
+
   box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.33);
 }
 
 .form-org-question {
   padding-top: 16px;
-  
+
   font-size: 16px;
   line-height: 1.5;
 }
@@ -293,36 +293,67 @@ body {
 .form-org-radiobox {
   padding-top: 8px;
   padding-bottom: 16px;
-  
+
   font-size: 14px;
+}
+
+.social {
+  padding-top: 16px;
+  display: inline-block;
+  height: 30px;
+  overflow: hidden;
+  text-align: left;
+  vertical-align: bottom;
+}
+
+.hatena {
+  float: left;
+  width: 62px;
+  height: 30px;
+  overflow: hidden;
+}
+
+.twitter {
+  float: left;
+  width: 100px;
+  height: 30px;
+  overflow:hidden;
+}
+
+.facebook {
+  float: left;
+  width: 115px;
+  height: 25px;
+  line-height: 20px;
+  overflow: hidden;
 }
 
 .snippet {
   position: relative;
-  
+
   .title {
     height: 24px;
     padding: 12px 16px;
     overflow: hidden;
-    
+
     color: $black;
     font-size: $font-size;
     line-height: 24px;
     box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.33);
-    
+
     a {
       color: $black;
     }
   }
-  
+
   .content {
     width: 608px;
     padding: 8px 16px;
-       
+
     @include font(irc);
     background-color: $black;
     box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.99);
-    
+
     .nick_0 { color: lighten(#066, 32) !important; }
     .nick_1 { color: lighten(#660, 32) !important; }
     .nick_2 { color: lighten(#606, 32) !important; }
@@ -335,14 +366,14 @@ body {
     .nick_9 { color: lighten(#306, 32) !important; }
     .nick_10 { color: lighten(#063, 32) !important; }
     .nick_11 { color: lighten(#630, 32) !important; }
-    
+
     .star {
       a {
         color: $yellow;
       }
     }
   }
-  
+
   .embed_code {
     .input-text {
       color: $gray;
@@ -353,18 +384,18 @@ body {
 
 footer {
   background-color: transparent !important;
-  
+
   #copyrights {
     float: left;
     display: block;
   }
-  
+
   #signout,
   #powered {
     float: right;
     display: block;
   }
-  
+
   #powered {
     a {
       color: $font-color;
