@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   def destroy
-    @message = Message.find_by_id_and_snippet_id(params[:id], params[:snippet_id])
+    @message = Message.find_by_id_and_snippet_id_and_user_id(params[:id], params[:snippet_id], current_user.id)
     @message.destroy
 
     respond_to do |format|

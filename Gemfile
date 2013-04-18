@@ -40,6 +40,7 @@ group :development, :test do
   gem 'growl' if system('which growlnotify >/dev/null')
   gem 'guard-spork'
   gem 'guard-rspec'
+  gem 'shoulda'
   gem 'guard-livereload'
   gem 'tapp'
 end
