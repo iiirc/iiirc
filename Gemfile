@@ -10,6 +10,7 @@ gem 'rails_config'
 gem 'gravtastic'
 gem 'verification', github: 'sikachu/verification'
 gem 'rinku'
+gem 'twitter'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
