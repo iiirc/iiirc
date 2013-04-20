@@ -3,7 +3,7 @@ class SnippetsController < ApplicationController
   # GET /snippets
   # GET /snippets.json
   def index
-    @snippets = Snippet.published
+    @snippets = Snippet.published.date_desc
 
     respond_to do |format|
       format.html # index.html.erb
