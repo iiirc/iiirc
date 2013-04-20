@@ -8,6 +8,50 @@ describe "Snippets" do
       visit snippets_path
       expect(page.status_code).to be == 200
     end
+
+    context "when atom feed requested" do
+      it "should render atom feed when specified atom with header" do
+        page.driver.header 'Accept', 'application/atom+xml'
+        visit snippets_path
+        expect(page.response_headers['Content-Type']).to start_with 'application/atom+xml'
+      end
+
+      it "should render atom feed when specified atom with extension" do
+        visit snippets_path(format: :atom)
+        expect(page.response_headers['Content-Type']).to start_with 'application/atom+xml'
+      end
+
+      shared_examples "valid atom feed" do
+        it "should render valid atom feed" do
+          visit snippets_path(format: :atom)
+          expect{RSS::Parser.parse(page.source)}.not_to raise_error
+        end
+      end
+
+      context "when no entry exists" do
+        it_behaves_like "valid atom feed"
+      end
+
+      context "when some entries exist" do
+        let!(:snippet) { Fabricate(:snippet) }
+
+        it_behaves_like "valid atom feed"
+
+        it "should have one entry" do
+          visit snippets_path(format: :atom)
+          feed = RSS::Parser.parse(page.source)
+          expect(feed.items.length).to be == 1
+        end
+
+        it "should not render secret entries" do
+          snippet.published = false
+          snippet.save
+          visit snippets_path(format: :atom)
+          feed = RSS::Parser.parse(page.source)
+          expect(feed.items.length).to be == 0
+        end
+      end
+    end
   end
 
   describe "GET /snippet/1" do
