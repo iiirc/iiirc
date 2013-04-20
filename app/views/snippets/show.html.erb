@@ -8,6 +8,15 @@
   <div class="embed_code">
     <%= text_field_tag "snippet_#{@snippet.published? ? @snippet.id : @snippet.hash_id}", '<script type="text/javascript" src="' + url_for(controller: 'api/snippets', action: 'show', id: (@snippet.published? ? @snippet.id : @snippet.hash_id), format: :js, only_path: false) + '"></script>', readonly: true, class: 'input-text' %>
   </div>
+
+  <div>
+    <% if @snippet.owner?(current_user) %>
+      <%= link_to snippet_path, class: 'btn btn-red', method: :delete, data: { confirm: "Are you sure to delete?" } do %>
+        Delete Snippet!
+      <% end %>
+    <% end %>
+  </div>
+
   <% if @snippet.published? %>
   <div class ="social">
     <div class="hatena">
