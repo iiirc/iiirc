@@ -16,6 +16,11 @@ describe "Snippets" do
       visit snippet_path(snippet.id)
       expect(page).to have_content snippet.title
     end
+
+    it "respond with 404 when snippet not exist" do
+      visit snippet_path(0)
+      expect(page.status_code).to be == 404
+    end
   end
 
   describe "DELETE /snippet/1", js: true do
