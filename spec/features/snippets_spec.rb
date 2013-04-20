@@ -65,6 +65,15 @@ describe "Snippets" do
           expect(page.status_code).to be(404)
         end
       end
+
+      context 'when specified snippet starred' do
+        let!(:star) { Fabricate(:star) }
+
+        it 'show user who starred' do
+          visit snippet_path(star.message.snippet)
+          expect(page).to have_css(".starred-by img[data-user-id='#{star.user.id}']")
+        end
+      end
     end
 
     it "respond with 404 when snippet not exist" do
