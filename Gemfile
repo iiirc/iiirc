@@ -36,6 +36,7 @@ group :development, :test do
   gem 'faker'
   gem 'database_cleaner'
   gem 'capybara'
+  gem 'poltergeist'
   gem 'launchy'
   gem 'rb-fsevent', '~> 0.9.1'
   gem 'guard-spork'
