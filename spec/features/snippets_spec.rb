@@ -19,8 +19,8 @@ describe "Snippets" do
   end
 
   describe "DELETE /snippet/1", js: true do
-    let!(:user)    { Fabricate(:user) }
-    let!(:snippet) { Fabricate(:snippet, user: user) }
+    let(:user)    { Fabricate(:user) }
+    let(:snippet) { Fabricate(:snippet, user: user) }
 
     context "when user is not logged in" do
       it "should not show delete button" do
