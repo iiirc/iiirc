@@ -24,7 +24,7 @@ describe "Snippets" do
       shared_examples "valid atom feed" do
         it "should render valid atom feed" do
           visit snippets_path(format: :atom)
-          expect{RSS::Parser.parse(page.source)}.not_to raise_error
+          expect(page.source).to be_valid_atom
         end
       end
 
