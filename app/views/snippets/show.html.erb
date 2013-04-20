@@ -9,4 +9,17 @@
   <div class="embed_code">
     <%= text_field_tag "snippet_#{@snippet.published? ? @snippet.id : @snippet.hash_id}", '<script type="text/javascript" src="' + url_for(controller: 'api/snippets', action: 'show', id: (@snippet.published? ? @snippet.id : @snippet.hash_id), format: :js, only_path: false) + '"></script>', readonly: true, class: 'input-text' %>
   </div>
+  <% if @snippet.published? %>
+  <div class ="social">
+    <div class="hatena">
+      <a class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" data-hatena-bookmark-title="<%= @snippet.title %> - iiirc" :href="http://b.hatena.ne.jp/entry/<%= request.url %>"></a>
+    </div>
+    <div class="twitter">
+      <a class="twitter-share-button" data-lang="en", data-url="<%= request.url %>", data-text="<%= @snippet.title %> - iiirc" href="https://twitter.com/share">ツイート</a>
+    </div>
+    <div class="facebook">
+      <div class=fb-like data-href="<%= request.url %>" data-layout="button_count" data-send="false" data-show-faces="false"></div>
+    </div>
+  </div>
+  <% end %>
 </article>

@@ -1,0 +1,5 @@
+github:
+  client_id: bogus_id
+  client_secret: bogus_secret
+snippet:
+  salt: bogus_salt
