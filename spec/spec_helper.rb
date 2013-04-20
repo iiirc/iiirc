@@ -1,5 +1,6 @@
 # coding: utf-8
 require 'rubygems'
+require 'rss'
 
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)

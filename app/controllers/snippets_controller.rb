@@ -8,6 +8,7 @@ class SnippetsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @snippets }
+      format.atom { render atom: @snippets }
     end
   end
 
