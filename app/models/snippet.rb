@@ -18,6 +18,10 @@ class Snippet < ActiveRecord::Base
     Rails.application.routes.url_helpers.snippet_url(host: "iiirc.org", id: id)
   end
 
+  def owner?(user)
+    user.try(:id) == user_id
+  end
+
   private
   def tweet_bot
     Twitter.update("new iiirc - %s - %s" % [title, url]) if published?

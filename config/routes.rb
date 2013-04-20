@@ -16,5 +16,5 @@ Iiirc::Application.routes.draw do
     resources :snippets, controller: 'api/snippets', only: %w[show]
   end
 
-  root :to => 'top#index'
+  root to: 'top#index'
 end

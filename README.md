@@ -1,5 +1,10 @@
 # iiirc [![BuildStatus](https://secure.travis-ci.org/iiirc/iiirc.png)](http://travis-ci.org/iiirc/iiirc)
 
+## dependencies
+
+### phantomjs
+ * [Installing PhantomJS](https://github.com/jonleighton/poltergeist#installing-phantomjs)
+
 ## Setup
 
 ```
