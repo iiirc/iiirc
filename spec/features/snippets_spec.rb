@@ -111,7 +111,7 @@ describe "Snippets" do
       end
 
       context 'when specified snippet starred' do
-        let!(:star) { Fabricate(:star) }
+        let(:star) { Fabricate(:star) }
 
         it 'show user who starred' do
           visit snippet_path(star.message.snippet)
