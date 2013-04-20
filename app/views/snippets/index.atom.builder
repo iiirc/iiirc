@@ -6,6 +6,7 @@ atom_feed do |feed|
     person.name 'iiirc developers'
     person.uri  'http://iiirc.org'
   end
+  feed.icon 'https://secure.gravatar.com/avatar/8bafb8feb0f769fb5c46521c53f21eb6'
   @snippets.each do |snippet|
     render 'snippets/snippet', builder: feed, snippet: snippet
   end
