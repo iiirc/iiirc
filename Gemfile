@@ -38,7 +38,6 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
   gem 'rb-fsevent', '~> 0.9.1'
-  gem 'growl' if system('which growlnotify >/dev/null')
   gem 'guard-spork'
   gem 'guard-rspec'
   gem 'shoulda'
