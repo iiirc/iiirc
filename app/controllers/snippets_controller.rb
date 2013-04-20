@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class SnippetsController < ApplicationController
   # GET /snippets
   # GET /snippets.json
@@ -16,7 +17,7 @@ class SnippetsController < ApplicationController
     @snippet = Snippet.find_by_hash_id(params[:id])
     if @snippet.blank?
       @snippet = Snippet.find_by_id(params[:id])
-      return render status: :not_found, file: 'public/404.html' if @snippet.blank? or !@snippet.published?
+      return render status: :not_found, file: 'public/404.html' unless @snippet.try(:published?)
     end
 
     respond_to do |format|
@@ -62,11 +63,12 @@ class SnippetsController < ApplicationController
   # DELETE /snippets/1
   # DELETE /snippets/1.json
   def destroy
-    @snippet = Snippet.find(params[:id])
-    @snippet.destroy
+    if snippet = current_user.snippets.find_by_id(params[:id])
+      snippet.destroy
+    end
 
     respond_to do |format|
-      format.html { redirect_to snippets_url }
+      format.html { redirect_to root_path, notice: 'Snippet was successfully deleted.' }
       format.json { head :no_content }
     end
   end
