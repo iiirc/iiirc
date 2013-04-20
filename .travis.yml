@@ -11,8 +11,11 @@ script:
 
 notifications:
   email:
+    recipients:
     - ameutau@gmail.com
     - kitaitimakoto@gmail.com
+    on_success: change
+    on_failure: always
   irc:
     on_success: change
     on_failure: always
