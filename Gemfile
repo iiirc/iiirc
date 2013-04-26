@@ -12,6 +12,7 @@ gem 'verification', github: 'sikachu/verification'
 gem 'rinku'
 gem 'friendly_id'
 gem 'twitter'
+gem 'draper'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
