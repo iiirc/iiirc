@@ -1,4 +1,4 @@
-# iiirc [![BuildStatus](https://secure.travis-ci.org/iiirc/iiirc.png)](http://travis-ci.org/iiirc/iiirc)
+# iiirc [![BuildStatus](https://secure.travis-ci.org/iiirc/iiirc.png)](http://travis-ci.org/iiirc/iiirc)[![Coverage Status](https://coveralls.io/repos/iiirc/iiirc/badge.png)](https://coveralls.io/r/iiirc/iiirc)
 
 ## dependencies
 
