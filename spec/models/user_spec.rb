@@ -8,6 +8,47 @@ describe User do
   it { should have_many :organizations }
   it { should have_many :stars }
 
+  describe "#find_or_create_organizations" do
+    let(:user) { Fabricate(:user) }
+    subject    { user }
+
+    context "when organization is created already" do
+      let!(:organization) { Fabricate(:organization) }
+
+      before do
+        expected_response = double("org", id: organization.original_id, login: organization.login )
+        Octokit::Client.stub_chain(:new, :organizations).and_return([expected_response])
+      end
+
+      it "should return organization" do
+        expect(subject.find_or_create_organizations).to eq [organization]
+      end
+
+      it "should not create organization" do
+        expect {
+          subject.find_or_create_organizations
+        }.to change { Organization.count }.by(0)
+      end
+    end
+
+    context "when organization is not created yet" do
+      before do
+        expected_response = double("org", id: 1, login: "new_org_which_is_not_registered" )
+        Octokit::Client.stub_chain(:new, :organizations).and_return([expected_response])
+      end
+
+      it "should return new organization" do
+        expect(subject.find_or_create_organizations.first.login).to eq "new_org_which_is_not_registered"
+      end
+
+      it "should create organization" do
+        expect {
+          subject.find_or_create_organizations
+        }.to change { Organization.count }.by(1)
+      end
+    end
+  end
+
   describe ".create_with_omniauth" do
     subject { described_class.create_with_omniauth(auth) }
 
