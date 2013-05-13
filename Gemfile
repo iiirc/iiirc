@@ -44,10 +44,10 @@ group :development, :test do
   gem 'shoulda'
   gem 'guard-livereload'
   gem 'tapp'
-  gem 'coveralls', require: false
 end
 
 group :test do
   gem 'simplecov',      require: false
   gem 'simplecov-rcov', require: false
+  gem 'coveralls', require: false
 end
