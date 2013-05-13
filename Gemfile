@@ -47,3 +47,9 @@ group :development, :test do
   gem 'guard-livereload'
   gem 'tapp'
 end
+
+group :test do
+  gem 'simplecov',      require: false
+  gem 'simplecov-rcov', require: false
+  gem 'coveralls', require: false
+end
