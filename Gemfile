@@ -11,6 +11,7 @@ gem 'gravtastic'
 gem 'verification', github: 'sikachu/verification'
 gem 'rinku'
 gem 'twitter'
+gem 'newrelic_rpm'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

@@ -140,6 +140,7 @@ GEM
     multipart-post (1.2.0)
     mysql2 (0.3.11)
     netrc (0.7.7)
+    newrelic_rpm (3.6.2.96)
     nokogiri (1.5.6)
     oauth2 (0.8.1)
       faraday (~> 0.8)
@@ -302,6 +303,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   mysql2
+  newrelic_rpm
   octokit (= 1.21.0)
   omniauth-github
   poltergeist
