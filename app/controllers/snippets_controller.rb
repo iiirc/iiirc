@@ -2,6 +2,7 @@
 class SnippetsController < ApplicationController
   # GET /snippets
   # GET /snippets.json
+  # GET /snippets.atom
   def index
     @snippets = Snippet.published.date_desc.decorate
 
