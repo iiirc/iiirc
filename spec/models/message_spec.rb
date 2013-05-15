@@ -25,14 +25,12 @@ describe Message do
 
   context 'Mac LimeChat log' do
     let(:regular_message) { '16:31 lighty_z: rspecに詳しい方すいません' }
-    let(:server_message) { '16:46 kuroda is now known as kuroda_away' }
 
     it_behaves_like '#parse_content'
   end
 
   context 'Windows LimeChat log' do
     let(:regular_message) { '16:31 (lighty_z) rspecに詳しい方すいません' }
-    let(:server_message) { '12:06 *shikakun quit (Ping timeout: 252 seconds)' }
 
     it_behaves_like '#parse_content'
   end
@@ -61,7 +59,6 @@ describe Message do
 
   context 'Unknown client 54' do # http://iiirc.org/snippets/54
     let(:regular_message) { '16:31 lighty_z rspecに詳しい方すいません' }
-    let(:server_message) { 'This is a dummy message' }
 
     it_behaves_like '#parse_content'
   end
