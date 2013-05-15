@@ -4,6 +4,8 @@ require 'rss'
 
 # Settings for coveralls: https://coveralls.io/r/iiirc/iiirc
 require 'coveralls'
+Coveralls.wear!
+
 if ENV['COVERAGE'] == 'on'
   require 'simplecov'
   require 'simplecov-rcov'
@@ -17,7 +19,6 @@ if ENV['COVERAGE'] == 'on'
   SimpleCov.start 'rails'
 else
   puts 'Run with `COVERAGE=on` if you want to generate simplecov coverage reports.'
-  Coveralls.wear!
 end
 
 ENV["RAILS_ENV"] ||= 'test'
