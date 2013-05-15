@@ -1,5 +1,12 @@
 github:
-  client_id: bogus_id
-  client_secret: bogus_secret
+  client_id:
+  client_secret:
+twitter:
+  consumer_key:
+  consumer_secret:
+  oauth_token:
+  oauth_token_secret:
 snippet:
-  salt: bogus_salt
+  salt:
+newrelic:
+  license_key:

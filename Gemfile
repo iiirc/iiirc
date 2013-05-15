@@ -13,6 +13,7 @@ gem 'rinku'
 gem 'friendly_id'
 gem 'twitter'
 gem 'draper'
+gem 'newrelic_rpm'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

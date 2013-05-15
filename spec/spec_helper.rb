@@ -2,6 +2,10 @@
 require 'rubygems'
 require 'rss'
 
+# Settings for coveralls: https://coveralls.io/r/iiirc/iiirc
+require 'coveralls'
+Coveralls.wear!
+
 if ENV['COVERAGE'] == 'on'
   require 'simplecov'
   require 'simplecov-rcov'
@@ -16,10 +20,6 @@ if ENV['COVERAGE'] == 'on'
 else
   puts 'Run with `COVERAGE=on` if you want to generate simplecov coverage reports.'
 end
-
-# Settings for coveralls: https://coveralls.io/r/iiirc/iiirc
-require 'coveralls'
-Coveralls.wear!
 
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
