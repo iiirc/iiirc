@@ -1,6 +1,6 @@
 class TopController < ApplicationController
   def index
-    @snippets = Snippet.published.date_desc
+    @snippets = Snippet.published.date_desc.decorate
 
     respond_to do |format|
       format.html
