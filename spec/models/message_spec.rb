@@ -51,4 +51,16 @@ describe Message do
       expect(subject.time).to eq('2013-03-04 03:51:33')
     }
   end
+
+  context 'Textual log' do
+    let(:regular_message) {'[16:31:00] lighty_z: rspecに詳しい方すいません'}
+
+    it {
+      subject.raw_content = regular_message
+      subject.parse_content
+      expect(subject.time).to eq('16:31:00')
+      expect(subject.nick).to eq('lighty_z')
+      expect(subject.content).to eq('rspecに詳しい方すいません')
+    }
+  end
 end
