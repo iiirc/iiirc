@@ -2,10 +2,12 @@
 require 'rubygems'
 require 'rss'
 
+require 'simplecov'
+require 'simplecov-rcov'
+
 # Settings for coveralls: https://coveralls.io/r/iiirc/iiirc
 require 'coveralls'
 Coveralls.wear!
-
 unless ENV['COVERAGE'] == 'off'
   puts 'Run with `COVERAGE=off` if you  want not to generate simplecov coverage reports.'
   require 'simplecov'
