@@ -2,13 +2,14 @@
 require 'rubygems'
 require 'rss'
 
+require 'simplecov'
+require 'simplecov-rcov'
+
 # Settings for coveralls: https://coveralls.io/r/iiirc/iiirc
 require 'coveralls'
 Coveralls.wear!
 
 if ENV['COVERAGE'] == 'on'
-  require 'simplecov'
-  require 'simplecov-rcov'
   class SimpleCov::Formatter::MergedFormatter
     def format(result)
       SimpleCov::Formatter::HTMLFormatter.new.format(result)
