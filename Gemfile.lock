@@ -49,6 +49,9 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
       xpath (~> 1.0.0)
+    cells (3.8.8)
+      actionpack (>= 3.0)
+      railties (>= 3.0)
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
     coderay (1.0.9)
@@ -289,6 +292,7 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   capybara
+  cells
   coffee-rails (~> 3.2.1)
   coveralls
   database_cleaner
