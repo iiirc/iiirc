@@ -1,4 +1,5 @@
 class UserDecorator < Draper::Decorator
+  GITHUB_URL_STEM = 'https://github.com'
   delegate_all
 
   # Define presentation-specific methods here. Helpers are accessed through
@@ -10,6 +11,6 @@ class UserDecorator < Draper::Decorator
   #     end
   #   end
   def github_url
-    "https://github.com/#{ERB::Util.url_encode(username)}"
+    "#{GITHUB_URL_STEM}/#{ERB::Util.url_encode(username)}"
   end
 end
