@@ -3,7 +3,7 @@
   <%- snippet.messages.each do |message| -%>
   <%- unless nick_nums[message.nick] then nick_nums[message.nick] = nick_count; nick_count += 1 end -%>
   <p class="tweet">
-    <%- if message.time.present?-%>
+    <%- if message.time.present? -%>
       <time><%= message.time %></time>&nbsp;<span class="nick_<%= nick_nums[message.nick] %>"><%= message.nick %>:</span>&nbsp;<%= raw Rinku.auto_link(h(message.content), :all) {|link| link =~ /\.(jpe?g|gif|png|bmp|tiff?)\Z/i ? %(#{link}<br><img src="#{link}" alt="">) : link} %>
       <span class="star">&nbsp;
       <%- if current_user -%>
