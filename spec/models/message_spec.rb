@@ -15,11 +15,6 @@ describe Message do
     end
 
     it do
-      subject.raw_content = server_message
-      expect(subject.parse_content).to be_nil
-    end
-
-    it do
       subject.raw_content = regular_message
       subject.parse_content
       expect(subject.time).to eq('16:31')
@@ -30,14 +25,12 @@ describe Message do
 
   context 'Mac LimeChat log' do
     let(:regular_message) { '16:31 lighty_z: rspecに詳しい方すいません' }
-    let(:server_message) { '16:46 kuroda is now known as kuroda_away' }
 
     it_behaves_like '#parse_content'
   end
 
   context 'Windows LimeChat log' do
     let(:regular_message) { '16:31 (lighty_z) rspecに詳しい方すいません' }
-    let(:server_message) { '12:06 *shikakun quit (Ping timeout: 252 seconds)' }
 
     it_behaves_like '#parse_content'
   end
@@ -53,7 +46,7 @@ describe Message do
   end
 
   context 'Textual log' do
-    let(:regular_message) {'[16:31:00] lighty_z: rspecに詳しい方すいません'}
+    let(:regular_message) { '[16:31:00] lighty_z: rspecに詳しい方すいません' }
 
     it {
       subject.raw_content = regular_message
@@ -62,5 +55,11 @@ describe Message do
       expect(subject.nick).to eq('lighty_z')
       expect(subject.content).to eq('rspecに詳しい方すいません')
     }
+  end
+
+  context 'Unknown client 54' do # http://iiirc.org/snippets/54
+    let(:regular_message) { '16:31 lighty_z rspecに詳しい方すいません' }
+
+    it_behaves_like '#parse_content'
   end
 end
