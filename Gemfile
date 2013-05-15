@@ -52,3 +52,7 @@ group :test do
   gem 'simplecov-rcov', require: false
   gem 'coveralls', require: false
 end
+
+group :production do
+  gem 'rack-google-analytics'
+end
