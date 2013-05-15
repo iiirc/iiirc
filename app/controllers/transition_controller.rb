@@ -1,0 +1,2 @@
+class TransitionController < ApplicationController
+end
