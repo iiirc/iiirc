@@ -9,5 +9,7 @@ class UserDecorator < Draper::Decorator
   #       source.created_at.strftime("%a %m/%d/%y")
   #     end
   #   end
-
+  def github_url
+    "https://github.com/#{ERB::Util.url_encode(username)}"
+  end
 end
