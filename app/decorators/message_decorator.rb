@@ -1,4 +1,10 @@
 class MessageDecorator < Draper::Decorator
+  IMAGE_RE = %r!
+    \.(jpe?g|gif|png|bmp|tiff?)\Z
+    |
+    \Ahttps://secure.gravatar.com/avatar/
+  !ix
+
   delegate_all
 
   # Define presentation-specific methods here. Helpers are accessed through
@@ -12,7 +18,7 @@ class MessageDecorator < Draper::Decorator
 
   def content
     Rinku.auto_link(h.html_escape(model.content), :all) {|link|
-      link =~ /\.(jpe?g|gif|png|bmp|tiff?)\Z/i ?
+      link =~ IMAGE_RE ?
         %(#{link}<br><img src="#{link}" alt="">) :
         link
     }
