@@ -1,7 +1,9 @@
 class Message < ActiveRecord::Base
   REGEXP = /
-    ^(?<time>\d\d\:\d\d)\s+(?<nick>([^\s\:]+)\:|(?<nick>\([^\s\)]+\)))\ (?<content>.*)$|
-    ^(?<time>\d{4}-\d{2}-\d{2}\ \d{2}:\d{2}:\d{2})\t(?<nick>([^\s]+))\t(?<content>.*)$| # Weechat
+    ^(?<time>\d\d\:\d\d)\s+(?<nick>([^\s\:]+)\:|(?<nick>\([^\s\)]+\)))\ (?<content>.*)$
+    |
+    ^(?<time>\d{4}-\d{2}-\d{2}\ \d{2}:\d{2}:\d{2})\t(?<nick>([^\s]+))\t(?<content>.*)$ # Weechat
+    |
     ^\[(?<time>\d{2}:\d{2}:\d{2})\]\ (?<nick>[^:]+):\ (?<content>(.*))$ # Textual
   /xo
 
