@@ -15,11 +15,6 @@ describe Message do
     end
 
     it do
-      subject.raw_content = server_message
-      expect(subject.parse_content).to be_nil
-    end
-
-    it do
       subject.raw_content = regular_message
       subject.parse_content
       expect(subject.time).to eq('16:31')
