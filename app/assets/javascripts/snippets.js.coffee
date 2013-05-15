@@ -10,11 +10,6 @@ $ ->
     if $container.find("img[data-user-id='#{status.user_id}']").length == 0
       $container.find(".starred-by").append("<img src='#{status.user.gravatar_url}' alt='Starred by #{status.user.username}' data-user-id='#{status.user_id}'>")
 
-  $('p[class="tweet"]').hover (->
-    $("##{@.id}-link").text("!!!")
-  ), ->
-    $("##{@.id}-link").text('　')
-
 ((w, d) ->
   s = undefined
   e = d.getElementsByTagName("script")[0]
