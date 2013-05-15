@@ -5,6 +5,8 @@ class Message < ActiveRecord::Base
     ^(?<time>\d{4}-\d{2}-\d{2}\ \d{2}:\d{2}:\d{2})\t(?<nick>([^\s]+))\t(?<content>.*)$ # Weechat
     |
     ^\[(?<time>\d{2}:\d{2}:\d{2})\]\ (?<nick>[^:]+):\ (?<content>(.*))$ # Textual
+    |
+    ^(?<time>\d{2}:\d{2})\ (?<nick>\w+)\ (?<content>.+)$
   /xo
 
   belongs_to :snippet
