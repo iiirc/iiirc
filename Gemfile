@@ -11,6 +11,7 @@ gem 'gravtastic'
 gem 'verification', github: 'sikachu/verification'
 gem 'rinku'
 gem 'twitter'
+gem 'kaminari'
 gem 'newrelic_rpm'
 gem 'draper'
 
