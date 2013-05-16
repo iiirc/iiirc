@@ -1,3 +1,4 @@
+# coding: utf-8
 Fabricator(:message) do
   snippet
   raw_content "00:46 (shikakun) [00:27:37] そうなんですね！"
