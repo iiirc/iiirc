@@ -63,6 +63,22 @@ describe StarsController do
           post :create, valid_attributes
         }.to change { Star.count }.by(0)
       end
+
+      context "when error is raised" do
+        before do
+          Star.any_instance.stub(:increment).and_raise
+        end
+
+        it "should rollback" do
+          Star.any_instance.expects(:rollback)
+          post :create, valid_attributes
+        end
+
+        it "should return 422 status code" do
+          post :create, valid_attributes
+          expect(response.status).to eq 422
+        end
+      end
     end
   end
 end
