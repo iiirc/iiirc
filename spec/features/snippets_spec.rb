@@ -67,6 +67,13 @@ describe "Snippets" do
     end
   end
 
+  describe "GET /snippet/new" do
+    it "should render" do
+      visit new_snippet_path
+      expect(page.status_code).to be == 200
+    end
+  end
+
   describe "DELETE /snippet/1", js: true do
     let(:user)    { Fabricate(:user) }
     let(:snippet) { Fabricate(:snippet, user: user) }
