@@ -18,7 +18,7 @@ describe Snippet do
       let(:published) { true }
 
       it do
-        Twitter.should_receive(:update).with("new iiirc - #{snippet.title} - #{snippet.url}")
+        Twitter.should_receive(:update).twice
         snippet.send(:tweet_bot)
       end
     end
@@ -27,7 +27,7 @@ describe Snippet do
       let(:published) { false }
 
       it do
-        Twitter.should_not_receive(:update).with("new iiirc - #{snippet.title} - #{snippet.url}")
+        Twitter.should_receive(:update).never
         snippet.send(:tweet_bot)
       end
     end
