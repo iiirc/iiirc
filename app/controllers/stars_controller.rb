@@ -1,16 +1,15 @@
 class StarsController < ApplicationController
-  # @todo use transaction or 'INSERT OR UPDATE'
   def create
     message = Message.find(params[:message_id])
-    star = Star.find_or_create_by_user_id_and_message_id(current_user.id, message.id)
-    star.increment(:count, 1)
+    star    = Star.find_or_create_by_user_id_and_message_id(current_user.id, message.id)
 
-    respond_to do |format|
-      if star.save
-        format.json { render json: star, include: { user: { only: [:username, :gravatar_url], methods: [:gravatar_url] } } }
-      else
-        format.json { render json: message.errors, status: unprocessable_entity }
-      end
+    Star.transaction do
+      star.increment(:count, 1)
+      star.save!
     end
+
+    render json: star, include: { user: { only: [:username, :gravatar_url], methods: [:gravatar_url] } }
+  rescue => e
+    render json: e.message, status: unprocessable_entity
   end
 end
