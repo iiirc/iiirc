@@ -68,6 +68,10 @@ GEM
       thor
     database_cleaner (0.9.1)
     diff-lcs (1.2.1)
+    draper (1.2.0)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      request_store (~> 1.0.3)
     em-websocket (0.4.0)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.5.3)
@@ -208,6 +212,7 @@ GEM
     rb-fsevent (0.9.3)
     rdoc (3.12.2)
       json (~> 1.4)
+    request_store (1.0.5)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rinku (1.7.2)
@@ -296,6 +301,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   coveralls
   database_cleaner
+  draper
   fabrication
   faker
   fuubar
