@@ -1,3 +1,4 @@
+# coding: utf-8
 class Snippet < ActiveRecord::Base
   belongs_to :user
   belongs_to :organization
@@ -24,6 +25,8 @@ class Snippet < ActiveRecord::Base
 
   private
   def tweet_bot
-    Twitter.update("new iiirc - %s - %s" % [title, url]) if published?
+    return unless published?
+    Twitter.update("%s" % %w(あっ アッ わっ ワッ !!).sample)
+    Twitter.update("%s ( %s - %s )" % [messages.try(:first).try(:content), title, url])
   end
 end
