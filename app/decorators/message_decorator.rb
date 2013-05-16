@@ -16,15 +16,16 @@ class MessageDecorator < Draper::Decorator
   #     end
   #   end
 
+  # @todo: link to images when secret
   def content
     if snippet.published?
       Rinku.auto_link(h.html_escape(model.content), :all) {|link|
         link =~ IMAGE_RE ? %(#{link}<br><img src="#{link}" alt="">) : link
       }
     else
-      Rinku.auto_link(h.html_escape(model.content), :all) {|link|
-        link
-      }
+      model.content.gsub URI.regexp(%w[http https ftp mailto]) do |uri|
+        h.link_to uri, h.transition_path(uri: h.url_encode(uri).gsub('.', '%2E'))
+      end
     end
   end
 end

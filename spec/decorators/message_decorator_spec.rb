@@ -2,10 +2,26 @@ require 'spec_helper'
 
 describe MessageDecorator do
   describe '#content' do
-    let(:message) { Message.new(content: 'http://iiirc.org/').decorate }
+    let(:snippet) { Fabricate(:snippet) }
+    let(:model)   { Message.new(content: 'http://iiirc.org/') }
+    let(:message) { model.decorate }
+    before do
+      model.snippet = snippet
+    end
 
     it 'marks URIs up' do
       expect(message.content).to eq('<a href="http://iiirc.org/">http://iiirc.org/</a>')
+    end
+
+    context 'when secret snippet' do
+      before do
+        snippet.published = false
+        snippet.save
+      end
+
+      it 'marks URIs up as links to transition pages' do
+        expect(message.content).to eq('<a href="/transition/http%3A%2F%2Fiiirc%2Eorg%2F">http://iiirc.org/</a>')
+      end
     end
 
     context 'when including image URI' do
