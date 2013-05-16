@@ -10,7 +10,7 @@
       <% else %>
         <time><%= message.time %></time>&nbsp;
       <% end %>
-      <span class="nick_<%= nick_nums[message.nick] %>"><%= message.nick %>:</span>&nbsp;<%= raw Rinku.auto_link(h(message.content), :all) {|link| link =~ /\.(jpe?g|gif|png|bmp|tiff?)\Z/i ? %(#{link}<br><img src="#{link}" alt="">) : link} %>
+      <span class="nick_<%= nick_nums[message.nick] %>"><%= message.nick %>:</span>&nbsp;<%=raw message.content %>
       <span class="star">&nbsp;
       <%- if current_user -%>
         <%= link_to '★', snippet_message_stars_path(snippet, message), method: :post, remote: true %>
