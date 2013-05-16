@@ -10,6 +10,6 @@ class StarsController < ApplicationController
 
     render json: star, include: { user: { only: [:username, :gravatar_url], methods: [:gravatar_url] } }
   rescue => e
-    render json: e.message, status: unprocessable_entity
+    render json: { errors: e.message }, status: :unprocessable_entity
   end
 end
