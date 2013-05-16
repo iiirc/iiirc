@@ -3,9 +3,10 @@ class StarsController < ApplicationController
   def create
     message = Message.find(params[:message_id])
     star = Star.find_or_create_by_user_id_and_message_id(current_user.id, message.id)
+    star.increment(:count, 1)
 
     respond_to do |format|
-      if message.stars << star
+      if star.save
         format.json { render json: star, include: { user: { only: [:username, :gravatar_url], methods: [:gravatar_url] } } }
       else
         format.json { render json: message.errors, status: unprocessable_entity }
