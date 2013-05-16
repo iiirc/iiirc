@@ -1,3 +1,4 @@
+<% content_for(:title) { @snippet.title } %>
 <article class="snippet wrapper">
   <hgroup class="container" style="background: url(<%= @snippet.user.gravatar_url(size: 48) %>) no-repeat top right">
     <h2 class="title"><%= @snippet.title %></h2>
