@@ -1,3 +1,4 @@
+# coding: utf-8
 require 'spec_helper'
 
 describe "Snippets" do
@@ -71,6 +72,19 @@ describe "Snippets" do
     it "should render" do
       visit new_snippet_path
       expect(page.status_code).to be == 200
+    end
+  end
+
+  describe "POST /snippets" do
+    context "when current_user is blank" do
+      it "should not post a snippet" do
+        visit new_snippet_path
+        should have_content "u can't create a snippet unless logged in."
+        should_not have_button "Public post to iiirc!********************"
+      end
+    end
+
+    context "when current_user is present" do
     end
   end
 
