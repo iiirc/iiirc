@@ -17,8 +17,14 @@ class MessageDecorator < Draper::Decorator
   #   end
 
   def content
-    Rinku.auto_link(h.html_escape(model.content), :all) {|link|
-      link =~ IMAGE_RE ? %(#{link}<br><img src="#{link}" alt="">) : link
-    }
+    if snippet.published?
+      Rinku.auto_link(h.html_escape(model.content), :all) {|link|
+        link =~ IMAGE_RE ? %(#{link}<br><img src="#{link}" alt="">) : link
+      }
+    else
+      Rinku.auto_link(h.html_escape(model.content), :all) {|link|
+        link
+      }
+    end
   end
 end
