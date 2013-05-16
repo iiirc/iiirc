@@ -40,7 +40,7 @@ class SnippetsController < ApplicationController
 
   # POST /snippets
   def create
-    return render status: :forbidden, text: "Hey! Forbidden fruit :S" if current_user.blank?
+    return render_access_denied if current_user.blank?
     @content = params[:content].strip
     @snippet = current_user.snippets.build(params[:snippet])
     @snippet.title = Time.now.to_s if @snippet.title.blank? # これも汚くてすません...
