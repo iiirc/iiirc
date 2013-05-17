@@ -5,15 +5,20 @@ describe Snippet do
   it { should belong_to :organization }
   it { should have_many :messages     }
 
-  describe '#url' do
-    let(:snippet) { Fabricate(:snippet) }
+  let(:snippet) {
+    Fabricate(:snippet, published: published) do
+      before_validation do |snippet|
+        snippet.messages.build(raw_content: "00:52 shikakun: すごい！")
+      end
+    end
+  }
+  let(:published) {}
 
+  describe '#url' do
     it { expect(snippet.url).to eq "http://iiirc.org/snippets/#{snippet.id}" }
   end
 
   describe '#tweet_bot' do
-    let(:snippet) { Fabricate(:snippet, published: published) }
-
     context "when published == true" do
       let(:published) { true }
 

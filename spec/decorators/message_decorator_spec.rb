@@ -1,8 +1,17 @@
 require 'spec_helper'
 
 describe MessageDecorator do
+  let(:snippet) {
+    Fabricate(:snippet) do
+      before_validation do |snippet|
+        snippet.messages << Fabricate(:message)
+      end
+    end
+  }
+
   describe '#content' do
-    let(:message) { Fabricate(:message).decorate }
+    let!(:message) { snippet.messages.first.decorate }
+
     before do
       message.content = 'http://iiirc.org/'
     end
@@ -22,15 +31,14 @@ describe MessageDecorator do
     end
 
     context 'when including image URI' do
-      let(:message_gravatar) { Fabricate(:message).decorate }
+      let(:message) { snippet.messages.first.decorate }
+
       before do
-        message.content = 'http://iiirc.org/assets/iiirc.gif'
-        message_gravatar.content = 'https://secure.gravatar.com/avatar/8bafb8feb0f769fb5c46521c53f21eb6'
+        message.content = 'https://secure.gravatar.com/avatar/8bafb8feb0f769fb5c46521c53f21eb6'
       end
 
       it 'marks URIs up with a and img tag' do
-        expect(message.content).to eq('<a href="http://iiirc.org/assets/iiirc.gif">http://iiirc.org/assets/iiirc.gif<br><img src="http://iiirc.org/assets/iiirc.gif" alt=""></a>')
-        expect(message_gravatar.content).to eq('<a href="https://secure.gravatar.com/avatar/8bafb8feb0f769fb5c46521c53f21eb6">https://secure.gravatar.com/avatar/8bafb8feb0f769fb5c46521c53f21eb6<br><img src="https://secure.gravatar.com/avatar/8bafb8feb0f769fb5c46521c53f21eb6" alt=""></a>')
+        expect(message.content).to eq('<a href="https://secure.gravatar.com/avatar/8bafb8feb0f769fb5c46521c53f21eb6">https://secure.gravatar.com/avatar/8bafb8feb0f769fb5c46521c53f21eb6<br><img src="https://secure.gravatar.com/avatar/8bafb8feb0f769fb5c46521c53f21eb6" alt=""></a>')
       end
     end
   end
