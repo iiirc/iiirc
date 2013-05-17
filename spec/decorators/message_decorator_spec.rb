@@ -26,7 +26,7 @@ describe MessageDecorator do
       end
 
       it 'marks URIs up as links to transition pages' do
-        expect(message.content).to eq('<a href="/transition/http%3A%2F%2Fiiirc%2Eorg%2F">http://iiirc.org/</a>')
+        expect(message.content).to eq('<a href="/transition?to=http%3A%2F%2Fiiirc.org%2F">http://iiirc.org/</a>')
       end
     end
 

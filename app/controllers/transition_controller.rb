@@ -1,6 +1,6 @@
 class TransitionController < ApplicationController
   def show
-    @uri = params[:uri]
+    @uri = CGI.unescape(params[:to])
 
     respond_to do |format|
       format.html
