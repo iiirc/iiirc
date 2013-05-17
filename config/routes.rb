@@ -11,7 +11,7 @@ Iiirc::Application.routes.draw do
   delete '/signout'                 => 'sessions#destroy',       as: :signout
   get    '/auth/:provider/callback' => 'sessions#callback',      as: :callback
   get    '/signup'                  => 'users#new',              as: :signup
-  get    '/transition/:uri'         => 'transition#show',        as: :transition
+  get    '/transition'              => 'transition#show',        as: :transition
 
   scope '/api' do
     resources :snippets, controller: 'api/snippets', only: %w[show]
