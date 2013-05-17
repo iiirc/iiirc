@@ -47,7 +47,7 @@ class SnippetsController < ApplicationController
     snippet = current_user.snippets.build(params[:snippet])
     snippet.published = params[:commit] == "Public post!"
 
-    content.each_line.collect do |raw_content|
+    content.each_line do |raw_content|
       snippet.messages.build(raw_content: raw_content.chomp)
     end
 
