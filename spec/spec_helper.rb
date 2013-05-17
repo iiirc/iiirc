@@ -7,7 +7,7 @@ unless ENV['COVERAGE'] == 'off'
   require 'simplecov'
   # Settings for coveralls: https://coveralls.io/r/iiirc/iiirc
   require 'coveralls'
-  Coveralls.wear! 'rails'
+  SimpleCov.start 'rails'
 end
 
 ENV["RAILS_ENV"] ||= 'test'
