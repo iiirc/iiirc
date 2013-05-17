@@ -15,6 +15,9 @@ class Snippet < ActiveRecord::Base
 
   after_create { tweet_bot } if Rails.env.production?
 
+  validates :messages,
+    length: { minimum: 1, message: "are blank." }
+
   def url
     Rails.application.routes.url_helpers.snippet_url(host: "iiirc.org", id: id)
   end
