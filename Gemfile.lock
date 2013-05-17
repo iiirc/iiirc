@@ -128,8 +128,12 @@ GEM
     json (1.7.7)
     jwt (0.1.8)
       multi_json (>= 1.5)
-    launchy (2.3.0)
+    kaminari (0.14.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+    launchy (2.2.0)
       addressable (~> 2.3)
+    launchy (2.3.0)
     listen (1.0.0)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -148,9 +152,9 @@ GEM
     multipart-post (1.2.0)
     mysql2 (0.3.11)
     netrc (0.7.7)
-    nokogiri (1.5.9)
     newrelic_rpm (3.6.2.96)
     nokogiri (1.5.6)
+    nokogiri (1.5.9)
     oauth2 (0.8.1)
       faraday (~> 0.8)
       httpauth (~> 0.1)
@@ -188,6 +192,7 @@ GEM
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
+    rack-google-analytics (0.11.0)
     rack-ssl (1.3.3)
       rack
     rack-test (0.6.2)
@@ -309,6 +314,7 @@ DEPENDENCIES
   guard-spork
   hirb-unicode
   jquery-rails
+  kaminari
   launchy
   mysql2
   newrelic_rpm
@@ -316,6 +322,7 @@ DEPENDENCIES
   omniauth-github
   poltergeist
   pry-rails
+  rack-google-analytics
   rails (= 3.2.11)
   rails_config
   rb-fsevent (~> 0.9.1)

@@ -2,11 +2,14 @@
 require 'rubygems'
 require 'rss'
 
+require 'simplecov'
+require 'simplecov-rcov'
+
 # Settings for coveralls: https://coveralls.io/r/iiirc/iiirc
 require 'coveralls'
 Coveralls.wear!
-
-if ENV['COVERAGE'] == 'on'
+unless ENV['COVERAGE'] == 'off'
+  puts 'Run with `COVERAGE=off` if you do not want to generate simplecov coverage reports.'
   require 'simplecov'
   require 'simplecov-rcov'
   class SimpleCov::Formatter::MergedFormatter
@@ -17,8 +20,6 @@ if ENV['COVERAGE'] == 'on'
   end
   SimpleCov.formatter = SimpleCov::Formatter::MergedFormatter
   SimpleCov.start 'rails'
-else
-  puts 'Run with `COVERAGE=on` if you want to generate simplecov coverage reports.'
 end
 
 ENV["RAILS_ENV"] ||= 'test'

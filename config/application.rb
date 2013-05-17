@@ -64,5 +64,11 @@ module Iiirc
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Google Analytics by rack-google-analytics
+    if Rails.env.production?
+      config.gem 'rack-google-analytics', lib: 'rack/google-analytics'
+      config.middleware.use Rack::GoogleAnalytics, { tracker: 'UA-1469541-8', domain: 'iiirc.org' }
+    end
   end
 end

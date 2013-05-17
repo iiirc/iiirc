@@ -13,7 +13,9 @@ gem 'rinku'
 gem 'friendly_id'
 gem 'twitter'
 gem 'draper'
+gem 'kaminari'
 gem 'newrelic_rpm'
+gem 'draper'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -53,4 +55,8 @@ group :test do
   gem 'simplecov',      require: false
   gem 'simplecov-rcov', require: false
   gem 'coveralls', require: false
+end
+
+group :production do
+  gem 'rack-google-analytics'
 end
