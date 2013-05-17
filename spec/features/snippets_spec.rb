@@ -88,7 +88,7 @@ describe "Snippets" do
       it "should not post a snippet" do
         visit new_snippet_path
         expect(page).to have_content "u can't create a snippet unless logged in."
-        expect(page).to_not have_button "Public post to iiirc!********************"
+        expect(page).to_not have_button "Public post!"
       end
     end
 
@@ -101,7 +101,7 @@ describe "Snippets" do
       end
 
       it "should render 'new' without content" do
-        click_on 'Public post to iiirc!********************'
+        click_on 'Public post!'
 
         expect(page).to have_content '1 error prohibited this snippet from being saved:'
 
@@ -112,7 +112,7 @@ describe "Snippets" do
         fill_in 'snippet_title', :with => 'sugoi'
         fill_in 'content',       :with => '00:52 shikakun: すごい！'
 
-        click_on 'Public post to iiirc!********************'
+        click_on 'Public post!'
 
         expect(page).to have_content 'Snippet was successfully created.'
 
@@ -128,7 +128,7 @@ describe "Snippets" do
       it "should create a snippet without title" do
         fill_in 'content',       :with => '00:52 shikakun: すごい！'
 
-        click_on 'Public post to iiirc!********************'
+        click_on 'Public post!'
 
         expect(page).to have_content 'Snippet was successfully created.'
 
