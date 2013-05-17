@@ -13,7 +13,11 @@ class Snippet < ActiveRecord::Base
   scope :published,   where(published: true)
   scope :unpublished, where(published: false)
 
-  before_create :set_default_title
+  before_create do
+    set_default_title
+    set_hash_id
+  end
+
   after_create { tweet_bot } if Rails.env.production?
 
   validates :messages,
@@ -30,6 +34,10 @@ class Snippet < ActiveRecord::Base
   private
   def set_default_title
     self.title = Time.now.to_s if self.title.blank?
+  end
+
+  def set_hash_id
+    self.hash_id = Digest::SHA512.hexdigest(Settings.snippet.salt + Time.now.to_i.to_s)[0..19] unless self.published?
   end
 
   def tweet_bot
