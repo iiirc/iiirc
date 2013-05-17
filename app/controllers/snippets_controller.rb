@@ -45,7 +45,7 @@ class SnippetsController < ApplicationController
     return render_access_denied if current_user.blank?
     content = params[:content].strip
     snippet = current_user.snippets.build(params[:snippet])
-    snippet.published = params[:commit] != "Secret post!"  # あとでもうちょっとちゃんとします...
+    snippet.published = params[:commit] == "Public post!"
 
     content.each_line.collect do |raw_content|
       snippet.messages.build(raw_content: raw_content.chomp)
