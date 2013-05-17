@@ -9,7 +9,7 @@ require 'simplecov-rcov'
 require 'coveralls'
 Coveralls.wear!
 unless ENV['COVERAGE'] == 'off'
-  puts 'Run with `COVERAGE=off` if you  want not to generate simplecov coverage reports.'
+  puts 'Run with `COVERAGE=off` if you do not want to generate simplecov coverage reports.'
   require 'simplecov'
   require 'simplecov-rcov'
   class SimpleCov::Formatter::MergedFormatter
