@@ -7,7 +7,11 @@ unless ENV['COVERAGE'] == 'off'
   require 'simplecov'
   # Settings for coveralls: https://coveralls.io/r/iiirc/iiirc
   require 'coveralls'
-  Coveralls.wear! 'rails'
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+    SimpleCov::Formatter::HTMLFormatter,
+    Coveralls::SimpleCov::Formatter
+  ]
+  SimpleCov.start 'rails'
 end
 
 ENV["RAILS_ENV"] ||= 'test'
