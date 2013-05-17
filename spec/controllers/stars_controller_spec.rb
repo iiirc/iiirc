@@ -40,7 +40,7 @@ describe StarsController do
 
     context "when star record is found" do
       before do
-        Fabricate(:star, user: user, message: message)
+        Fabricate(:star, user: user, message: message, count: 1)
       end
 
       it "should return http success" do
