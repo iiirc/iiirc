@@ -9,6 +9,10 @@ $ ->
     $container.find(".count").text status.count
     if $container.find("img[data-user-id='#{status.user_id}']").length == 0
       $container.find(".starred-by").append("<img src='#{status.user.gravatar_url}' alt='Starred by #{status.user.username}' data-user-id='#{status.user_id}'>")
+  .on "ajax:error", (xhr, status, error) ->
+    status = $.parseJSON(status.responseText)
+    msg = status.errors || "Error!"
+    alert msg
 
 ((w, d) ->
   s = undefined

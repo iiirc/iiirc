@@ -2,8 +2,9 @@
 class SnippetsController < ApplicationController
   # GET /snippets
   # GET /snippets.json
+  # GET /snippets.atom
   def index
-    @snippets = Snippet.published.date_desc
+    @snippets = Snippet.published.date_desc.decorate
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,11 +16,12 @@ class SnippetsController < ApplicationController
   # GET /snippets/1
   # GET /snippets/1.json
   def show
-    @snippet = Snippet.find_by_hash_id(params[:id])
-    if @snippet.blank?
-      @snippet = Snippet.find_by_id(params[:id])
-      return render status: :not_found, text: "404 not found" unless @snippet.try(:published?)
+    snippet = Snippet.find_by_hash_id(params[:id])
+    if snippet.blank?
+      snippet = Snippet.find_by_id(params[:id])
+      return render status: :not_found, text: "404 not found" unless snippet.try(:published?)
     end
+    @snippet = snippet.decorate
 
     respond_to do |format|
       format.html # show.html.erb
@@ -30,7 +32,7 @@ class SnippetsController < ApplicationController
   # GET /snippets/new
   # GET /snippets/new.json
   def new
-    @snippet = Snippet.new
+    @snippet = Snippet.new.decorate
 
     respond_to do |format|
       format.html # new.html.erb
@@ -42,20 +44,21 @@ class SnippetsController < ApplicationController
   def create
     return render_access_denied if current_user.blank?
     @content = params[:content].strip
-    @snippet = current_user.snippets.build(params[:snippet])
-    @snippet.title = Time.now.to_s if @snippet.title.blank? # これも汚くてすません...
-    @snippet.published = params[:commit] != "Secret post!"  # あとでもうちょっとちゃんとします...
+    snippet = current_user.snippets.build(params[:snippet])
+    snippet.title = Time.now.to_s if snippet.title.blank? # これも汚くてすません...
+    snippet.published = params[:commit] != "Secret post!"  # あとでもうちょっとちゃんとします...
 
     @content.each_line.collect do |raw_content|
-      @snippet.messages.build(raw_content: raw_content.chomp)
+      snippet.messages.build(raw_content: raw_content.chomp)
     end
-    @snippet.hash_id = Digest::SHA512.hexdigest(Settings.snippet.salt + Time.now.to_i.to_s)[0..19] unless @snippet.published?
+    snippet.hash_id = Digest::SHA512.hexdigest(Settings.snippet.salt + Time.now.to_i.to_s)[0..19] unless snippet.published?
 
     respond_to do |format|
-      if @snippet.save
-        redirect_to = @snippet.published? ? @snippet : "/snippets/#{@snippet.hash_id}"
+      if snippet.save
+        redirect_to = snippet.published? ? snippet : "/snippets/#{snippet.hash_id}"
         format.html { redirect_to redirect_to, notice: 'Snippet was successfully created.' }
       else
+        @snippet = snippet.decorate
         format.html { render action: "new" }
       end
     end
