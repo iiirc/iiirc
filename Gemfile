@@ -29,6 +29,7 @@ group :development do
   gem 'wirb'
   gem 'hirb-unicode'
   gem 'sqlite3'
+  gem 'zeus'
 end
 
 group :development, :test do

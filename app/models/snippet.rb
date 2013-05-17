@@ -13,7 +13,15 @@ class Snippet < ActiveRecord::Base
   scope :published,   where(published: true)
   scope :unpublished, where(published: false)
 
+  before_create do
+    set_default_title
+    set_hash_id
+  end
+
   after_create { tweet_bot } if Rails.env.production?
+
+  validates :messages,
+    length: { minimum: 1, message: "are blank." }
 
   def url
     Rails.application.routes.url_helpers.snippet_url(host: "iiirc.org", id: id)
@@ -24,6 +32,14 @@ class Snippet < ActiveRecord::Base
   end
 
   private
+  def set_default_title
+    self.title = Time.now.to_s if self.title.blank?
+  end
+
+  def set_hash_id
+    self.hash_id = Digest::SHA512.hexdigest(Settings.snippet.salt + Time.now.to_i.to_s)[0..19] unless self.published?
+  end
+
   def tweet_bot
     return unless published?
     Twitter.update("%s" % %w(あっ アッ わっ ワッ !!).sample)
