@@ -1,10 +1,12 @@
 $ ->
   href = $('#transition').attr('href')
   if href
-    remaining = 12
-    container = $('#remaining-time')
-    setInterval ->
+    $container = $('#remaining-time')
+    remaining = parseInt($container.text())
+    timer = setInterval ->
       remaining--
-      container.text remaining
-      if remaining == 0 then location.href = href
+      $container.text remaining
+      if remaining == 0
+        clearInterval timer
+        location.href = href
     , 1000
