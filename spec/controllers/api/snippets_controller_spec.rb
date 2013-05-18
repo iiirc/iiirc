@@ -37,12 +37,13 @@ describe Api::SnippetsController do
       it "should return http success" do
         get :show, valid_attributes, format: 'js'
         expect(response.status).to eq 200
-        response.content_type.should == Mime::JS
       end
 
       it "should return expected response" do
         get :show, valid_attributes, format: 'js'
         expect(response.body).to match /document\.write\(".*content.*"\);/
+        expect(response).to render_template(partial: 'snippets/_snippet')
+        expect(response.content_type).to eq Mime::JS
       end
     end
 
