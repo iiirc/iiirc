@@ -2,6 +2,8 @@
 require 'spec_helper'
 
 describe Api::SnippetsController do
+  render_views
+
   let(:snippet) {
     Fabricate(:snippet, published: published) do
       before_validation do |snippet|
@@ -38,9 +40,9 @@ describe Api::SnippetsController do
         response.content_type.should == Mime::JS
       end
 
-      pending "should return expected response" do
+      it "should return expected response" do
         get :show, valid_attributes, format: 'js'
-        expect(response.body).to eq "foo"
+        expect(response.body).to match /document\.write\(".*content.*"\);/
       end
     end
 
