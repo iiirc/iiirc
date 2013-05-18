@@ -1,4 +1,4 @@
-class Api::SnippetsController < ApplicationController
+class Api::SnippetsController < ApiController
   def show
     snippet = Snippet.find_by_hash_id(params[:id])
     if snippet.blank?
