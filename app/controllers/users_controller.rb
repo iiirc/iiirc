@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       @snippets = @user.snippets.order('created_at DESC')
       @snippets = @snippets.published unless @user.id == current_user.try(:id)
     else
-      return render status: :not_found, file: 'public/404.html' if @snippet.blank? or !@snippet.published?
+      return render status: :not_found, file: 'public/404.html' if @snippets.blank? or !@snippets.published?
     end
   end
 
