@@ -14,6 +14,8 @@ gem 'twitter'
 gem 'kaminari'
 gem 'newrelic_rpm'
 gem 'draper'
+gem 'faraday'
+gem 'celluloid'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -35,7 +37,7 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'fuubar'
-  gem 'mocha'
+  gem 'mocha', require: 'mocha/api'
   gem 'fabrication'
   gem 'timecop'
   gem 'faker'
