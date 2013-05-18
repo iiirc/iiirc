@@ -19,10 +19,14 @@ describe Api::SnippetsController do
     { id: snippet.id }
   end
 
+  def invalid_attributes
+    { id: 0 } # stub as non-existed snippet
+  end
+
   describe "GET show" do
     context "when snippet is not exist" do
       it "should return 404" do
-        get :show, valid_attributes, format: 'js'
+        get :show, invalid_attributes, format: 'js'
         expect(response.status).to eq 404
       end
     end
