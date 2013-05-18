@@ -9,8 +9,8 @@
   <%= auto_discovery_link_tag :atom, snippets_url(format: :atom) %>
 </head>
 <body>
-  <header id="header" class="wrapper clear">
-    <div class="container">
+  <header id="header" class="wrapper">
+    <div class="container clear">
       <h1 id="brand">
         <%= link_to image_tag("iiirc.png", alt: "iiirc") , root_path %>
       </h1>
@@ -21,6 +21,13 @@
           <%= link_to "Sign in with GitHub", "/auth/github", 'data-no-turbolink' => true, class: 'btn btn-blue' %>
         <% end %>
       </div>
+      <% if current_user %>
+        <div id="add-new-snippet">
+          <%= link_to new_snippet_path, class: 'btn' do %>
+            + Add New Snippet!
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </header>
   <% if notice %>

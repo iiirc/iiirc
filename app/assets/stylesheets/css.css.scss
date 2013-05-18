@@ -204,59 +204,56 @@ h1, h2, h3, h4, h5, h6, h7 {
 	color: $white !important;
 }
 
-body {
-  padding: 16px 0;
-  //background: asset-url('grid.png', image) repeat 0 0;
-}
-
 .wrapper {
-  width: 640px;
-  margin: 0 auto 16px 16px;
-  background-color: #fff;
+  width: 100%;
+  background-color: $black;
 }
 
 .container {
   width: 640px;
-  margin: 0 auto;
+  margin: 0 auto 0 20px;
+  padding: 20px 0;
 }
 
 #header {
   padding: 0;
-  height: 48px;
-
-  background-color: transparent;
-  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.33);
+  background-color: $green;
 
   #brand {
     float: left;
-    width: 140px;
-    height: 48px;
+    width: 70px;
+    height: 24px;
     display: block;
 
     a {
-      width: 140px;
-      height: 48px;
+      width: 70px;
+      height: 24px;
       display: block;
-      overflow: hidden;
     }
   }
 
   #account_info {
+    float: left;
+    height: 24px;
+    margin-left: 12px;
+  }
+  
+  #add-new-snippet {
     float: right;
     height: 24px;
-    padding: 12px;
-
-    .btn {
-      padding: 0 1em !important;
-      height: 24px;
-      line-height: 24px;
-    }
-
-    .avator {
-      width: auto;
-      height: 24px;
-      display: block;
-    }
+    margin-left: 12px;
+  }
+  
+  .btn {
+    padding: 0 1em !important;
+    height: 24px;
+    line-height: 24px;
+  }
+  
+  .avator {
+    width: auto;
+    height: 24px;
+    display: block;
   }
 }
 
