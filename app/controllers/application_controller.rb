@@ -12,4 +12,8 @@ class ApplicationController < ActionController::Base
   def render_access_denied
     render text: "forbidden fruit :)", status: 403, layout: false
   end
+
+  def render_not_found
+    render text: "404 not found", status: 404, layout: false
+  end
 end
