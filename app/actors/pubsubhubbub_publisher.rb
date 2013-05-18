@@ -5,7 +5,7 @@ class PubsubhubbubPublisher
   class << self
     def start(faraday_adapter=nil)
       hubs.each do |uri|
-        supervise_as uri, faraday_adapter
+        supervise_as uri, uri, faraday_adapter
       end
     end
 
@@ -14,10 +14,10 @@ class PubsubhubbubPublisher
     end
 
     def stubs
-      @stub ||= Faraday::Adapter::Test::Stubs.new {|stub| stub.post [204, {}, '']}
+      @stub ||= Faraday::Adapter::Test::Stubs.new {|stub| stub.post('') {[204, {}, '']}}
     end
 
-    # private :new
+    private :new
 
     private
 
@@ -31,10 +31,15 @@ class PubsubhubbubPublisher
   end
 
   def initialize(uri, faraday_adapter=nil)
-    @client = Faraday.new(uri) {|faraday|
+    info "Initialize PubSubHubbub Publisher for: #{uri}"
+    @uri = URI(uri)
+    @client = Faraday.new(url: uri) {|faraday|
       faraday.request :url_encoded
+      faraday.response :logger
       if faraday_adapter == :test
-        faraday.adapter faraday, self.class.stubs
+        faraday.adapter faraday_adapter do |stub|
+          stub.post(@uri.request_uri) {[204, {}, '']}
+        end
       else
         faraday.adapter (faraday_adapter || Faraday.default_adapter)
       end
@@ -42,6 +47,9 @@ class PubsubhubbubPublisher
   end
 
   def perform
-    @client.post 'hub.mode' => publish, 'hub.url' => Rails.application.routes.url_helpers.url_for(controller: 'snippets', action: 'index', format: :atom)
+    info "POST #{@uri}"
+    @client.post @uri.request_uri,
+                 'hub.mode' => 'publish',
+                 'hub.url'  => Rails.application.routes.url_helpers.url_for(controller: :snippets, action: :index, format: :atom)
   end
 end

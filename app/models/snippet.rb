@@ -18,7 +18,10 @@ class Snippet < ActiveRecord::Base
     set_hash_id
   end
 
-  after_create { tweet_bot } if Rails.env.production?
+  after_create do
+    tweet_bot if Rails.env.production?
+    PubsubhubbubPublisher.perform if published?
+  end
 
   validates :messages,
     length: { minimum: 1, message: "are blank." }
