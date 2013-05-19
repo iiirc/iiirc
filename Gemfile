@@ -31,11 +31,13 @@ group :development do
   gem 'wirb'
   gem 'hirb-unicode'
   gem 'sqlite3'
+  gem 'zeus'
 end
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'fuubar'
+  gem 'mocha', require: 'mocha/api'
   gem 'fabrication'
   gem 'timecop'
   gem 'faker'
@@ -53,7 +55,6 @@ end
 
 group :test do
   gem 'simplecov',      require: false
-  gem 'simplecov-rcov', require: false
   gem 'coveralls', require: false
 end
 

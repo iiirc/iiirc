@@ -36,6 +36,28 @@ describe "Sessions" do
           expect(subject).to have_content "Sign out"
         }
       end
+
+      context "when returns invalid response" do
+        before do
+          User.any_instance.stub(:save).and_return(false)
+        end
+
+        it "should not create a user" do
+          expect {
+            sign_in(user)
+            check("user_organization_ids")
+            find_button('Sign up!').click
+          }.to change { User.count }.by(0)
+        end
+
+        it "should re-render 'new'" do
+          sign_in(user)
+          check("user_organization_ids")
+          find_button('Sign up!').click
+          expect(subject).to_not have_content "Sign out"
+          expect(subject).to have_button 'Sign up!'
+        end
+      end
     end
 
     context "when user has already activated" do

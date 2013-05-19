@@ -12,8 +12,14 @@ describe 'Users' do
     end
 
     context 'when user exists' do
-      let(:snippet) { Fabricate(:snippet) }
-      let(:user)    { snippet.user }
+      let(:user)    { Fabricate(:user) }
+      let!(:snippet) {
+        Fabricate(:snippet, user: user) do
+          before_validation do |snippet|
+            snippet.messages << Fabricate(:message)
+          end
+        end
+      }
 
       before do
         visit user_path(user.username)

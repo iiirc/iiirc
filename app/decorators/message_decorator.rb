@@ -24,7 +24,7 @@ class MessageDecorator < Draper::Decorator
       }
     else
       model.content.gsub URI.regexp(%w[http https ftp mailto]) do |uri|
-        h.link_to uri, h.transition_path(uri: h.url_encode(uri).gsub('.', '%2E'))
+        h.link_to uri, h.transition_path(to: uri)
       end
     end
   end

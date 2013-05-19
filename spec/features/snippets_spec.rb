@@ -1,7 +1,17 @@
+# coding: utf-8
 require 'spec_helper'
 
 describe "Snippets" do
   subject { page }
+
+  let(:user)    { Fabricate(:user) }
+  let!(:snippet) {
+    Fabricate(:snippet, user: user) do
+      before_validation do |snippet|
+        snippet.messages << Fabricate(:message)
+      end
+    end
+  }
 
   describe "GET /snippets" do
     it "should render" do
@@ -17,8 +27,6 @@ describe "Snippets" do
     end
 
     context 'some snippets exist' do
-      let!(:snippet) { Fabricate(:snippet) }
-
       it 'show snippets' do
         visit snippets_path
         expect(page).to have_css("#snippet_#{snippet.id}")
@@ -60,7 +68,7 @@ describe "Snippets" do
       end
 
       context "when some entries exist" do
-        let!(:snippet) { Fabricate(:snippet) }
+        before { snippet }
 
         it_behaves_like "valid atom feed"
 
@@ -86,14 +94,12 @@ describe "Snippets" do
 
     context 'when specified snippet not exist' do
       it 'should not render' do
-        visit snippet_path id: 1
+        visit snippet_path id: 0
         expect(page.status_code).to be(404)
       end
     end
 
     context 'when specified snippet exsits' do
-      let(:snippet) { Fabricate(:snippet) }
-
       it "show the requested snippet as @snippet" do
         visit snippet_path(snippet.id)
         expect(page).to have_content snippet.title
@@ -111,10 +117,10 @@ describe "Snippets" do
       end
 
       context 'when specified snippet starred' do
-        let(:star) { Fabricate(:star) }
+        let!(:star) { Fabricate(:star, message: snippet.messages.first) }
 
         it 'show user who starred' do
-          visit snippet_path(star.message.snippet)
+          visit snippet_path(snippet)
           expect(page).to have_css(".starred-by img[data-user-id='#{star.user.id}']")
         end
       end
@@ -126,10 +132,88 @@ describe "Snippets" do
     end
   end
 
-  describe "DELETE /snippet/1", js: true do
-    let(:user)    { Fabricate(:user) }
-    let(:snippet) { Fabricate(:snippet, user: user) }
+  describe "GET /snippet/new" do
+    it "should render" do
+      visit new_snippet_path
+      expect(page.status_code).to be == 200
+    end
+  end
 
+  describe "POST /snippets" do
+    context "when current_user is blank" do
+      it "should not post a snippet" do
+        visit new_snippet_path
+        expect(page).to have_content "u can't create a snippet unless logged in."
+        expect(page).to_not have_button "Public post!"
+      end
+    end
+
+    context "when current_user is present" do
+      before do
+        sign_in(user)
+        visit new_snippet_path
+      end
+
+      it "should render 'new' without content" do
+        click_on 'Public post!'
+
+        expect(page).to have_content '1 error prohibited this snippet from being saved:'
+
+        expect(current_path).to eq snippets_path
+      end
+
+      it "should create a snippet with title" do
+        fill_in 'snippet_title', :with => 'sugoi'
+        fill_in 'content',       :with => '00:52 shikakun: すごい！'
+
+        click_on 'Public post!'
+
+        expect(page).to have_content 'Snippet was successfully created.'
+
+        expect(find('h2')).to have_content 'sugoi'
+
+        expect(find('time')).to have_content '00:52'
+        expect(find('span.nick_0')).to have_content 'shikakun:'
+        expect(find('p#L1.tweet')).to have_content 'すごい！'
+
+        expect(current_path).to eq snippet_path(id: snippet.id + 1)
+      end
+
+      it "should create a snippet without title" do
+        fill_in 'content',       :with => '00:52 shikakun: すごい！'
+
+        click_on 'Public post!'
+
+        expect(page).to have_content 'Snippet was successfully created.'
+
+        expect(find('h2')).to have_content(/\A\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}.*\z/)
+
+        expect(find('time')).to have_content '00:52'
+        expect(find('span.nick_0')).to have_content 'shikakun:'
+        expect(find('p#L1.tweet')).to have_content 'すごい！'
+
+        expect(current_path).to eq snippet_path(id: snippet.id + 1)
+      end
+
+      it "should create a snippet as private" do
+        fill_in 'content', :with => '00:52 shikakun: すごい！'
+
+        click_on 'Secret post!'
+
+        expect(page).to have_content 'Snippet was successfully created.'
+
+        expect(find('h2')).to have_content(/\A\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}.*\z/)
+
+        expect(find('time')).to have_content('00:52')
+        expect(find('span.nick_0')).to have_content('shikakun:')
+        expect(find('p#L1.tweet')).to have_content('すごい！')
+
+        expect(current_path).to match(/\A\/snippets\/\w{20}\z/)
+      end
+    end
+  end
+
+  describe "DELETE /snippet/1", js: true do
     context "when user is not logged in" do
       it "should not show delete button" do
         visit snippet_path(snippet.id)

@@ -23,6 +23,8 @@ class UsersController < ApplicationController
   # POST /users
   def create
     @user = User.new_with_omniauth(session[:params_from_authenticator])
+    @organizations = @user.find_or_create_organizations
+
     # TODO ここでは厳密にこのユーザが本当に Organization に紐づいているかの検証を GitHub 側に確認する必要がある
     @user.attributes = params[:user]
 

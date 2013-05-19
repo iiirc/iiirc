@@ -42,16 +42,14 @@ class SnippetsController < ApplicationController
 
   # POST /snippets
   def create
-    return render status: :forbidden, text: "Hey! Forbidden fruit :S" if current_user.blank?
-    @content = params[:content].strip
+    return render_access_denied if current_user.blank?
+    content = params[:content].strip
     snippet = current_user.snippets.build(params[:snippet])
-    snippet.title = Time.now.to_s if snippet.title.blank? # これも汚くてすません...
-    snippet.published = params[:commit] != "Secret post!"  # あとでもうちょっとちゃんとします...
+    snippet.published = params[:commit] == "Public post!"
 
-    @content.each_line.collect do |raw_content|
+    content.each_line do |raw_content|
       snippet.messages.build(raw_content: raw_content.chomp)
     end
-    snippet.hash_id = Digest::SHA512.hexdigest(Settings.snippet.salt + Time.now.to_i.to_s)[0..19] unless snippet.published?
 
     respond_to do |format|
       if snippet.save
