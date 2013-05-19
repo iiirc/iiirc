@@ -12,7 +12,7 @@
 
   <div class="container">
     <%= f.text_field :title, class: 'input-text input-text-large', placeholder: 'Title (optional)' %>
-  <%= text_area_tag :content, @content, class: 'textarea', placeholder: '00:00 YourName: Logged in...' %>
+  <%= text_area_tag :content, @content, class: 'textarea', placeholder: '00:00 YourName: Logged in...', required: true %>
   </div>
   <div class="wrapper">
     <% if current_user.present? && current_user.organizations.present? %>
@@ -27,7 +27,8 @@
     <% end %>
     <div class="container">
       <% if current_user.present? %>
-        <%= f.submit "Public post!", class: 'btn btn-green' %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.submit "Secret post!", class: 'btn btn-yellow' %>
+        <%= button_tag 'Public post!', name: 'commit', value: 'public', type: 'submit', class: 'btn btn-green' %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <%= button_tag 'Secret post!', name: 'commit', value: 'secret', type: 'submit', class: 'btn btn-yellow' %>
       <% end %>
     </div>
   </div>
