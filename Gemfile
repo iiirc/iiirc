@@ -16,8 +16,6 @@ gem 'draper'
 gem 'kaminari'
 gem 'newrelic_rpm'
 gem 'draper'
-gem 'faraday'
-gem 'celluloid'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

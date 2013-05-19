@@ -10,8 +10,3 @@ snippet:
   salt: bogus_salt
 newrelic:
   license_key: bogus_license_key
-pubsubhubbub:
-  hubs:
-    -
-      hub: http://pubsubhubbub.appspot.com
-      pub: https://pubsubhubbub.appspot.com/publish
