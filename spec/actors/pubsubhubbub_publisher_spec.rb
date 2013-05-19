@@ -2,7 +2,6 @@
 require 'spec_helper'
 
 describe PubsubhubbubPublisher do
-  it '' do
-    expect(false).to be_true
+  pending do
   end
 end
