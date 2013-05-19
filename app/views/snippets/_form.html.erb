@@ -27,7 +27,8 @@
     <% end %>
     <div class="container">
       <% if current_user.present? %>
-        <%= f.submit "Public post!", class: 'btn btn-green' %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.submit "Secret post!", class: 'btn btn-yellow' %>
+        <%= button_tag 'Public post!', name: 'commit', value: 'public', type: 'submit', class: 'btn btn-green' %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <%= button_tag 'Secret post!', name: 'commit', value: 'secret', type: 'submit', class: 'btn btn-yellow' %>
       <% end %>
     </div>
   </div>
