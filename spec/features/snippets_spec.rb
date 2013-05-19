@@ -231,6 +231,24 @@ describe "Snippets" do
         expect(page).to have_content "Snippet was successfully deleted."
         expect(current_path).to be == root_path
       end
+
+      context "when snippet is secret" do
+        let!(:snippet) {
+          Fabricate(:snippet, user: user, published: false) do
+            before_validation do |snippet|
+              snippet.messages << Fabricate(:message)
+            end
+          end
+        }
+
+        it "should show delete button and delete snippet" do
+          visit snippet_path(snippet.hash_id)
+          expect(page).to have_content "Delete Snippet!"
+          click_on "Delete Snippet!"
+          expect(page).to have_content "Snippet was successfully deleted."
+          expect(current_path).to be == root_path
+        end
+      end
     end
   end
 end
