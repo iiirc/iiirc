@@ -50,6 +50,6 @@ class PubsubhubbubPublisher
     info "[#{self.class}]POST #{@uri}"
     @client.post @uri.request_uri,
                  'hub.mode' => 'publish',
-                 'hub.url'  => Rails.application.routes.url_helpers.url_for(controller: :snippets, action: :index, format: :atom)
+                 'hub.url'  => Rails.application.routes.url_helpers.url_for(host: 'iiirc.org', controller: :snippets, action: :index, format: :atom)
   end
 end
