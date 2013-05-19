@@ -43,6 +43,23 @@ describe 'Users' do
         expect(page).not_to have_css('[id~="snippet_"]')
       end
 
+      context 'when so many snippets exist' do
+        before do
+          Snippet.default_per_page.times do
+            Fabricate(:snippet, user: user) do
+              before_validation do |snippet|
+                snippet.messages << Fabricate(:message)
+              end
+            end
+          end
+        end
+
+        it 'have pagination link' do
+          visit user_path(user.username)
+          expect(page).to have_css("a[href='#{user_path(id: user.username, page: 2)}']")
+        end
+      end
+
       context 'signed in as the user' do
         before do
           sign_in(user)
