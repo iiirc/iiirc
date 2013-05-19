@@ -31,13 +31,8 @@ class PubsubhubbubPublisher
     @uri = URI(uri)
     @client = Faraday.new(url: uri) {|faraday|
       faraday.request :url_encoded
-      faraday.response :logger
-      if faraday_adapter == :test
-        faraday.adapter faraday_adapter do |stub|
-          stub.post(@uri.request_uri) {[204, {}, '']}
-        end
-      else
-        faraday.adapter (faraday_adapter || Faraday.default_adapter)
+      faraday.adapter (faraday_adapter || Faraday.default_adapter) do |stub|
+        stub.post(@uri.request_uri) {[204, {}, '']} if faraday_adapter == :test
       end
     }
   end
