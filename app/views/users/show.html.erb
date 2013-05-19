@@ -12,7 +12,7 @@
     <%- @snippets.each do |snippet| -%>
       <article class="article article-snippet">
         <hgroup class="article-header clear">
-          <h2 class="title"><%= link_to snippet.title, snippet %></h2>
+          <h2 class="title"><%= link_to snippet.title, snippet_path(snippet.published? ? snippet : snippet.hash_id) %></h2>
         </hgroup>
         <div class="article-content">
           <%= render 'snippets/snippet', snippet: snippet %>

@@ -46,12 +46,15 @@ describe 'Users' do
       context 'signed in as the user' do
         before do
           sign_in(user)
-          snippet.update_column :published, false
+          snippet.published = false
+          snippet.send :set_hash_id
+          snippet.save
         end
 
         it "show unpublished snippets" do
           visit user_path(user.username)
           expect(page).to have_css("#snippet_#{snippet.id}")
+          expect(page).to have_css("a[href='/snippets/#{snippet.hash_id}']")
         end
       end
     end
