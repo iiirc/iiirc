@@ -13,8 +13,6 @@ class PubsubhubbubPublisher
       actors.each &:perform
     end
 
-    private :new
-
     private
 
     def hubs
