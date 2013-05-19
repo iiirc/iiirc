@@ -33,6 +33,10 @@ describe 'Users' do
         expect(page).to have_css("#snippet_#{snippet.id}")
       end
 
+      it 'have link to each snippet' do
+        expect(page).to have_css("a[href='#{snippet_path(snippet)}']")
+      end
+
       it "don't show unpublished snippets" do
         snippet.update_column :published, false
         visit user_path(user.username)
