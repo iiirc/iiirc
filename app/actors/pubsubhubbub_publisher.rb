@@ -47,7 +47,7 @@ class PubsubhubbubPublisher
   end
 
   def perform
-    info "POST #{@uri}"
+    info "[#{self.class}]POST #{@uri}"
     @client.post @uri.request_uri,
                  'hub.mode' => 'publish',
                  'hub.url'  => Rails.application.routes.url_helpers.url_for(controller: :snippets, action: :index, format: :atom)
