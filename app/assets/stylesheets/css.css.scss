@@ -97,6 +97,10 @@ h1, h2, h3, h4, h5, h6, h7 {
 	font-weight: normal;
 }
 
+p {
+  margin-bottom: 0.5em;
+}
+
 .input-text,
 .textarea {
   width: 100%;
@@ -194,6 +198,17 @@ h1, h2, h3, h4, h5, h6, h7 {
     width: 100%;
     padding-left: 0 !important;
     padding-right: 0 !important;
+  }
+}
+
+.list {
+  &.list-disc {
+    margin-left: 24px;
+    
+    li {
+      padding: 3px 0;
+      list-style-type: disc;
+    }
   }
 }
 
@@ -367,7 +382,11 @@ body {
     @include font(irc);
     background-color: $black;
     box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.44);
-
+    
+    .tweet {
+      margin-bottom: 0.15em;
+    }
+    
     .nick_0 { color: lighten(#066, 32) !important; }
     .nick_1 { color: lighten(#660, 32) !important; }
     .nick_2 { color: lighten(#606, 32) !important; }
@@ -386,6 +405,11 @@ body {
         color: $yellow;
       }
     }
+    
+    .stared-by-icon {
+      width: 18px;
+      height: 18px;
+    }
   }
 
   .embed_code {
@@ -393,6 +417,12 @@ body {
       color: $gray;
       font-size: 12px !important;
     }
+  }
+  
+  .user-name {
+    padding: 24px 0;
+    color: $green;
+    font-size: 24px;
   }
 }
 

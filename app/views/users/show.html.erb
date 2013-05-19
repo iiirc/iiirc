@@ -1,12 +1,14 @@
 <div class="container clear">
   <div id="content">
-    <h2 class="title"><%= @user.username %></h2>
-    <h3>Organizations <%= @user.username %> belongs to</h3>
-    <ul>
-      <%- @user.organizations.each do |organization| -%>
-      <li><%= organization.login %></li>
-      <%- end -%>
-    </ul>
+    <article class="article user-profile clearfix">
+      <h2 class="user-name"><%= @user.username %></h2>
+      <p>Organizations <%= @user.username %> belongs to</p>
+      <ul class="list list-disc">
+        <%- @user.organizations.each do |organization| -%>
+          <li><%= organization.login %></li>
+        <%- end -%>
+      </ul>
+    </article>
     <%- @snippets.each do |snippet| -%>
       <article class="article article-snippet">
         <hgroup class="article-header clear">
