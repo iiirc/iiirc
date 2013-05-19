@@ -13,10 +13,6 @@ class PubsubhubbubPublisher
       actors.each &:perform
     end
 
-    def stubs
-      @stub ||= Faraday::Adapter::Test::Stubs.new {|stub| stub.post('') {[204, {}, '']}}
-    end
-
     private :new
 
     private
