@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   attr_accessible :organization_ids
 
+  extend FriendlyId
+  friendly_id :username
+
   include Gravtastic
   gravtastic secure: true, size: 24
 
