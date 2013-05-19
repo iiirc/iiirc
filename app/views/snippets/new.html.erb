@@ -1,9 +1,7 @@
 <% if current_user.present? %>
 <% else %>
-  <div class="notice section">
-    <p>u can't create a snippet unless logged in. <%= link_to "Sign in with GitHub", "/auth/github", 'data-no-turbolink' => true %></p>
-  </div>
+  <p>u can't create a snippet unless logged in. <%= link_to "Sign in with GitHub", "/auth/github", 'data-no-turbolink' => true %></p>
 <% end %>
-<section class="section">
+<div id="snippet-form" class="wrapper">
   <%= render 'form' %>
-</section>
+</div>

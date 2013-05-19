@@ -1,8 +1,7 @@
 <%= form_for(@snippet) do |f| %>
   <% if @snippet.errors.any? %>
-    <div id="error_explanation">
+    <div class="container">
       <h2><%= pluralize(@snippet.errors.count, "error") %> prohibited this snippet from being saved:</h2>
-
       <ul>
       <% @snippet.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -10,21 +9,24 @@
       </ul>
     </div>
   <% end %>
-  <%= f.text_field :title, class: 'input-text input-text-large', placeholder: 'Title (optional)' %>
-  <%= text_area_tag :content, @content, class: 'textarea', placeholder: '00:00 YourName: Logged in...' %>
-  <div class="wrapper">
-    <div class="form-org-question container">
+  
+  <div class="container">
+    <%= f.text_field :title, class: 'input-text input-text-large', placeholder: 'Title (optional)' %>
+    <%= text_area_tag :content, @content, class: 'textarea', placeholder: '00:00 YourName: Logged in...' %>
+  </div>
+  <div class="container">
+    <div class="form-org-question">
       どの Organization の会話ですか??
     </div>
-    <div class="form-org-radiobox container">
+    <div class="form-org-radiobox">
       <% current_user.organizations.each do |organization| %>
         <%= f.radio_button :organization_id, organization.id %><%= organization.login %>
       <% end %>
     </div>
-    <div class="container">
-      <% if current_user.present? %>
-        <%= f.submit "Public post to iiirc!********************", class: 'btn btn-green' %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.submit "Secret post!", class: 'btn btn-yellow' %>
-      <% end %>
-    </div>
+  </div>
+  <div class="container">
+    <% if current_user.present? %>
+      <%= f.submit "Public post to iiirc!********************", class: 'btn btn-green' %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.submit "Secret post!", class: 'btn btn-yellow' %>
+    <% end %>
   </div>
 <% end %>

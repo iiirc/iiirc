@@ -1,35 +1,38 @@
-<% content_for(:title) { @snippet.title } %>
-<article class="snippet wrapper">
-  <hgroup class="container">
-    <h2 class="title"><%= @snippet.title %></h2>
-  </hgroup>
-  <p class="user_icon"><%= link_to image_tag(@snippet.user.gravatar_url(size: 48), alt: @snippet.user.username), user_path(@snippet.user) %></p>
-  <div class="content container">
-    <%= render 'snippet', snippet: @snippet %>
-  </div>
-  <div class="embed_code">
-    <%= text_field_tag "snippet_#{@snippet.published? ? @snippet.id : @snippet.hash_id}", '<script type="text/javascript" src="' + url_for(controller: 'api/snippets', action: 'show', id: (@snippet.published? ? @snippet.id : @snippet.hash_id), format: :js, only_path: false) + '"></script>', readonly: true, class: 'input-text' %>
-  </div>
+<div class="container clear">
+  <div id="content">
+    <% content_for(:title) { @snippet.title } %>
+    <article class="article article-snippet">
+      <hgroup class="article-header clear">
+        <h2 class="title"><%= @snippet.title %></h2>
+        <%= link_to image_tag(@snippet.user.gravatar_url(size: 48), alt: @snippet.user.username, class: 'user-icon'), user_path(@snippet.user) %>
+      </hgroup>
+      <div class="article-content">
+        <%= render 'snippet', snippet: @snippet %>
+      </div>
+      <div class="embed_code">
+        <%= text_field_tag "snippet_#{@snippet.published? ? @snippet.id : @snippet.hash_id}", '<script type="text/javascript" src="' + url_for(controller: 'api/snippets', action: 'show', id: (@snippet.published? ? @snippet.id : @snippet.hash_id), format: :js, only_path: false) + '"></script>', readonly: true, class: 'input-text' %>
+      </div>
+      <div class="container">
+        <% if @snippet.owner?(current_user) %>
+          <%= link_to snippet_path, class: 'btn btn-red', method: :delete, data: { confirm: "Are you sure to delete?" } do %>
+            Delete Snippet!
+          <% end %>
+        <% end %>
+      </div>
 
-  <div>
-    <% if @snippet.owner?(current_user) %>
-      <%= link_to snippet_path, class: 'btn btn-red', method: :delete, data: { confirm: "Are you sure to delete?" } do %>
-        Delete Snippet!
+      <% if @snippet.published? %>
+        <div class ="social">
+          <div class="hatena">
+            <a class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" data-hatena-bookmark-title="<%= @snippet.title %> - iiirc" :href="http://b.hatena.ne.jp/entry/<%= request.url %>"></a>
+          </div>
+          <div class="twitter">
+            <a class="twitter-share-button" data-lang="en", data-url="<%= request.url %>", data-text="<%= @snippet.title %> - iiirc" href="https://twitter.com/share">ツイート</a>
+          </div>
+          <div class="facebook">
+            <div class=fb-like data-href="<%= request.url %>" data-layout="button_count" data-send="false" data-show-faces="false"></div>
+          </div>
+        </div>
       <% end %>
-    <% end %>
+    </article>
   </div>
-
-  <% if @snippet.published? %>
-  <div class ="social">
-    <div class="hatena">
-      <a class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" data-hatena-bookmark-title="<%= @snippet.title %> - iiirc" :href="http://b.hatena.ne.jp/entry/<%= request.url %>"></a>
-    </div>
-    <div class="twitter">
-      <a class="twitter-share-button" data-lang="en", data-url="<%= request.url %>", data-text="<%= @snippet.title %> - iiirc" href="https://twitter.com/share">ツイート</a>
-    </div>
-    <div class="facebook">
-      <div class=fb-like data-href="<%= request.url %>" data-layout="button_count" data-send="false" data-show-faces="false"></div>
-    </div>
-  </div>
-  <% end %>
-</article>
+</div>

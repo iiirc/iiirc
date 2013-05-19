@@ -1,22 +1,21 @@
-<h2 class="title"><%= @user.username %></h2>
-
-<h3>Organizations <%= @user.username %> belongs to</h3>
-<ul>
-  <%- @user.organizations.each do |organization| -%>
-  <li><%= organization.login %></li>
-  <%- end -%>
-</ul>
-
-<h3><%= @user.username %>'s recent snippets</h3>
-<article class="snippet wrapper">
-<ul>
-  <%- @snippets.each do |snippet| -%>
-  <li>
-    <h4 class="title"><%= snippet.title %></h4>
-    <div class="content container">
-      <%= render 'snippets/snippet', snippet: snippet %>
-    </div>
-  </li>
-  <%- end -%>
-</ul>
-</article>
+<div class="container clear">
+  <div id="content">
+    <h2 class="title"><%= @user.username %></h2>
+    <h3>Organizations <%= @user.username %> belongs to</h3>
+    <ul>
+      <%- @user.organizations.each do |organization| -%>
+      <li><%= organization.login %></li>
+      <%- end -%>
+    </ul>
+    <%- @snippets.each do |snippet| -%>
+      <article class="article article-snippet">
+        <hgroup class="article-header clear">
+          <h2 class="title"><%= snippet.title %></h2>
+        </hgroup>
+        <div class="article-content">
+          <%= render 'snippets/snippet', snippet: snippet %>
+        </div>
+      </article>
+    <%- end -%>
+  </div>
+</div>
