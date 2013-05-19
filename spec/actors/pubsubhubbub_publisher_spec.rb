@@ -17,4 +17,13 @@ describe PubsubhubbubPublisher do
     snippet.messages.build raw_content: 'raw content'
     snippet.save
   end
+
+  it "don't post to hub on creating secret snippet" do
+    PubsubhubbubPublisher.should_not_receive(:perform)
+
+    user = Fabricate(:user)
+    snippet = user.snippets.build(published: false)
+    snippet.messages.build raw_content: 'raw content'
+    snippet.save
+  end
 end
