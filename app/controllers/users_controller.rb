@@ -3,14 +3,16 @@
 class UsersController < ApplicationController
   verify session: :params_from_authenticator, only: %w(new create), redirect_to: :login_path
 
-  # GET /users/1
+  # GET /users/iiirc
   def show
     @user = User.find_by_username(params[:id])
+
     if @user
-      @snippets = @user.snippets.order('created_at DESC')
-      @snippets = @snippets.published unless @user.id == current_user.try(:id)
+      snippets = @user.snippets.date_desc
+      snippets = snippets.published unless @user.id == current_user.try(:id)
+      @snippets = snippets.decorate
     else
-      return render status: :not_found, file: 'public/404.html' if @snippets.blank? or !@snippets.published?
+      return render_not_found
     end
   end
 
