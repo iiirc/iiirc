@@ -1,0 +1,24 @@
+<div class="container clear">
+  <div id="content">
+    <article class="article user-profile clearfix">
+      <h2 class="user-name"><%= @user.username %></h2>
+      <p>Organizations <%= @user.username %> belongs to</p>
+      <ul class="list list-disc">
+        <%- @user.organizations.each do |organization| -%>
+          <li><%= organization.login %></li>
+        <%- end -%>
+      </ul>
+    </article>
+    <%- @snippets.each do |snippet| -%>
+      <article class="article article-snippet">
+        <hgroup class="article-header clear">
+          <h2 class="title"><%= link_to snippet.title, snippet_path(snippet.published? ? snippet : snippet.hash_id) %></h2>
+        </hgroup>
+        <div class="article-content">
+          <%= render 'snippets/snippet', snippet: snippet %>
+        </div>
+      </article>
+    <%- end -%>
+  </div>
+  <%= paginate @snippets %>
+</div>

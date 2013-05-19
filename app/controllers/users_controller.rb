@@ -3,6 +3,19 @@
 class UsersController < ApplicationController
   verify session: :params_from_authenticator, only: %w(new create), redirect_to: :login_path
 
+  # GET /users/iiirc
+  def show
+    @user = User.find_by_username(params[:id])
+
+    if @user
+      snippets = @user.snippets.date_desc.page(params[:page])
+      snippets = snippets.published unless @user.id == current_user.try(:id)
+      @snippets = snippets.decorate
+    else
+      return render_not_found
+    end
+  end
+
   # GET /users
   def new
     @user = User.new_with_omniauth(session[:params_from_authenticator])
