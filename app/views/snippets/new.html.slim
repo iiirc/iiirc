@@ -1,0 +1,6 @@
+- if current_user.blank?
+  .notice.section
+    p
+      | u can't create a snippet unless logged in. #{link_to "Sign in with GitHub", "/auth/github", 'data-no-turbolink' => true}
+#snippet-form.wrapper
+  = render 'form'
