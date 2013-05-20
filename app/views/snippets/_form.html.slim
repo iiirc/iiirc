@@ -3,7 +3,7 @@
     .container
       h2
         = pluralize(@snippet.errors.count, "error")
-        | prohibited this snippet from being saved:
+        | &nbsp; prohibited this snippet from being saved:
       ul
         - @snippet.errors.full_messages.each do |msg|
           li= msg
