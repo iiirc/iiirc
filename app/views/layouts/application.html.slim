@@ -31,7 +31,7 @@ html
         - if current_user
           p#signout
             = current_user.username
-            | \&nbsp;(#{link_to "Sign out", signout_path, method: :delete})
+            | &nbsp;(#{link_to "Sign out", signout_path, method: :delete})
         - else
           p#powered
             a href="http://sqale.jp/" target="_blank"
