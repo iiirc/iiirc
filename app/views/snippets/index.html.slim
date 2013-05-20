@@ -1,0 +1,18 @@
+h1 Listing snippets
+table
+  tr
+    th Title
+    th Content
+    th Published
+    th
+    th
+    th
+  - @snippets.each do |snippet|
+    tr
+      td= snippet.title
+      td= render 'snippets/snippet', snippet: snippet
+      td= snippet.published
+      td= link_to 'Show', snippet
+      td= link_to 'Destroy', snippet, method: :delete, data:   confirm: 'Are you sure?' 
+br/
+= link_to 'New Snippet', new_snippet_path
