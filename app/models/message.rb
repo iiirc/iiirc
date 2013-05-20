@@ -6,7 +6,7 @@ class Message < ActiveRecord::Base
     |
     ^(?<time>\d{2}:\d{2}:\d{2})\s*(?<nick>([^\s]+))\s*\|\s*(?<content>.*)$ # Weechat2
     |
-    ^\[(?<time>\d{2}:\d{2}:\d{2})\]\ (?<nick>[^:]+):\ (?<content>(.*))$ # Textual
+    ^\[?(?<time>\d{2}:\d{2}:\d{2})\]?\ (?<nick>[^:]+):\t?\ (?<content>(.*))$ # Textual
     |
     ^(?<time>\d{2}:\d{2})\ (?<nick>\w+)\ (?<content>.+)$
   /xo
