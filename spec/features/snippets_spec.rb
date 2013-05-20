@@ -222,15 +222,21 @@ describe "Snippets" do
     end
 
     context "when user is logged in" do
-      before { sign_in(user) }
-
-      it "should show delete button and delete snippet" do
+      before do
+        sign_in(user)
         visit snippet_path(snippet.id)
-        expect(page).to have_content "Delete Snippet!"
-        click_on "Delete Snippet!"
-        expect(page).to have_content "Snippet was successfully deleted."
-        expect(current_path).to be == root_path
       end
+
+      shared_examples 'delete button' do
+        it 'should show delete button and delete snippet' do
+          expect(page).to have_content "Delete Snippet!"
+          click_on "Delete Snippet!"
+          expect(page).to have_content "Snippet was successfully deleted."
+          expect(current_path).to be == root_path
+        end
+      end
+
+      it_behaves_like 'delete button'
 
       context "when snippet is secret" do
         let!(:snippet) {
@@ -240,14 +246,11 @@ describe "Snippets" do
             end
           end
         }
-
-        it "should show delete button and delete snippet" do
+        before do
           visit snippet_path(snippet.hash_id)
-          expect(page).to have_content "Delete Snippet!"
-          click_on "Delete Snippet!"
-          expect(page).to have_content "Snippet was successfully deleted."
-          expect(current_path).to be == root_path
         end
+
+        it_behaves_like 'delete button'
       end
     end
   end

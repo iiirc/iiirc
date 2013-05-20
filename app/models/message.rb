@@ -20,6 +20,10 @@ class Message < ActiveRecord::Base
 
   before_create :parse_content
 
+  def star_count
+    stars.reduce(0) {|sum, star| sum + star.count}
+  end
+
   def parse_content
     return if self.raw_content.blank?
     matched = REGEXP.match(self.raw_content)

@@ -2,12 +2,16 @@
   <div id="content">
     <article class="article user-profile clearfix">
       <h2 class="user-name"><%= @user.username %></h2>
-      <p>Organizations <%= @user.username %> belongs to</p>
-      <ul class="list list-disc">
-        <%- @user.organizations.each do |organization| -%>
-          <li><%= organization.login %></li>
-        <%- end -%>
-      </ul>
+      <%- if @user.organizations.present? -%>
+      <div class="organizations">
+        <p>Organizations <%= @user.username %> belongs to</p>
+        <ul class="list list-disc">
+          <%- @user.organizations.each do |organization| -%>
+          <li><%= link_to organization.login, organization_path(organization.login) %></li>
+          <%- end -%>
+        </ul>
+      </div>
+      <%- end -%>
     </article>
     <%- @snippets.each do |snippet| -%>
       <article class="article article-snippet">

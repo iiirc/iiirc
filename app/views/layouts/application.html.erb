@@ -16,7 +16,7 @@
       </h1>
       <div id="account_info">
         <% if current_user %>
-          <%= link_to image_tag(current_user.gravatar_url(size: 48), class: 'avator'), user_path(current_user.username) %>
+          <%= link_to image_tag(current_user.gravatar_url(size: 48), alt: current_user.username, class: 'avator'), user_path(current_user.username) %>
         <% else %>
           <%= link_to "Sign in with GitHub", "/auth/github", 'data-no-turbolink' => true, class: 'btn btn-blue' %>
         <% end %>

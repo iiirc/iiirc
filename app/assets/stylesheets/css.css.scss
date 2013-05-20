@@ -406,7 +406,7 @@ body {
       }
     }
     
-    .stared-by-icon {
+    .starred-by-icon {
       width: 18px;
       height: 18px;
     }
@@ -419,7 +419,7 @@ body {
     }
   }
   
-  .user-name {
+  .user-name, .organization-name {
     padding: 24px 0;
     color: $green;
     font-size: 24px;
