@@ -8,7 +8,7 @@
   <%= favicon_link_tag "favicon.ico" %>
   <%= auto_discovery_link_tag :atom, snippets_url(format: :atom) %>
 </head>
-<body>
+<body id="page_<%= params[:controller]%>_<%= params[:action] %>">
   <header id="header" class="wrapper">
     <div class="container clear">
       <h1 id="brand">
