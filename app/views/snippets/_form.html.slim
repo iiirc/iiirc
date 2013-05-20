@@ -21,5 +21,5 @@
     .container
       - if current_user.present?
         = button_tag 'Public post!', name: 'commit', value: 'public', type: 'submit', class: 'btn btn-green'
-        | \&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        | \#{button_tag 'Secret post!', name: 'commit', value: 'secret', type: 'submit', class: 'btn btn-yellow'}
+        | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        | #{button_tag 'Secret post!', name: 'commit', value: 'secret', type: 'submit', class: 'btn btn-yellow'}
