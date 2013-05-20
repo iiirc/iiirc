@@ -8,10 +8,10 @@ class Snippet < ActiveRecord::Base
 
   attr_writer :content
 
-  scope :date_desc,   order("created_at desc")
-  scope :date_asc,    order("created_at asc")
-  scope :published,   where(published: true)
-  scope :unpublished, where(published: false)
+  scope :date_desc,   -> { order("created_at desc") }
+  scope :date_asc,    -> { order("created_at asc")  }
+  scope :published,   -> { where(published: true)   }
+  scope :unpublished, -> { where(published: false)  }
 
   before_create do
     set_default_title
