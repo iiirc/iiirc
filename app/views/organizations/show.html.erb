@@ -1,19 +1,22 @@
-<h2>Members</h2>
-<% @organization.users.each do |user| %>
-  <%= link_to image_tag(user.gravatar_url, alt: user.username, class: 'avator'), user_path(user.username) %>
-<% end %>
-
-<% @organization.snippets.each do |snippet| %>
-  <article class="snippet section">
-    <h2 class="title"><%= link_to snippet do %><%= snippet.title %><% end %></h2>
-    <div class="content">
-      <ol>
-        <%- snippet.messages.each do |message| -%>
-        <li><%= message %></li>
-        <%- end -%>
-      </ol>
-    </div>
-  </article>
-<% end %>
-
-<%= link_to 'Back', organizations_path %>
+<div class="container clear">
+  <div id="content">
+    <article class="article organization-profile clearfix">
+      <h2 class="organization-name"><%= @organization.login %></h2>
+      <h3>Members</h3>
+      <% @organization.users.each do |user| %>
+      <%= link_to image_tag(user.gravatar_url, alt: user.username, class: 'avator'), user_path(user.username) %>
+      <% end %>
+    </article>
+    <% @snippets.each do |snippet| %>
+      <article class="article article-snippet">
+        <hgroup class="article-header clear">
+          <h2 class="title"><%= link_to snippet.title, snippet %></h2>
+          <p><%= link_to image_tag(snippet.user.gravatar_url(size: 48), alt: snippet.user.username, class: 'user-icon'), user_path(snippet.user) %></p>
+        </hgroup>
+        <div class="article-content">
+          <%= render 'snippets/snippet', snippet: snippet %>
+        </div>
+      </article>
+    <% end %>
+  </div>
+</div>
