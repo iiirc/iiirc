@@ -16,7 +16,7 @@
       - if @snippet.published?
         .social
           .hatena
-            | a[class=hatena-bookmark-button href="http://b.hatena.ne.jp/entry/#{request.url}" data-hatena-bookmark-layout="standard" data-hatena-bookmark-title="#{@snippet.title} - iiirc"]
+            | <a class=hatena-bookmark-button href="http://b.hatena.ne.jp/entry/#{request.url}" data-hatena-bookmark-layout="standard" data-hatena-bookmark-title="#{@snippet.title} - iiirc">
           .twitter
             | <a class="twitter-share-button" data-lang="en", data-url="#{request.url}", data-text="#{@snippet.title} - iiirc" href="https://twitter.com/share">ツイート
           .facebook
