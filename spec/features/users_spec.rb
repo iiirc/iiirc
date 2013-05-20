@@ -12,7 +12,7 @@ describe 'Users' do
     end
 
     context 'when user exists' do
-      let(:user)    { Fabricate(:user) }
+      let(:user)     { Fabricate(:user) }
       let!(:snippet) {
         Fabricate(:snippet, user: user) do
           before_validation do |snippet|
