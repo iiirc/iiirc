@@ -419,13 +419,7 @@ body {
     }
   }
   
-  .user-name {
-    padding: 24px 0;
-    color: $green;
-    font-size: 24px;
-  }
-
-  .organization-name {
+  .user-name, .organization-name {
     padding: 24px 0;
     color: $green;
     font-size: 24px;
