@@ -13,6 +13,6 @@ table
       td= render 'snippets/snippet', snippet: snippet
       td= snippet.published
       td= link_to 'Show', snippet
-      td= link_to 'Destroy', snippet, method: :delete, data:   confirm: 'Are you sure?' 
+      td= link_to 'Destroy', snippet, method: :delete, data: { confirm: 'Are you sure?' }
 br/
 = link_to 'New Snippet', new_snippet_path
