@@ -4,7 +4,7 @@ class Message < ActiveRecord::Base
     |
     ^(?<time>\d{4}-\d{2}-\d{2}\ \d{2}:\d{2}:\d{2})\t(?<nick>([^\s]+))\t(?<content>.*)$ # Weechat1
     |
-    ^(?<time>\d{2}:\d{2}:\d{2})\ (?<nick>([^\s]+))\ \|\ (?<content>.*)$ # Weechat2
+    ^(?<time>\d{2}:\d{2}:\d{2})\s*(?<nick>([^\s]+))\s*\|\s*(?<content>.*)$ # Weechat2
     |
     ^\[(?<time>\d{2}:\d{2}:\d{2})\]\ (?<nick>[^:]+):\ (?<content>(.*))$ # Textual
     |

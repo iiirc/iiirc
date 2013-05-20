@@ -46,7 +46,7 @@ describe Message do
   end
 
   context 'WeeChat log format2' do
-    let(:regular_message) { "11:58:48 antipop_ | git commit -m '...'が紹介されていますが" }
+    let(:regular_message) { "11:58:48  antipop_ | git commit -m '...'が紹介されていますが" }
 
     it {
       subject.raw_content = regular_message
