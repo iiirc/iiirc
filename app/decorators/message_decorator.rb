@@ -6,15 +6,7 @@ class MessageDecorator < Draper::Decorator
   !ix
 
   delegate_all
-
-  # Define presentation-specific methods here. Helpers are accessed through
-  # `helpers` (aka `h`). You can override attributes, for example:
-  #
-  #   def created_at
-  #     helpers.content_tag :span, class: 'time' do
-  #       source.created_at.strftime("%a %m/%d/%y")
-  #     end
-  #   end
+  decorates_association :stars
 
   # @todo: link to images when secret
   def content
@@ -27,5 +19,14 @@ class MessageDecorator < Draper::Decorator
         h.link_to uri, h.transition_path(to: uri)
       end
     end
+  end
+
+  def star_count_tag
+    h.content_tag(:span, star_count, class: 'count')
+  end
+
+  def starred_by_tag
+    starred_by = stars.map(&:image_tag).join
+    h.content_tag(:span, h.raw(starred_by), class: 'starred-by')
   end
 end

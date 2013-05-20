@@ -17,12 +17,7 @@
       <%- else -%>
         <%= link_to '★', signin_url %>
       <%- end -%>
-      <span class="count"><%= message.stars.reduce(0) {|sum, star| sum + star.count} %></span>
-      <span class="starred-by">
-      <%- if message.stars.reduce(0) {|sum, star| sum + star.count} > 0 -%>
-      <%- message.stars.each do |star| -%><img class="stared-by-icon" src="<%= star.user.gravatar_url %>" alt="<%= star.user.username %>" title="<%= star.user.username %>" data-user-id="<%= star.user_id %>"><%- end -%>
-      <%- end -%>
-      </span>
+      <%=raw message.star_count_tag %><%=raw message.starred_by_tag %>
       </span>
     <%- else -%>
       <%= message.raw_content %>
