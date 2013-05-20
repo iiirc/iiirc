@@ -1,4 +1,8 @@
 $ ->
+  $('body').css({
+    backgroundColor: '#fff',
+    color: '#2b2b2b'
+  })
   href = $('#transition').attr('href')
   if href
     $container = $('#remaining-time')
