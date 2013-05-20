@@ -17,7 +17,7 @@ dl id="snippet_#{snippet.id}"
         | &nbsp;
         = raw message.content
         span.star
-          | \&nbsp;
+          | &nbsp;
           - if current_user
             = link_to '★', snippet_message_stars_path(snippet, message), method: :post, remote: true
           - else
