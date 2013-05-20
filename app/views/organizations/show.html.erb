@@ -1,7 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<h2>Members</h2>
 <% @organization.users.each do |user| %>
-  <%= image_tag user.gravatar_url, class: 'avator' %>
+  <%= link_to image_tag(user.gravatar_url, alt: user.username, class: 'avator'), user_path(user.username) %>
 <% end %>
 
 <% @organization.snippets.each do |snippet| %>
