@@ -2,7 +2,7 @@
 
 ## Current supported IRC log formats
 
-* LimeChat log format (Mac & Win)
+* LimeChat (Mac & Win)
 * Weechat
 * Textual
 * hitode909 format
