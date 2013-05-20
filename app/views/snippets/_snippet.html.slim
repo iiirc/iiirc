@@ -6,14 +6,15 @@ dl id="snippet_#{snippet.id}"
     p[class="tweet" id="L#{line_number}"]
       - if message.time.present?
         - if params[:controller] == "snippets" && params[:action] == "show"
-          time>= link_to message.time, "#L#{line_number}", id: "L#{line_number}"
-          | \&nbsp;
+          time= link_to message.time, "#L#{line_number}", id: "L#{line_number}"
+          | &nbsp;
         - else
-          time>= message.time
-          | \&nbsp;
+          time= message.time
+          | &nbsp;
         span[class="nick_#{nick_nums[message.nick]}"]
           = message.nick
-          | \:
+          | :
+        | &nbsp;
         = raw message.content
         span.star
           | \&nbsp;
