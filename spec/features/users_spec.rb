@@ -74,6 +74,31 @@ describe 'Users' do
           expect(page).to have_css("a[href='/snippets/#{snippet.hash_id}']")
         end
       end
+
+      context 'when user belongs to no organizations' do
+        it "don't have organization section" do
+          visit user_path(user.username)
+
+          expect(page).not_to have_css('.organizations')
+        end
+      end
+
+      context 'when user belongs to no organizations' do
+        let(:organization) { Fabricate(:organization) }
+        before do
+          organization.users << user
+          visit user_path(user.username)
+        end
+
+        it 'have list of organizations' do
+          expect(page).to have_css('.organizations')
+        end
+
+        it 'have link to organization pages' do
+          expect(page).to have_link(organization.login)
+          expect(page).to have_css("a[href='#{organization_path(organization.login)}']")
+        end
+      end
     end
   end
 end
