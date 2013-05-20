@@ -42,7 +42,11 @@ class Snippet < ActiveRecord::Base
 
   def tweet_bot
     return unless published?
-    Twitter.update("%s" % %w(あっ アッ わっ ワッ !!).sample)
-    Twitter.update("%s ( %s - %s )" % [messages.try(:first).try(:content), title, url])
+    begin
+      Twitter.update("%s" % %w(あっ アッ わっ ワッ !!).sample)
+      Twitter.update("%s ( %s - %s )" % [messages.try(:first).try(:content), title, url])
+    rescue Twitter::Error::Forbidden => e
+      logger.warn "Twitter.update was failed: %s" % e.message
+    end
   end
 end
