@@ -44,9 +44,9 @@ class Snippet < ActiveRecord::Base
     return unless published?
     begin
       Twitter.update("%s" % %w(あっ アッ わっ ワッ !!).sample)
-      Twitter.update("%s ( %s - %s )" % [messages.try(:first).try(:content), title, url])
     rescue Twitter::Error::Forbidden => e
       logger.warn "Twitter.update was failed: %s" % e.message
     end
+    Twitter.update("%s ( %s - %s )" % [messages.try(:first).try(:content), title, url])
   end
 end
