@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
   # DELETE /signout
   def destroy
     session[:user_id] = nil
-    redirect_to root_path, :notice => "Successfully signed out."
+    redirect_to root_path, notice: "Successfully signed out."
   end
 
   private
