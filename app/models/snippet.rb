@@ -4,8 +4,6 @@ class Snippet < ActiveRecord::Base
   belongs_to :organization
   has_many   :messages, dependent: :destroy
 
-  attr_accessible :published, :title, :organization_id
-
   attr_writer :content
 
   scope :date_desc,   -> { order("created_at desc") }

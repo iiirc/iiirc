@@ -14,8 +14,6 @@ class Message < ActiveRecord::Base
   belongs_to :snippet
   has_many :stars, dependent: :destroy
 
-  attr_accessible :content, :nick, :time, :raw_content
-
   validates :raw_content, presence: true
 
   before_create :parse_content
