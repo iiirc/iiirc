@@ -25,7 +25,7 @@ Always welcome requests and/or patches.
 $ git clone git@github.com:iiirc/iiirc.git
 $ cd iiirc
 $ bundle
-$ bundle exec rake setup
+$ ./setup.rb
 $ bundle exec rake db:create db:migrate
 $ r s
 ```

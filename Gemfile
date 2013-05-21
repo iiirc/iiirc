@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails', '4.0.0.rc1'
 
 gem 'mysql2'
 gem 'omniauth-github'
@@ -10,7 +10,7 @@ gem 'rails_config'
 gem 'gravtastic'
 gem 'verification', github: 'sikachu/verification'
 gem 'rinku'
-gem 'friendly_id'
+gem 'friendly_id', github: 'FriendlyId/friendly_id', branch: 'rails4'
 gem 'twitter'
 gem 'draper'
 gem 'kaminari'
@@ -18,12 +18,9 @@ gem 'newrelic_rpm'
 gem 'draper'
 gem 'slim-rails'
 
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
-end
-
+gem 'sass-rails',   '~> 4.0.0.rc1'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'uglifier',     '>= 1.3.0'
 gem 'jquery-rails'
 
 group :development do
@@ -55,7 +52,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'simplecov',      require: false
+  gem 'simplecov', require: false
   gem 'coveralls', require: false
 end
 

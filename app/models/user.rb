@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  attr_accessible :organization_ids
-
   extend FriendlyId
   friendly_id :username
 
@@ -16,7 +14,7 @@ class User < ActiveRecord::Base
   def find_or_create_organizations
     octokit_client = Octokit::Client.new(login: username, oauth_token: token)
     return octokit_client.organizations(username).map do |organization|
-      Organization.find_or_create_by_login_and_original_id(organization.login, organization.id)
+      Organization.find_or_create_by(login: organization.login, original_id: organization.id)
     end
   end
 

@@ -13,6 +13,7 @@ describe Snippet do
       end
     end
   }
+
   let(:published) {}
 
   describe '#url' do
@@ -20,21 +21,49 @@ describe Snippet do
   end
 
   describe '#tweet_bot' do
-    context "when published == true" do
+    subject { snippet }
+
+    context "when Rails.env.pruduction? == true and published == true" do
       let(:published) { true }
 
+      before do
+        Rails.stub(env: ActiveSupport::StringInquirer.new("production"))
+      end
+
       it do
-        Twitter.should_receive(:update).twice
-        snippet.send(:tweet_bot)
+        TweetBot.should_receive(:tweet).once
+        subject
       end
     end
 
-    context "when published == false" do
+    context "when Rails.env.pruduction? == true and published == false" do
+      let(:published) { false }
+
+      before do
+        Rails.stub(env: ActiveSupport::StringInquirer.new("production"))
+      end
+
+      it do
+        TweetBot.should_receive(:tweet).never
+        subject
+      end
+    end
+
+    context "when Rails.env.pruduction? == false and published == true" do
+      let(:published) { true }
+
+      it do
+        TweetBot.should_receive(:tweet).never
+        subject
+      end
+    end
+
+    context "when Rails.env.pruduction? == false and published == false" do
       let(:published) { false }
 
       it do
-        Twitter.should_receive(:update).never
-        snippet.send(:tweet_bot)
+        TweetBot.should_receive(:tweet).never
+        subject
       end
     end
   end
