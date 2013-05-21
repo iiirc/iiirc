@@ -7,7 +7,7 @@ class SnippetsController < ApplicationController
     @snippets = Snippet.published.date_desc.decorate
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # index.html.slim
       format.json { render json: @snippets }
       format.atom { render atom: @snippets }
     end
@@ -24,7 +24,7 @@ class SnippetsController < ApplicationController
     @snippet = snippet.decorate
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html # show.html.slim
       format.json { render json: @snippet }
     end
   end
@@ -35,7 +35,7 @@ class SnippetsController < ApplicationController
     @snippet = Snippet.new.decorate
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html # new.html.slim
       format.json { render json: @snippet }
     end
   end
