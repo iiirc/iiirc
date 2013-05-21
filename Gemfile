@@ -24,9 +24,6 @@ gem 'uglifier',     '>= 1.3.0'
 
 gem 'jquery-rails'
 
-# add these gems to help with the transition:
-gem 'protected_attributes'
-
 group :development do
   gem 'awesome_print'
   gem 'pry-rails'
