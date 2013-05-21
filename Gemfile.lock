@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/FriendlyId/friendly_id.git
+  revision: 36a1409d76676912e607d2bad69f9aa32f5edae3
+  branch: rails4
+  specs:
+    friendly_id (4.1.0.beta.2)
+
+GIT
   remote: git://github.com/sikachu/verification.git
   revision: 5bb2ffc2c057a7c6a5a403ebb3f4a6369eac75ed
   specs:
@@ -85,7 +92,6 @@ GEM
       eventmachine (>= 0.12.0)
     ffi (1.8.1)
     formatador (0.2.4)
-    friendly_id (4.0.9)
     fuubar (1.1.0)
       rspec (~> 2.0)
       rspec-instafail (~> 0.2.0)
@@ -307,7 +313,7 @@ DEPENDENCIES
   draper
   fabrication
   faker
-  friendly_id
+  friendly_id!
   fuubar
   gravtastic
   guard-livereload
