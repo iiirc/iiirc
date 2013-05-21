@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     @organizations = @user.find_or_create_organizations
 
     # TODO ここでは厳密にこのユーザが本当に Organization に紐づいているかの検証を GitHub 側に確認する必要がある
-    @user.attributes = params[:user]
+    @user.attributes = user_params
 
     if @user.save
       session[:user_id] = @user.id
@@ -37,5 +37,10 @@ class UsersController < ApplicationController
     else
       render :new
     end
+  end
+
+  private
+  def user_params
+    params.require(:user).permit(:provider, :uid, :username, :email, :token)
   end
 end

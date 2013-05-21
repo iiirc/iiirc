@@ -44,7 +44,7 @@ class SnippetsController < ApplicationController
   def create
     return render_access_denied if current_user.blank?
     content = params[:content].strip
-    snippet = current_user.snippets.build(params[:snippet])
+    snippet = current_user.snippets.build(snippet_params)
     snippet.published = params[:commit] == 'public'
 
     content.each_line do |raw_content|
@@ -78,5 +78,10 @@ class SnippetsController < ApplicationController
       format.html { redirect_to root_path, notice: 'Snippet was successfully deleted.' }
       format.json { head :no_content }
     end
+  end
+
+  private
+  def snippet_params
+    params.require(:snippet).permit(:title)
   end
 end
