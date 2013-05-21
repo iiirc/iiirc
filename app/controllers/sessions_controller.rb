@@ -6,10 +6,10 @@ class SessionsController < ApplicationController
 
     if user
       session[:user_id] = user.id
-      redirect_to root_path notice: "Signed up!"
+      redirect_to root_path, notice: "Signed up!"
     else
       store_auth_params(auth)
-      redirect_to signup_path :notice => "Signed in!"
+      redirect_to signup_path, notice: "Signed in!"
     end
   end
 
