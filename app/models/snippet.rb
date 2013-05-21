@@ -37,16 +37,6 @@ class Snippet < ActiveRecord::Base
   end
 
   def set_hash_id
-    self.hash_id = Digest::SHA512.hexdigest(Settings.snippet.salt + Time.now.to_i.to_s)[0..19] unless self.published?
-  end
-
-  def tweet_bot
-    return unless published?
-    begin
-      Twitter.update("%s" % %w(あっ アッ わっ ワッ !!).sample)
-    rescue Twitter::Error::Forbidden => e
-      logger.warn "Twitter.update was failed: %s" % e.message
-    end
-    Twitter.update("%s ( %s - %s )" % [messages.try(:first).try(:content), title, url])
+    self.hash_id = Digest::SHA512.hexdigest(Settings.snippet.salt + Time.now.to_i.to_s)[0..19] unless published?
   end
 end
