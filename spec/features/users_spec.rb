@@ -43,6 +43,12 @@ describe 'Users' do
         expect(page).not_to have_css('[id~="snippet_"]')
       end
 
+      it 'have link to feed' do
+        visit user_path(user.username)
+        links = Nokogiri.XML(page.html).css("link[rel='alternate'][type='application/atom+xml'][href='#{url_for(controller: :users, action: :show, id: user.username, format: :atom)}']")
+        expect(links).not_to be_empty
+      end
+
       context 'when so many snippets exist' do
         before do
           Snippet.default_per_page.times do
@@ -97,6 +103,25 @@ describe 'Users' do
         it 'have link to organization pages' do
           expect(page).to have_link(organization.login)
           expect(page).to have_css("a[href='#{organization_path(organization.login)}']")
+        end
+      end
+
+      describe 'Atom feed' do
+        it 'should render' do
+          visit user_path(user.username, format: :atom)
+          expect(page.status_code).to be 200
+        end
+
+        it 'should be valid atom' do
+          visit user_path(user.username, format: :atom)
+          expect(page.source).to be_valid_atom
+        end
+
+        it 'should not render secret snippets' do
+          snippet.update_column :published, false
+          visit user_path(user.username, format: :atom)
+          feed = RSS::Parser.parse(page.source)
+          expect(feed.items).to be_empty
         end
       end
     end

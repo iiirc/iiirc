@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
     if @user
       snippets = @user.snippets.date_desc.page(params[:page])
-      snippets = snippets.published unless @user.id == current_user.try(:id)
+      snippets = snippets.published if @user.id != current_user.try(:id) or params[:format] == 'atom'
       @snippets = snippets.decorate
     else
       return render_not_found
