@@ -22,6 +22,7 @@ class OrganizationsController < ApplicationController
     respond_to do |format|
       format.html # show.html.slim
       format.json { render json: @organization }
+      format.atom { render atom: @snippets }
     end
   end
 end
