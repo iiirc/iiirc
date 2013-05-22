@@ -1,5 +1,7 @@
 .container.clear
   #content
+    - content_for(:feed_url) { user_url(@user, format: :atom) }
+    - content_for(:feed_title) { "#{@user.username}'s recent snippets" }
     article.article.user-profile.clearfix
       h2.user-name= @user.username
       - if @user.organizations.present?
