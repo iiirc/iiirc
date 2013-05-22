@@ -6,7 +6,7 @@ html
     = javascript_include_tag "application"
     = csrf_meta_tags
     = favicon_link_tag "favicon.ico"
-    = auto_discovery_link_tag :atom, snippets_url(format: :atom)
+    = auto_discovery_link_tag :atom, snippets_url(format: :atom), title: "iiirc's recent snippets"
     - if content_for? :feed_url
       = auto_discovery_link_tag :atom, content_for(:feed_url), title: content_for(:feed_title)
   body[id="page_#{params[:controller]}_#{params[:action]}"]
