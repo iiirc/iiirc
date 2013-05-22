@@ -405,10 +405,15 @@ body {
         color: $yellow;
       }
     }
-    
+    .count {
+			display:inline-block;
+			margin-left:4px;
+    }
     .starred-by-icon {
       width: 18px;
       height: 18px;
+			display:inline-block;
+			margin-left:4px;
     }
   }
 
