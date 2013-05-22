@@ -123,6 +123,11 @@ describe "Snippets" do
           visit snippet_path(snippet)
           expect(page).to have_css(".starred-by img[data-user-id='#{star.user.id}']")
         end
+
+        it 'icon of who starred should be clickable' do
+          visit snippet_path(snippet)
+          expect(page).to have_css(".starred-by a[href='#{user_path(star.user.username)}'] img")
+        end
       end
     end
 
