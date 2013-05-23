@@ -16,8 +16,9 @@
         | どの Organization の会話ですか??
       .form-org-radiobox.container
         - current_user.organizations.each do |organization|
-          = f.radio_button :organization_id, organization.id
-          = organization.login
+          label
+            = f.radio_button :organization_id, organization.id
+            = organization.login
     .container
       - if current_user.present?
         = button_tag 'Public post!', name: 'commit', value: 'public', type: 'submit', class: 'btn btn-green'
