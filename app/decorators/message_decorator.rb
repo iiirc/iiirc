@@ -2,7 +2,7 @@ class MessageDecorator < Draper::Decorator
   IMAGE_RE = %r!
     \.(jpe?g|gif|png|bmp|tiff?)\Z
     |
-    \Ahttps://secure.gravatar.com/avatar/
+    \Ahttps:\/\/secure.gravatar.com\/avatar\/
   !ix
 
   delegate_all

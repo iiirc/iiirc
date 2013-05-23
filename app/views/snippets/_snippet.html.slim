@@ -1,12 +1,12 @@
 - nick_nums = {}; nick_count = 0
-dl id="snippet_#{snippet.id}"
+div id="snippet_#{snippet.id}"
   - snippet.messages.each_with_index do |message, index|
     - unless nick_nums[message.nick] then nick_nums[message.nick] = nick_count; nick_count += 1 end
     - line_number = index + 1
     p[class="tweet" id="L#{line_number}"]
       - if message.time.present?
         - if params[:controller] == "snippets" && params[:action] == "show"
-          time= link_to message.time, "#L#{line_number}", id: "L#{line_number}"
+          time= link_to message.time, "#L#{line_number}"
           | &nbsp;
         - else
           time= message.time

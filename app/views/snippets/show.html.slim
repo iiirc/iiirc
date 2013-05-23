@@ -8,7 +8,7 @@
       .article-content
         = render 'snippet', snippet: @snippet
       .embed_code
-        = text_field_tag "snippet_#{@snippet.published? ? @snippet.id : @snippet.hash_id}", '<script type="text/javascript" src="' + url_for(controller: 'api/snippets', action: 'show', id: (@snippet.published? ? @snippet.id : @snippet.hash_id), format: :js, only_path: false) + '"></script>', readonly: true, class: 'input-text'
+        = text_field_tag "embedded_snippet_#{@snippet.published? ? @snippet.id : @snippet.hash_id}", '<script type="text/javascript" src="' + url_for(controller: 'api/snippets', action: 'show', id: (@snippet.published? ? @snippet.id : @snippet.hash_id), format: :js, only_path: false) + '"></script>', readonly: true, class: 'input-text'
       .container
         - if @snippet.owner?(current_user)
           = link_to snippet_path, class: 'btn btn-red', method: :delete, data: { confirm: "Are you sure to delete?" } do
@@ -16,8 +16,8 @@
       - if @snippet.published?
         .social
           .hatena
-            | <a class=hatena-bookmark-button href="http://b.hatena.ne.jp/entry/#{request.url}" data-hatena-bookmark-layout="standard" data-hatena-bookmark-title="#{@snippet.title} - iiirc">
+            a.hatena-bookmark-button href="http://b.hatena.ne.jp/entry/#{request.url}" data-hatena-bookmark-layout="standard" data-hatena-bookmark-title="#{@snippet.title} - iiirc"
           .twitter
-            | <a class="twitter-share-button" data-lang="en", data-url="#{request.url}", data-text="#{@snippet.title} - iiirc" href="https://twitter.com/share">ツイート
+            a.twitter-share-button data-lang="en", data-url="#{request.url}", data-text="#{@snippet.title} - iiirc" href="https://twitter.com/share">ツイート
           .facebook
             .fb-like data-href="#{request.url}" data-layout="button_count" data-send="false" data-show-faces="false"
