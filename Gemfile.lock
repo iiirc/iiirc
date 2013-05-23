@@ -311,6 +311,7 @@ DEPENDENCIES
   draper
   fabrication
   faker
+  faraday
   friendly_id!
   fuubar
   gravtastic
