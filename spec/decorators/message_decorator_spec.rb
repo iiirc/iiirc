@@ -38,7 +38,7 @@ describe MessageDecorator do
       end
 
       it 'marks URIs up with a and img tag' do
-        expect(message.content).to eq('<a href="https://secure.gravatar.com/avatar/8bafb8feb0f769fb5c46521c53f21eb6">https://secure.gravatar.com/avatar/8bafb8feb0f769fb5c46521c53f21eb6<br><img src="https://secure.gravatar.com/avatar/8bafb8feb0f769fb5c46521c53f21eb6" alt=""></a>')
+        expect(message.content).to eq('<a href="https://secure.gravatar.com/avatar/8bafb8feb0f769fb5c46521c53f21eb6">https://secure.gravatar.com/avatar/8bafb8feb0f769fb5c46521c53f21eb6</a><br><a href="https://secure.gravatar.com/avatar/8bafb8feb0f769fb5c46521c53f21eb6"><img alt="" src="https://secure.gravatar.com/avatar/8bafb8feb0f769fb5c46521c53f21eb6" /></a>')
       end
 
       context 'when secret snippet' do
@@ -47,7 +47,7 @@ describe MessageDecorator do
         end
 
         it 'marks URIs up with a and img tag using image proxy' do
-          expect(message.content).to eq '<a href="/image_proxy?of=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F8bafb8feb0f769fb5c46521c53f21eb6">https://secure.gravatar.com/avatar/8bafb8feb0f769fb5c46521c53f21eb6<br><img alt="" src="/image_proxy?of=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F8bafb8feb0f769fb5c46521c53f21eb6" /></a>'
+          expect(message.content).to eq '<a href="/transition?to=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F8bafb8feb0f769fb5c46521c53f21eb6">https://secure.gravatar.com/avatar/8bafb8feb0f769fb5c46521c53f21eb6</a><br><a href="/transition?to=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F8bafb8feb0f769fb5c46521c53f21eb6"><img alt="" src="/image_proxy?of=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F8bafb8feb0f769fb5c46521c53f21eb6" /></a>'
         end
       end
     end

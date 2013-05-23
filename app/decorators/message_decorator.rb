@@ -10,17 +10,29 @@ class MessageDecorator < Draper::Decorator
 
   # @todo: link to images when secret
   def content
-    if snippet.published?
-      Rinku.auto_link(h.html_escape(model.content), :all) {|link|
-        link =~ IMAGE_RE ? %(#{link}<br><img src="#{link}" alt="">) : link
-      }
-    else
-      h.html_escape(model.content).gsub URI.regexp(%w[http https ftp mailto]) do |link|
-        link =~ IMAGE_RE ? %(<a href="#{h.image_proxy_path(of: link)}">#{link}<br>#{h.image_tag(h.image_proxy_path(of: link), alt: '')}</a>)
-                         : h.link_to(link, h.transition_path(to: link))
-        
+    links = []
+    escaped = h.html_escape(model.content)
+    marked =
+      if snippet.published?
+        Rinku.auto_link(escaped, :all) {|link|
+          links << link if link =~ IMAGE_RE
+          link
+        }
+      else
+        escaped.gsub(URI.regexp(%w[http https ftp mailto])) {|link|
+          links << link if link =~ IMAGE_RE
+          h.link_to(link, h.transition_path(to: link))
+        }
+      end
+    if links.present?
+      marked << '<br>'
+      links.each do |link|
+        uri = snippet.published? ? link : h.transition_path(to: link)
+        src = snippet.published? ? link : h.image_proxy_path(of: link)
+        marked << h.link_to(h.image_tag(src, alt: ''), uri)
       end
     end
+    marked
   end
 
   def star_count_tag
