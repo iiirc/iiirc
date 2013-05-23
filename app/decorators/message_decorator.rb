@@ -15,8 +15,10 @@ class MessageDecorator < Draper::Decorator
         link =~ IMAGE_RE ? %(#{link}<br><img src="#{link}" alt="">) : link
       }
     else
-      model.content.gsub URI.regexp(%w[http https ftp mailto]) do |uri|
-        h.link_to uri, h.transition_path(to: uri)
+      h.html_escape(model.content).gsub URI.regexp(%w[http https ftp mailto]) do |link|
+        link =~ IMAGE_RE ? %(<a href="#{h.image_proxy_path(of: link)}">#{link}<br>#{h.image_tag(h.image_proxy_path(of: link), alt: '')}</a>)
+                         : h.link_to(link, h.transition_path(to: link))
+        
       end
     end
   end

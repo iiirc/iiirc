@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 describe "Transition" do
-  describe "GET /transition/http://yahoo.co.jp" do
+  describe "GET /transition?to=http://yahoo.co.jp" do
     subject { page }
 
     it "should render" do
