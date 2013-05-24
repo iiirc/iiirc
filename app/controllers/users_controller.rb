@@ -1,7 +1,7 @@
 # coding: utf-8
 
 class UsersController < ApplicationController
-  verify session: :params_from_authenticator, only: %w(new create), redirect_to: :login_path
+  verify session: :params_from_authenticator, only: %w(new create), redirect_to: :root_path
 
   # GET /users/iiirc
   def show
