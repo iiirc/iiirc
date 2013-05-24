@@ -185,7 +185,7 @@ describe "Snippets" do
         expect(find('h2')).to have_content 'sugoi'
 
         expect(find('time')).to have_content '00:52'
-        expect(find('span.nick_0')).to have_content 'shikakun:'
+        expect(find("span.nick_3")).to have_content 'shikakun:'
         expect(find('p#L1.tweet')).to have_content 'すごい！'
 
         expect(current_path).to eq snippet_path(id: snippet.id + 1)
@@ -201,7 +201,7 @@ describe "Snippets" do
         expect(find('h2')).to have_content(/\A\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}.*\z/)
 
         expect(find('time')).to have_content '00:52'
-        expect(find('span.nick_0')).to have_content 'shikakun:'
+        expect(find("span.nick_3")).to have_content 'shikakun:'
         expect(find('p#L1.tweet')).to have_content 'すごい！'
 
         expect(current_path).to eq snippet_path(id: snippet.id + 1)
@@ -217,7 +217,7 @@ describe "Snippets" do
         expect(find('h2')).to have_content(/\A\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}.*\z/)
 
         expect(find('time')).to have_content('00:52')
-        expect(find('span.nick_0')).to have_content('shikakun:')
+        expect(find("span.nick_3")).to have_content 'shikakun:'
         expect(find('p#L1.tweet')).to have_content('すごい！')
 
         expect(current_path).to match(/\A\/snippets\/\w{20}\z/)
