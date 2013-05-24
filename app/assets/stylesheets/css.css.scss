@@ -254,14 +254,23 @@ body {
     height: 24px;
     margin-left: 12px;
   }
-  
-  #notice {
+
+  #notice,
+  #alert {
     float: left;
     height: 24px;
     margin-left: 12px;
     line-height: 24px;
   }
-  
+
+  #notice {
+    color: $blue;
+  }
+
+  #alert {
+    color: $red-dark;
+  }
+
   #add-new-snippet {
     float: right;
     height: 24px;

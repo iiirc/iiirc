@@ -19,6 +19,8 @@ html
             = link_to "Sign in with GitHub", "/auth/github", 'data-no-turbolink' => true, class: 'btn btn-blue'
         - if notice
           p#notice= notice
+        - if alert
+          p#alert= alert
         - if current_user
           #add-new-snippet
             = link_to new_snippet_path, class: 'btn' do
