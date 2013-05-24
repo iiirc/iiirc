@@ -58,4 +58,5 @@ end
 
 group :production do
   gem 'rack-google-analytics'
+  gem 'exception_notification'
 end
