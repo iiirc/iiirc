@@ -56,6 +56,13 @@ describe "Snippets" do
         expect(page.response_headers['Content-Type']).to start_with 'application/atom+xml'
       end
 
+      it "should render links to hubs of PubSubHubbub" do
+        visit snippets_path(format: :atom)
+        feed = RSS::Parser.parse(page.source)
+        links = feed.links.select {|link| link.rel == 'hub'}
+        expect(links.length).to eq Settings.pubsubhubbub.length
+      end
+
       shared_examples "valid atom feed" do
         it "should render valid atom feed" do
           visit snippets_path(format: :atom)

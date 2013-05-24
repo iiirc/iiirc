@@ -16,6 +16,7 @@ gem 'draper'
 gem 'kaminari'
 gem 'newrelic_rpm'
 gem 'draper'
+gem 'faraday'
 gem 'slim-rails'
 
 gem 'sass-rails',   '~> 4.0.0.rc1'

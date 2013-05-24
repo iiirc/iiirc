@@ -320,6 +320,7 @@ DEPENDENCIES
   exception_notification!
   fabrication
   faker
+  faraday
   friendly_id!
   fuubar
   gravtastic
