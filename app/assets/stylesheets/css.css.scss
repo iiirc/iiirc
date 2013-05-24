@@ -204,7 +204,7 @@ p {
 .list {
   &.list-disc {
     margin-left: 24px;
-    
+
     li {
       padding: 3px 0;
       list-style-type: disc;
@@ -276,13 +276,13 @@ body {
     height: 24px;
     margin-left: 12px;
   }
-  
+
   .btn {
     padding: 0 1em !important;
     height: 24px;
     line-height: 24px;
   }
-  
+
   .avator {
     width: auto;
     height: 24px;
@@ -359,11 +359,11 @@ body {
 .article {
   position: relative;
   margin-bottom: 12px;
-  
+
   .article-header {
     padding: 6px 12px;
   }
-  
+
   .title {
     float: left;
     height: 24px;
@@ -377,7 +377,7 @@ body {
       color: $white;
     }
   }
-  
+
   .user-icon {
     float: right;
     width: 24px;
@@ -391,11 +391,11 @@ body {
     @include font(irc);
     background-color: $black;
     box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.44);
-    
+
     .tweet {
       margin-bottom: 0.15em;
     }
-    
+
     .nick_0 { color: lighten(#066, 32) !important; }
     .nick_1 { color: lighten(#660, 32) !important; }
     .nick_2 { color: lighten(#606, 32) !important; }
@@ -414,7 +414,7 @@ body {
         color: $yellow;
       }
     }
-    
+
     .starred-by-icon {
       width: 18px;
       height: 18px;
@@ -427,7 +427,7 @@ body {
       font-size: 12px !important;
     }
   }
-  
+
   .user-name, .organization-name {
     padding: 24px 0;
     color: $green;
