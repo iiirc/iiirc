@@ -1,6 +1,6 @@
 - nick_nums = {}
 - num_nick_color = 12
-- nick_count = Digest::MD5.hexdigest(snippet.messages.first.raw_content).to_i(16) % num_nick_color
+- nick_count = Digest::MD5.hexdigest(snippet.messages.first.try(:raw_content).to_s).to_i(16) % num_nick_color
 div id="snippet_#{snippet.id}"
   - snippet.messages.each_with_index do |message, index|
     - unless nick_nums[message.nick]
