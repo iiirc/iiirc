@@ -8,7 +8,6 @@ class MessageDecorator < Draper::Decorator
   delegate_all
   decorates_association :stars
 
-  # @todo: link to images when secret
   def content
     links = []
     escaped = h.html_escape(model.content)
