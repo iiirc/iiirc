@@ -1,15 +1,11 @@
 class Message < ActiveRecord::Base
-  REGEXP = /
-    ^(?<time>\d\d\:\d\d)\s+(?<nick>([^\s\:]+)\:|(?<nick>\([^\s\)]+\)))\ (?<content>.*)$
-    |
-    ^(?<time>\d{4}-\d{2}-\d{2}\ \d{2}:\d{2}:\d{2})\t(?<nick>([^\s]+))\t(?<content>.*)$ # Weechat1
-    |
-    ^(?<time>\d{2}:\d{2}:\d{2})\s*(?<nick>([^\s]+))\s*\|\s*(?<content>.*)$ # Weechat2
-    |
-    ^\[?(?<time>\d{2}:\d{2}:\d{2})\]?\ (?<nick>[^:]+):\t?\ (?<content>(.*))$ # Textual
-    |
-    ^(?<time>\d{2}:\d{2})\ (?<nick>\w+)\ (?<content>.+)$
-  /xo
+  PATTERN = Regexp.union([
+    /^(?<time>\d\d\:\d\d)\s+(?<nick>([^\s\:]+)\:|(?<nick>\([^\s\)]+\))) (?<content>.*)$/,
+    /^(?<time>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\t(?<nick>([^\s]+))\t(?<content>.*)$/, # Weechat1
+    /^(?<time>\d{2}:\d{2}:\d{2})\s*(?<nick>([^\s]+))\s*\|\s*(?<content>.*)$/, # Weechat2
+    /^\[?(?<time>\d{2}:\d{2}:\d{2})\]? (?<nick>[^:]+):\t? (?<content>(.*))$/, # Textual
+    /^(?<time>\d{2}:\d{2}) (?<nick>\w+) (?<content>.+)$/
+  ])
 
   belongs_to :snippet
   has_many :stars, dependent: :destroy
@@ -24,7 +20,7 @@ class Message < ActiveRecord::Base
 
   def parse_content
     return if self.raw_content.blank?
-    matched = REGEXP.match(self.raw_content)
+    matched = PATTERN.match(self.raw_content)
     if matched
       self.content ||= matched[:content]
       self.nick    ||= matched[:nick].delete(':()')
