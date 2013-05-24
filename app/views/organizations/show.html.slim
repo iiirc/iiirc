@@ -1,0 +1,17 @@
+.container.clear
+  #content
+    - content_for(:feed_url) { organization_url(@organization, format: :atom) }
+    - content_for(:feed_title) { "#{@organization.login}'s recent snippets" }
+    article.article.organization-profile.clearfix
+      h2.organization-name= @organization.login
+      h3 Members
+      - @organization.users.each do |user|
+        = link_to image_tag(user.gravatar_url, alt: user.username, class: 'avator'), user_path(user.username)
+    - @snippets.each do |snippet|
+      article.article.article-snippet
+        hgroup.article-header.clear
+          h2.title= link_to snippet.title, snippet
+          p= link_to image_tag(snippet.user.gravatar_url(size: 48), alt: snippet.user.username, class: 'user-icon'), user_path(snippet.user)
+        .article-content
+          = render 'snippets/snippet', snippet: snippet
+  = paginate @snippets

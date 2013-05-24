@@ -1,0 +1,41 @@
+DOCTYPE html
+html
+  head
+    title= content_for?(:title) ? "#{content_for(:title)} - iiirc" : "iiirc"
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    = favicon_link_tag "favicon.ico"
+    = auto_discovery_link_tag :atom, snippets_url(format: :atom), title: "iiirc's recent snippets"
+    - if content_for? :feed_url
+      = auto_discovery_link_tag :atom, content_for(:feed_url), title: content_for(:feed_title)
+  body[id="page_#{params[:controller]}_#{params[:action]}"]
+    header#header.wrapper
+      .container.clear
+        h1#brand
+          = link_to image_tag("iiirc.png", alt: "iiirc") , root_path
+        #account_info
+          - if current_user
+            = link_to image_tag(current_user.gravatar_url(size: 48), alt: current_user.username, class: 'avator'), user_path(current_user.username)
+          - else
+            = link_to "Sign in with GitHub", "/auth/github", 'data-no-turbolink' => true, class: 'btn btn-blue'
+        - if notice
+          p#notice= notice
+        - if alert
+          p#alert= alert
+        - if current_user
+          #add-new-snippet
+            = link_to new_snippet_path, class: 'btn' do
+              | + Add New Snippet!
+    #contents.wrapper
+      = yield
+    footer#footer.wrapper.clear
+      .container
+        p#copyrights iiirc&trade;
+        - if current_user
+          p#signout
+            = current_user.username
+            | &nbsp;(#{link_to "Sign out", signout_path, method: :delete})
+        - else
+          p#powered
+            a href="http://sqale.jp/" target="_blank"

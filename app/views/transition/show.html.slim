@@ -1,0 +1,10 @@
+article.snippet.wrapper
+  hgroup.container
+    h2.title
+      | Transitted to #{link_to @uri, @uri, id: 'transition'} in
+      span#remaining-time 12
+      | seconds
+  .container
+    - 39.times do |n|
+      = image_tag "transition/#{n + 1}.gif", alt: 'loading...'
+  article

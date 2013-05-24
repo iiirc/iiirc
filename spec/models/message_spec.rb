@@ -35,7 +35,7 @@ describe Message do
     it_behaves_like '#parse_content'
   end
 
-  context 'WeeChat log' do
+  context 'WeeChat log format1' do
     let(:regular_message) { "2013-03-04 03:51:33\ttikeda\tこれ取り込みたいんですけど" }
 
     it {
@@ -45,8 +45,32 @@ describe Message do
     }
   end
 
-  context 'Textual log' do
+  context 'WeeChat log format2' do
+    let(:regular_message) { "11:58:48  antipop_ | git commit -m '...'が紹介されていますが" }
+
+    it {
+      subject.raw_content = regular_message
+      subject.parse_content
+      expect(subject.time).to eq('11:58:48')
+      expect(subject.nick).to eq('antipop_')
+      expect(subject.content).to eq("git commit -m '...'が紹介されていますが")
+    }
+  end
+
+  context 'Textual log1' do
     let(:regular_message) { '[16:31:00] lighty_z: rspecに詳しい方すいません' }
+
+    it {
+      subject.raw_content = regular_message
+      subject.parse_content
+      expect(subject.time).to eq('16:31:00')
+      expect(subject.nick).to eq('lighty_z')
+      expect(subject.content).to eq('rspecに詳しい方すいません')
+    }
+  end
+
+  context 'Textual log2' do
+    let(:regular_message) { "16:31:00 lighty_z:\t rspecに詳しい方すいません" }
 
     it {
       subject.raw_content = regular_message

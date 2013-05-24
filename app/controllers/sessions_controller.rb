@@ -6,17 +6,17 @@ class SessionsController < ApplicationController
 
     if user
       session[:user_id] = user.id
-      redirect_to root_path notice: "Signed up!"
+      redirect_to root_path, notice: "Signed in!"
     else
       store_auth_params(auth)
-      redirect_to signup_path :notice => "Signed in!"
+      redirect_to signup_path
     end
   end
 
   # DELETE /signout
   def destroy
     session[:user_id] = nil
-    redirect_to root_path, :notice => "Successfully signed out."
+    redirect_to root_path, notice: "Successfully signed out."
   end
 
   private

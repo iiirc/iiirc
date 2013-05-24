@@ -1,0 +1,20 @@
+.container.clear
+  #content
+    - content_for(:feed_url) { user_url(@user, format: :atom) }
+    - content_for(:feed_title) { "#{@user.username}'s recent snippets" }
+    article.article.user-profile.clearfix
+      h2.user-name= @user.username
+      - if @user.organizations.present?
+        .organizations
+          p
+            | Organizations #{@user.username} belongs to
+          ul.list.list-disc
+            - @user.organizations.each do |organization|
+              li= link_to organization.login, organization_path(organization.login)
+    - @snippets.each do |snippet|
+      article.article.article-snippet
+        hgroup.article-header.clear
+          h2.title= link_to snippet.title, snippet_path(snippet.published? ? snippet : snippet.hash_id)
+        .article-content
+          = render 'snippets/snippet', snippet: snippet
+  = paginate @snippets
