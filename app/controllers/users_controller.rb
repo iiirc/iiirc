@@ -1,7 +1,7 @@
 # coding: utf-8
 
 class UsersController < ApplicationController
-  verify session: :params_from_authenticator, only: %w(new create), redirect_to: :root_path
+  verify session: :params_from_authenticator, only: %w(new create), redirect_to: :root_path, add_flash: { alert: "A unknown error occured.. O_o" }
 
   # GET /users/iiirc
   def show
