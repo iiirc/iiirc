@@ -18,6 +18,7 @@ class Snippet < ActiveRecord::Base
 
   after_create do
     TweetBot.tweet(self) if Rails.env.production? && published?
+    PubsubhubbubNotifier.notify if published?
   end
 
   validates :messages,
