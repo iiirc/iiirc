@@ -30,7 +30,7 @@ class PubsubhubbubNotifier
     Rails.logger.info "[#{self.class}##{__method__}]POST #{@uri}"
     return unless Rails.env.production? or Rails.env.test?
     response = @client.post @uri.request_uri, 'hub.mode' => 'publish',
-      'hub.url' =>  Rails.application.routes.url_helpers.url_for(controller: :snippets, format: :atom)
+      'hub.url' =>  Rails.application.routes.url_helpers.url_for(host: 'iiirc.org', controller: :snippets, format: :atom)
     Rails.logger.warn("[#{self.class}##{__method__}]ERROR: status: %s, body: %s" % [response.status, response.body]) unless response.status == 204
     response
   end
