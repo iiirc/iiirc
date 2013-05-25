@@ -6,7 +6,7 @@ class SnippetsController < ApplicationController
   # GET /snippets.json
   # GET /snippets.atom
   def index
-    @snippets = Snippet.with_assoc.published.date_desc.decorate
+    @snippets = Snippet.with_assoc.published.date_desc.page(params[:page]).decorate
 
     if request.formats.include? :html
       respond_to do |format|
