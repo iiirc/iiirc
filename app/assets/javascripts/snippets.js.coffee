@@ -6,9 +6,9 @@ $ ->
 
   $('a[data-method="post"]').on "ajax:success", (data, status, xhr) ->
     $container = $(@).closest("p")
-    $container.find(".count").text status.count
+    $container.find(".count").text status.message.star_count
     if $container.find("img[data-user-id='#{status.user_id}']").length == 0
-      $container.find(".starred-by").append("<img src='#{status.user.gravatar_url}' alt='Starred by #{status.user.username}' data-user-id='#{status.user_id}'>")
+      $container.find(".starred-by").append("<img src='#{status.user.gravatar_url}' alt='#{status.user.username}' data-user-id='#{status.user_id}' class='starred-by-icon'>")
   .on "ajax:error", (xhr, status, error) ->
     status = $.parseJSON(status.responseText)
     msg = status.errors || "Error!"
