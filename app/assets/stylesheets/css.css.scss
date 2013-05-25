@@ -405,7 +405,8 @@ body {
           color: $white;
         }
         
-        .hover-mark {
+        a:after {
+          content: "\0021d2";
           position: absolute;
           top: 0;
           right: 0;
@@ -414,7 +415,7 @@ body {
           color: $green;
         }
         
-        &:hover .hover-mark {
+        &:hover a:after {
           display: block;
         }
       }
