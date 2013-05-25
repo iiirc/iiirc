@@ -3,6 +3,10 @@ class SnippetDecorator < Draper::Decorator
   decorates_association :user
   decorates_association :messages
 
+  def nick_offset
+    Digest::MD5.hexdigest(messages.first.try(:raw_content).to_s).to_i(16)
+  end
+
   def cache_key(options={format: :html})
     "snippet_#{model.id}.#{options[:format]}"
   end
