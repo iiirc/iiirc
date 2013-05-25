@@ -8,10 +8,17 @@ class SnippetsController < ApplicationController
   def index
     @snippets = Snippet.with_assoc.published.date_desc.decorate
 
-    respond_to do |format|
-      format.html # index.html.slim
-      format.json { render json: @snippets }
-      format.atom { render atom: @snippets }
+    if request.formats.include? :html
+      respond_to do |format|
+        format.html # index.html.slim
+      end
+    else
+      if stale? @snippets.first
+        respond_to do |format|
+          format.atom { render atom: @snippets }
+          format.json { render json: @snippets }
+        end
+      end
     end
   end
 
