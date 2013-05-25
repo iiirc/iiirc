@@ -38,7 +38,7 @@ $letter-spacing: 0;
 
 @mixin font($type: default) {
   @if $type == link {
-    color: $blue;
+    color: $gray;
     text-decoration: none;
   } @else if $type == irc {
     color: $white;
@@ -212,6 +212,28 @@ p {
   }
 }
 
+.bubble {
+  position: relative;
+  padding: 6px 8px 8px;
+  margin-bottom: 8px;
+  text-align: left;
+  line-height: 1;
+  background-color: $green;
+  
+  &:after {
+    content: "";
+    position: absolute;
+    left: 18px;
+    bottom: -6px;
+    width: 0;
+    height: 0;
+    margin-left: -6px;
+    border-top: 6px solid $green;
+    border-right: 6px solid transparent;
+    border-left: 6px solid transparent;
+  }
+}
+
 ::-webkit-input-placeholder {
 	color: $white !important;
 }
@@ -228,7 +250,7 @@ body {
 }
 
 .container {
-  width: 790px;
+  width: 960px;
   margin: 0 auto;
 }
 
@@ -349,6 +371,56 @@ body {
 
 #contents {
   padding: 12px 0;
+}
+
+#navigations {
+  float: left;
+  width: 150px;
+  padding-top: 10px;
+  margin-right: 20px;
+  
+  .navigation {        
+    margin-bottom: 10px;
+    
+    .title {
+      font-size: 12px;
+      font-weight: bold;
+    }
+    
+    .links {
+      padding: 5px 0;
+      background-color: $black;
+      
+      .link {
+        position: relative;
+        font-size: 12px;
+        
+        a {
+          width: 134px;
+          padding: 4px 8px;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          display: block;
+          color: $white;
+        }
+        
+        a:after {
+          content: "\0021d2";
+          position: absolute;
+          top: 0;
+          right: 0;
+          padding: 4px;
+          display: none;
+          color: $green;
+        }
+        
+        &:hover a:after {
+          display: block;
+        }
+      }
+    }
+  }
 }
 
 #content {

@@ -88,6 +88,6 @@ class SnippetsController < ApplicationController
   end
 
   def snippet_params
-    params.require(:snippet).permit(:title)
+    params.require(:snippet).permit(:title, :organization_id)
   end
 end
