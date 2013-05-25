@@ -3,6 +3,7 @@ class Snippet < ActiveRecord::Base
   belongs_to :user
   belongs_to :organization
   has_many   :messages, dependent: :destroy
+  has_many   :stars, through: :messages
 
   attr_writer :content
 
@@ -31,6 +32,10 @@ class Snippet < ActiveRecord::Base
 
   def owner?(user)
     user.try(:id) == user_id
+  end
+
+  def latest_star
+    stars.max {|s1, s2| s1.updated_at <=> s2.updated_at}
   end
 
   private
