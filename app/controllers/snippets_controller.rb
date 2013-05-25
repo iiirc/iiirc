@@ -6,7 +6,7 @@ class SnippetsController < ApplicationController
   # GET /snippets.json
   # GET /snippets.atom
   def index
-    @snippets = Snippet.includes(messages: [:stars]).published.date_desc.decorate
+    @snippets = Snippet.with_assoc.published.date_desc.decorate
 
     respond_to do |format|
       format.html # index.html.slim
@@ -72,10 +72,10 @@ class SnippetsController < ApplicationController
 
   private
   def set_snippet
-    @snippet = Snippet.includes(messages: [:stars]).find_by_hash_id(params[:id])
+    @snippet = Snippet.with_assoc.find_by_hash_id(params[:id])
 
     if @snippet.blank?
-      @snippet = Snippet.includes(messages: [:stars]).find_by_id(params[:id])
+      @snippet = Snippet.with_assoc.find_by_id(params[:id])
       return render_not_found unless @snippet.try(:published?)
     end
   end
