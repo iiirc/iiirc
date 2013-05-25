@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.find_by_username(params[:id])
 
     if @user
-      snippets = @user.snippets.date_desc.page(params[:page])
+      snippets = @user.snippets.with_assoc.date_desc.page(params[:page])
       snippets = snippets.published if @user.id != current_user.try(:id) or params[:format] == 'atom'
       @snippets = snippets.decorate
     else

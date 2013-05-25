@@ -10,6 +10,7 @@ class Snippet < ActiveRecord::Base
   scope :date_asc,    -> { order("created_at asc")  }
   scope :published,   -> { where(published: true)   }
   scope :unpublished, -> { where(published: false)  }
+  scope :with_assoc,  -> { includes(messages: [:stars]) }
 
   before_create do
     set_default_title
