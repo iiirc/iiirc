@@ -17,7 +17,7 @@ class OrganizationsController < ApplicationController
   # GET /organizations/papslimoy-all.json
   def show
     @organization = Organization.find_by_login(params[:id])
-    @snippets = @organization.snippets.published.page(params[:page]).decorate
+    @snippets = @organization.snippets.includes(messages: [:stars]).published.page(params[:page]).decorate
 
     respond_to do |format|
       format.html # show.html.slim
