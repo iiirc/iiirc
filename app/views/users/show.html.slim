@@ -16,5 +16,6 @@
         hgroup.article-header.clear
           h2.title= link_to snippet.title, snippet_path(snippet.published? ? snippet : snippet.hash_id)
         .article-content
-          = render 'snippets/snippet', snippet: snippet
+          - cache snippet.cache_key_with_stars format: :html, signed_in: !!current_user do
+            = render 'snippets/snippet', snippet: snippet
   = paginate @snippets
