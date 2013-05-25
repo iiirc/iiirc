@@ -3,7 +3,7 @@ class Organization < ActiveRecord::Base
   has_many :users, through: :user_organizations
   has_many :snippets
 
-  scope :has_snippets, -> { joins(:snippets) }
+  scope :has_snippets, -> { joins(:snippets).uniq }
 
   def to_param
     login
