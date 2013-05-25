@@ -10,6 +10,18 @@
           li.link
             = link_to "#" + organization.login, organization
             span.hover-mark &rArr;
+    .navigation
+      h4.title.bubble Subscribe
+      ul.links
+        li.link
+          a href="http://twitter.com/iiircorg" target="_blank" Twitter
+          span.hover-mark &rArr;
+        li.link
+          a href="/snippets.atom" target="_blank" Atom
+          span.hover-mark &rArr;
+        li.link
+          a href="https://github.com/iiirc/iiirc/" target="_blank" GitHub
+          span.hover-mark &rArr;
   #content
     - content_for(:feed_url) { organization_url(@organization, format: :atom) }
     - content_for(:feed_title) { "#{@organization.login}'s recent snippets" }
