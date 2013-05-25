@@ -15,4 +15,5 @@ table
       td= link_to 'Show', snippet
       td= link_to 'Destroy', snippet, method: :delete, data: { confirm: 'Are you sure?' }
 br/
+= paginate @snippets
 = link_to 'New Snippet', new_snippet_path
