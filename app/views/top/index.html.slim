@@ -1,4 +1,13 @@
 .container.clear
+  nav#navigations
+    #organizations.navigation
+      h4.title.bubble Organizations
+      ul.links
+        li.link
+          = link_to "#all", root_path
+        - @organizations.each do |organization|
+          li.link
+            = link_to "#" + organization.login, organization
   #content
     - @snippets.each do |snippet|
       article.article.article-snippet
