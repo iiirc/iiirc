@@ -390,6 +390,7 @@ body {
       background-color: $black;
       
       .link {
+        position: relative;
         font-size: 12px;
         
         a {
@@ -400,6 +401,19 @@ body {
           overflow: hidden;
           display: block;
           color: $white;
+        }
+        
+        .hover-mark {
+          position: absolute;
+          top: 0;
+          right: 0;
+          padding: 4px;
+          display: none;
+          color: $green;
+        }
+        
+        &:hover .hover-mark {
+          display: block;
         }
       }
     }

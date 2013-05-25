@@ -5,9 +5,11 @@
       ul.links
         li.link
           = link_to "#all", root_path
+          span.hover-mark &rArr;
         - @organizations.each do |organization|
           li.link
             = link_to "#" + organization.login, organization
+            span.hover-mark &rArr;
   #content
     - @snippets.each do |snippet|
       article.article.article-snippet
