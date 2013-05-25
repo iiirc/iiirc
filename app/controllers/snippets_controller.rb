@@ -8,16 +8,16 @@ class SnippetsController < ApplicationController
   def index
     @snippets = Snippet.with_assoc.published.date_desc.decorate
 
-    if %w[json atom].include? params[:format]
+    if request.formats.include? :html
+      respond_to do |format|
+        format.html # index.html.slim
+      end
+    else
       if stale? @snippets.first
         respond_to do |format|
           format.atom { render atom: @snippets }
           format.json { render json: @snippets }
         end
-      end
-    else
-      respond_to do |format|
-        format.html # index.html.slim
       end
     end
   end
