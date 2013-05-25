@@ -8,5 +8,6 @@
               = snippet.title
           p= link_to image_tag(snippet.user.gravatar_url(size: 48), alt: snippet.user.username, class: 'user-icon'), user_path(snippet.user)
         .article-content
-          = render 'snippets/snippet' , snippet: snippet
+          - cache snippet.cache_key_with_stars format: :html, signed_in: !!current_user do
+            = render 'snippets/snippet', snippet: snippet
     = paginate @snippets

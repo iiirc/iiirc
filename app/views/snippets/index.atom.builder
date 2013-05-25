@@ -11,7 +11,7 @@ atom_feed do |feed|
     feed.link rel: 'hub', href: hub.hub
   end
   @snippets.each do |snippet|
-    cache "snippet_#{snippet.id}.atom" do
+    cache snippet.cache_key format: :atom do
       render 'snippets/snippet', builder: feed, snippet: snippet
     end
   end
