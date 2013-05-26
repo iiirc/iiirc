@@ -133,7 +133,7 @@ describe "Snippets" do
 
         it 'icon of who starred should be clickable' do
           visit snippet_path(snippet)
-          expect(page).to have_css(".starred-by a[href='#{user_path(star.user.username)}'] img")
+          expect(page).to have_css(".starred-by a[href='#{user_url(star.user.username)}'] img")
         end
       end
     end

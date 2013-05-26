@@ -1,3 +1,85 @@
-// Place all the styles related to the api/snippets controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@charset "UTF-8";
+@import "link.css.scss";
+
+.iiirc_snippet {
+  html,body,div,h1,h2,h3,h4,h5,h6,p,blockquote,q,pre,table,caption,colgroup,col,tbody,thead,tfoot,tr,th,td,ul,ol,li,dl,dt,dd,form,fieldset,legend,label,span,a,img,em,ins,del,cite,abbr,sup,sub,dfn,code,var,samp,kbd,object,script,noscript,style,iframe,embed,param,map,area,menu,hr,address,small,strong,i,b,article,aside,figure,footer,header,hgroup,nav,section,figcaption,time,video,audio,mark,ruby,rt,rp,bdo,source,canvas,details,summary,command,datalist,keygen,output,progress,meter { margin: 0; padding: 0; font-size: 100%; }
+
+  a {
+    @include link;
+  }
+
+  position: relative;
+  margin-bottom: 12px;
+
+  .article-header {
+    padding: 6px 12px;
+  }
+
+  .title {
+    float: left;
+    height: 24px;
+    color: $white;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 24px;
+    display: block;
+
+    a {
+      color: $white;
+    }
+  }
+
+  .user-icon {
+    float: right;
+    width: 24px;
+    height: 24px;
+    display: block;
+  }
+
+  padding: 10px 12px;
+
+  @include font(irc);
+  background-color: $black;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.44);
+
+  .tweet {
+    margin-bottom: 0.15em;
+  }
+
+  .nick_0 { color: lighten(#066, 32) !important; }
+  .nick_1 { color: lighten(#660, 32) !important; }
+  .nick_2 { color: lighten(#606, 32) !important; }
+  .nick_3 { color: lighten(#060, 32) !important; }
+  .nick_4 { color: lighten(#600, 32) !important; }
+  .nick_5 { color: lighten(#006, 32) !important; }
+  .nick_6 { color: lighten(#036, 32) !important; }
+  .nick_7 { color: lighten(#360, 32) !important; }
+  .nick_8 { color: lighten(#603, 32) !important; }
+  .nick_9 { color: lighten(#306, 32) !important; }
+  .nick_10 { color: lighten(#063, 32) !important; }
+  .nick_11 { color: lighten(#630, 32) !important; }
+
+  .star {
+    a {
+      color: $yellow;
+    }
+
+    .count {
+      display:inline-block;
+      margin-left:4px;
+    }
+
+    .starred-by-icon {
+      width: 18px;
+      height: 18px;
+      display:inline-block;
+      margin-left:4px;
+    }
+  }
+
+  .user-name, .organization-name {
+    padding: 24px 0;
+    color: $green;
+    font-size: 24px;
+  }
+}
