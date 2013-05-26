@@ -1,4 +1,22 @@
 .container.clear
+  nav#navigations
+    #organizations.navigation
+      h4.title.bubble Organizations
+      ul.links
+        li.link
+          = link_to "#all", root_path
+        - @organizations.each do |organization|
+          li.link
+            = link_to "#" + organization.login, organization
+    .navigation
+      h4.title.bubble Subscribe
+      ul.links
+        li.link
+          a href="http://twitter.com/iiircorg" target="_blank" Twitter
+        li.link
+          a href="/snippets.atom" target="_blank" Atom
+        li.link
+          a href="https://github.com/iiirc/iiirc/" target="_blank" GitHub
   #content
     - content_for(:feed_url) { organization_url(@organization, format: :atom) }
     - content_for(:feed_title) { "#{@organization.login}'s recent snippets" }

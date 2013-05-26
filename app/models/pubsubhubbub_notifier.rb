@@ -5,13 +5,15 @@ class PubsubhubbubNotifier
     attr_accessor :instances
 
     def notify
-      instances.each do |instance|
-        begin
-          instance.notify
-        rescue => e
-          Rails.logger.warn "[#{self}.#{__method__}]ERROR: #{e}"
-        end
-      end
+      instances.map {|instance|
+        Thread.new(instance) {
+          begin
+            instance.notify
+          rescue => e
+            Rails.logger.warn "[#{self}.#{__method__}]ERROR: #{e}"
+          end
+        }
+      }
     end
   end
 

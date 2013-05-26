@@ -3,6 +3,7 @@ class Snippet < ActiveRecord::Base
   belongs_to :user
   belongs_to :organization
   has_many   :messages, dependent: :destroy
+  has_many   :stars, through: :messages
 
   attr_writer :content
 
@@ -10,6 +11,7 @@ class Snippet < ActiveRecord::Base
   scope :date_asc,    -> { order("created_at asc")  }
   scope :published,   -> { where(published: true)   }
   scope :unpublished, -> { where(published: false)  }
+  scope :with_assoc,  -> { includes(messages: [:stars]) }
 
   before_create do
     set_default_title
@@ -30,6 +32,10 @@ class Snippet < ActiveRecord::Base
 
   def owner?(user)
     user.try(:id) == user_id
+  end
+
+  def latest_star
+    stars.max {|s1, s2| s1.updated_at <=> s2.updated_at}
   end
 
   private

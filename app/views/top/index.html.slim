@@ -1,4 +1,22 @@
 .container.clear
+  nav#navigations
+    #organizations.navigation
+      h4.title.bubble Organizations
+      ul.links
+        li.link
+          = link_to "#all", root_path
+        - @organizations.each do |organization|
+          li.link
+            = link_to "#" + organization.login, organization
+    .navigation
+      h4.title.bubble Subscribe
+      ul.links
+        li.link
+          a href="http://twitter.com/iiircorg" target="_blank" Twitter
+        li.link
+          a href="/snippets.atom" target="_blank" Atom
+        li.link
+          a href="https://github.com/iiirc/iiirc/" target="_blank" GitHub
   #content
     - @snippets.each do |snippet|
       article.article.article-snippet
@@ -8,5 +26,6 @@
               = snippet.title
           p= link_to image_tag(snippet.user.gravatar_url(size: 48), alt: snippet.user.username, class: 'user-icon'), user_path(snippet.user)
         .article-content
-          = render 'snippets/snippet' , snippet: snippet
+          - cache snippet.cache_key_with_stars format: :html, signed_in: !!current_user do
+            = render 'snippets/snippet', snippet: snippet
     = paginate @snippets

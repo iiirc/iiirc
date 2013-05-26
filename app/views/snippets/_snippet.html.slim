@@ -1,11 +1,11 @@
 - nick_nums = {}
-- num_nick_color = 12
-- nick_count = Digest::MD5.hexdigest(snippet.messages.first.try(:raw_content).to_s).to_i(16) % num_nick_color
+- nick_color_count = 12
+- nick_num = snippet.nick_offset % nick_color_count
 div id="snippet_#{snippet.id}"
   - snippet.messages.each_with_index do |message, index|
     - unless nick_nums[message.nick]
-      - nick_nums[message.nick] = nick_count % num_nick_color
-      - nick_count += 1
+      - nick_nums[message.nick] = nick_num % nick_color_count
+      - nick_num += 1
     - line_number = index + 1
     p[class="tweet" id="L#{line_number}"]
       - if message.time.present?

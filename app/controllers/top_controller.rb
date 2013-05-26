@@ -1,6 +1,7 @@
 class TopController < ApplicationController
   def index
-    @snippets = Snippet.published.date_desc.page(params[:page]).decorate
+    @organizations = Organization.has_snippets
+    @snippets = Snippet.with_assoc.published.date_desc.page(params[:page]).decorate
 
     respond_to do |format|
       format.html

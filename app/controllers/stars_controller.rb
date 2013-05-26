@@ -8,7 +8,10 @@ class StarsController < ApplicationController
       star.save!
     end
 
-    render json: star, include: { user: { only: [:username, :gravatar_url], methods: [:gravatar_url] } }
+    render json: star, include: {
+      user: { only: [:username, :gravatar_url], methods: [:gravatar_url] },
+      message: { only: [], methods: [:star_count] }
+    }
   rescue => e
     render json: { errors: e.message }, status: :unprocessable_entity
   end

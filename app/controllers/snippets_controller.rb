@@ -6,12 +6,19 @@ class SnippetsController < ApplicationController
   # GET /snippets.json
   # GET /snippets.atom
   def index
-    @snippets = Snippet.published.date_desc.decorate
+    @snippets = Snippet.with_assoc.published.date_desc.page(params[:page]).decorate
 
-    respond_to do |format|
-      format.html # index.html.slim
-      format.json { render json: @snippets }
-      format.atom { render atom: @snippets }
+    if request.formats.include? :html
+      respond_to do |format|
+        format.html # index.html.slim
+      end
+    else
+      if stale? @snippets.first
+        respond_to do |format|
+          format.atom { render atom: @snippets }
+          format.json { render json: @snippets }
+        end
+      end
     end
   end
 
@@ -72,15 +79,15 @@ class SnippetsController < ApplicationController
 
   private
   def set_snippet
-    @snippet = Snippet.find_by_hash_id(params[:id])
+    @snippet = Snippet.with_assoc.find_by_hash_id(params[:id])
 
     if @snippet.blank?
-      @snippet = Snippet.find_by_id(params[:id])
+      @snippet = Snippet.with_assoc.find_by_id(params[:id])
       return render_not_found unless @snippet.try(:published?)
     end
   end
 
   def snippet_params
-    params.require(:snippet).permit(:title)
+    params.require(:snippet).permit(:title, :organization_id)
   end
 end
