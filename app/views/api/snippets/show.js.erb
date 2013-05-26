@@ -1,9 +1,46 @@
-var link = document.createElement("link");
-link.setAttribute("rel", "stylesheet");
-link.setAttribute("style", "text/css");
-link.setAttribute("href", "<%= asset_url('api/snippets.css') %>");
-document.getElementsByTagName("head")[0].appendChild(link);
+if (typeof iiircStyleLoaded == "undefined") {
+  var link = document.createElement("link");
+  link.setAttribute("rel", "stylesheet");
+  link.setAttribute("style", "text/css");
+  link.setAttribute("href", "<%= asset_url('api/snippets.css') %>");
+  document.getElementsByTagName("head")[0].appendChild(link);
+  iiircStyleLoaded = true;
+}
 
 <% @html.each_line do |line| %>
 document.write("<%=raw line.chomp.gsub(/"/, '\"') %>");
 <% end %>
+
+(function() {
+  var showStars = function() {
+    var spans = this.getElementsByTagName("span");
+    for (var i = 0, span_count = spans.length; i < span_count; i++) {
+      var span = spans[i];
+      if (! span.getAttribute("class").match(/\bstar\b/)) {
+        continue;
+      }
+      span.style.display = "inline";
+    }
+  };
+  var hideStars = function() {
+    var spans = this.getElementsByTagName("span");
+    for (var i = 0, span_count = spans.length; i < span_count; i++) {
+      var span = spans[i];
+      if (! span.getAttribute("class").match(/\bstar\b/)) {
+        continue;
+      }
+      span.style.display = "none";
+    }
+  }
+  var snippet = document.getElementById("iiirc_snippet_<%= @snippet.id %>");
+  var ps = snippet.getElementsByTagName("p");
+  for (var i = 0, p_count = ps.length; i < p_count; i++) {
+    var p =ps[i];
+    if (! p.getAttribute("class").match(/\btweet\b/)) {
+      continue;
+    }
+    p.onmouseover = showStars;
+    p.onmouseout = hideStars;
+    hideStars.call(p);
+  }
+})();
