@@ -25,3 +25,6 @@ Iiirc::Application.configure do
   # Debug mode disables concatenation and preprocessing of assets.
   config.assets.debug = true
 end
+
+# Custom settings
+Slim::Engine.set_default_options pretty: true, sort_attrs: false
