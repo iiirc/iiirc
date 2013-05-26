@@ -17,11 +17,11 @@
 $(document).ready(function() {
   $(".star").hide();
   $(".tweet").hover(
-  function () {
-    $(this).find(".star").show();
-  },
-  function () {
-    $(this).find(".star").hide();
-  }
-);
+    function () {
+      $(this).find(".star").show();
+    },
+    function () {
+      $(this).find(".star").hide();
+    }
+  );
 });
