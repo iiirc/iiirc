@@ -5,7 +5,7 @@ class Api::SnippetsController < ApplicationController
       snippet = Snippet.with_assoc.find_by_id(params[:id])
       return render_not_found unless snippet.try(:published?)
     end
-    @html = render_to_string(partial: 'snippets/snippet', layout: false, locals: {snippet: snippet.decorate, current_user: nil})
+    @html = render_to_string(partial: 'snippet', layout: false, locals: {snippet: snippet.decorate, current_user: nil})
 
     respond_to do |format|
       format.js

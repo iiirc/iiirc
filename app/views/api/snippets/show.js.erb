@@ -1,0 +1,9 @@
+var link = document.createElement("link");
+link.setAttribute("rel", "stylesheet");
+link.setAttribute("style", "text/css");
+link.setAttribute("href", "<%= asset_url('api/snippets.css') %>");
+document.getElementsByTagName("head")[0].appendChild(link);
+
+<% @html.each_line do |line| %>
+document.write("<%=raw line.chomp.gsub(/"/, '\"') %>");
+<% end %>
