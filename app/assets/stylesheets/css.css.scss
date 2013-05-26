@@ -1,44 +1,7 @@
 @charset "UTF-8";
-@import "colors.css.scss";
+@import "link.css.scss";
 
 $gap: 20px;
-
-$font-color: $white;
-$font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
-$font-size: 14px;
-$font-size-small: 12px;
-$font-size-large: 18px;
-$line-height: 1.66;
-$line-height-slim: 20px;
-$line-height-small: $line-height*0.8;
-$letter-spacing: 0;
-
-@mixin font($type: default) {
-  @if $type == link {
-    color: $gray;
-    text-decoration: none;
-  } @else if $type == irc {
-    color: $white;
-    font-size: $font-size;
-    line-height: $line-height-slim;
-    letter-spacing: $letter-spacing;
-  } @else {
-    color: $font-color;
-    font-size: $font-size;
-    line-height: $line-height;
-    letter-spacing: $letter-spacing;
-  }
-
-  font-family: $font-family;
-}
-
-@mixin link {
-  @include font(link);
-
-  &:hover {
-	  @include font(link);
-  }
-}
 
 @mixin border-radius($size: small) {
   @if $size == small {
