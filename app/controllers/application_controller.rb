@@ -9,15 +9,19 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  def render_bad_request(message='400 Bad Request')
+  def require_login
+    return render_access_denied if current_user.blank?
+  end
+
+  def render_bad_request(message = '400 Bad Request')
     render text: message, status: 400, layout: false
   end
 
-  def render_access_denied
-    render text: "forbidden fruit :)", status: 403, layout: false
+  def render_access_denied(message = 'forbidden fruit :)')
+    render text: message, status: 403, layout: false
   end
 
-  def render_not_found
-    render text: "404 not found", status: 404, layout: false
+  def render_not_found(message = '404 not found')
+    render text: message, status: 404, layout: false
   end
 end
