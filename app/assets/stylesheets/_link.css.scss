@@ -1,0 +1,9 @@
+@import "font.css.scss";
+
+@mixin link {
+  @include font(link);
+
+  &:hover {
+	  @include font(link);
+  }
+}
