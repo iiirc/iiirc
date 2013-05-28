@@ -7,32 +7,27 @@ div id="snippet_#{snippet.id}"
       - nick_nums[message.nick] = nick_num % nick_color_count
       - nick_num += 1
     - line_number = index + 1
-    - if message.star_count > 0
-      erb:
-        <p id="L<%= line_number %>" class="tweet stared">
-    - else
-      erb:
-        <p id="L<%= line_number %>" class="tweet">
-    - if message.time.present?
-      - if params[:controller] == "snippets" && params[:action] == "show"
-        time= link_to message.time, "#L#{line_number}"
-        | &nbsp;
-      - else
-        time= message.time
-        | &nbsp;
-      span[class="nick_#{nick_nums[message.nick]}"]
-        = message.nick
-        | :
-      | &nbsp;
-      span.message
-        = raw message.content
-      span.star
-        | &nbsp;
-        - if current_user
-          = link_to '★', snippet_message_stars_path(snippet, message), method: :post, remote: true
+    p[class="tweet#{' stared' if message.star_count > 0}" id="L#{line_number}"]
+      - if message.time.present?
+        - if params[:controller] == "snippets" && params[:action] == "show"
+          time= link_to message.time, "#L#{line_number}"
+          | &nbsp;
         - else
-          = link_to '★', signin_url
-        = raw message.star_count_tag
-        = raw message.starred_by_tag
-    - else
-      = message.raw_content
+          time= message.time
+          | &nbsp;
+        span[class="nick_#{nick_nums[message.nick]}"]
+          = message.nick
+          | :
+        | &nbsp;
+        span.message
+          = raw message.content
+        span.star
+          | &nbsp;
+          - if current_user
+            = link_to '★', snippet_message_stars_path(snippet, message), method: :post, remote: true
+          - else
+            = link_to '★', signin_url
+          = raw message.star_count_tag
+          = raw message.starred_by_tag
+      - else
+        = message.raw_content
