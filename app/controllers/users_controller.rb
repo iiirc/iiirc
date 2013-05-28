@@ -2,6 +2,7 @@
 
 class UsersController < ApplicationController
   before_action :set_user, only: %w(edit update)
+  before_action :require_login, only: %w(edit update)
   verify session: :params_from_authenticator, only: %w(new create), redirect_to: :root_path, add_flash: { alert: "A unknown error occured.. O_o" }
 
   # GET /users/iiirc
@@ -50,7 +51,7 @@ class UsersController < ApplicationController
     @user.attributes = user_params
 
     if @user.save
-      redirect_to settings_url, notice: "Successfully updated.!"
+      redirect_to settings_url, notice: "Successfully updated!"
     else
       render :edit
     end
