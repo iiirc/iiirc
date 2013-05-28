@@ -9,10 +9,10 @@ div id="snippet_#{snippet.id}"
     - line_number = index + 1
     - if message.star_count > 0
       erb:
-        <p id="L#{line_number}" class="tweet stared">
+        <p id="L<%= line_number %>" class="tweet stared">
     - else
       erb:
-        <p id="L#{line_number}" class="tweet">
+        <p id="L<%= line_number %>" class="tweet">
     - if message.time.present?
       - if params[:controller] == "snippets" && params[:action] == "show"
         time= link_to message.time, "#L#{line_number}"
