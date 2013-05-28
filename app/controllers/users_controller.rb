@@ -49,6 +49,7 @@ class UsersController < ApplicationController
   # PATCH /settings
   def update
     @user.attributes = user_params
+    @organizations = @user.find_or_create_organizations
 
     if @user.save
       redirect_to settings_url, notice: "Successfully updated!"
