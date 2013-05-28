@@ -7,7 +7,7 @@ div id="snippet_#{snippet.id}"
       - nick_nums[message.nick] = nick_num % nick_color_count
       - nick_num += 1
     - line_number = index + 1
-    p[class="tweet" id="L#{line_number}"]
+    p[class="tweet#{' starred' if message.star_count > 0}" id="L#{line_number}"]
       - if message.time.present?
         - if params[:controller] == "snippets" && params[:action] == "show"
           time= link_to message.time, "#L#{line_number}"
@@ -19,7 +19,8 @@ div id="snippet_#{snippet.id}"
           = message.nick
           | :
         | &nbsp;
-        = raw message.content
+        span.message
+          = raw message.content
         span.star
           | &nbsp;
           - if current_user

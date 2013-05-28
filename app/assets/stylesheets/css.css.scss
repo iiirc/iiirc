@@ -406,6 +406,14 @@ body {
 
     .tweet {
       margin-bottom: 0.15em;
+      
+      &.starred {
+        .message {
+          color: #fff;
+          font-size: 16px;
+          font-weight: bold;
+        }
+      }
     }
 
     .nick_0 { color: lighten(#066, 32) !important; }
