@@ -1,0 +1,24 @@
+section.wrapper
+  .signup_organization.container
+    = form_for @user, url: settings_path, method: :patch do |f|
+      = f.label :email
+      = f.text_field :email, class: 'input-text input-text-large', placeholder: 'Your Gravater email address'
+      p.form-org-question
+        blink
+          | あなたが参加している Organization の一覧です。
+          br/
+          | iiirc では、あなたの投稿と Organization を結びつけることができます。
+          br/
+          | 結びつけるかどうかは、投稿するときに選ぶことができます。
+          br/
+          | 結びつけてもいい Organization にチェックを入れてください。
+        = render "shared/error_messages", :target => @user
+        ul.form-org-radiobox
+          - @organizations.each do |org|
+            li
+              - if @user.organizations.include?(org)
+                = f.check_box :organization_ids, { checked: true, id: "user_organization_ids_#{org.id}", name: 'user[organization_ids][]' }, org.id, ""
+              - else
+                = f.check_box :organization_ids, { id: "user_organization_ids_#{org.id}", name: 'user[organization_ids][]' }, org.id, ""
+              = f.label "organization_ids_#{org.id}", org.login
+        = f.submit "Update!", class: 'btn btn-blue btn-horizontal'
