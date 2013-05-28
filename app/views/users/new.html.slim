@@ -14,6 +14,6 @@ section.wrapper
       ul.form-org-radiobox
         - @organizations.each do |org|
           li
-            = f.check_box :organization_ids, { :checked => @user.organizations.include?(org), :name => 'user[organization_ids][]' }, org.id, ""
-            = f.label org.login
+            = f.label "organization_ids_#{org.id}", org.login
+            = f.check_box :organization_ids, { :checked => @user.organizations.include?(org), id: "user_organization_ids_#{org.id}", :name => 'user[organization_ids][]' }, org.id, ""
       = f.submit "Sign up!", class: 'btn btn-blue btn-horizontal'
