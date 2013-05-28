@@ -5,14 +5,14 @@ describe 'Users' do
 
   describe 'GET /users/alice0' do
     context 'when user not exist' do
-      it 'should not render' do
+      it 'should nt render' do
         visit user_path('iiirc')
         expect(page.status_code).to eq(404)
       end
     end
 
     context 'when user exists' do
-      let(:user) { Fabricate(:user) }
+      let(:user)     { Fabricate(:user) }
       let!(:snippet) {
         Fabricate(:snippet, user: user) do
           before_validation do |snippet|
@@ -122,68 +122,6 @@ describe 'Users' do
           visit user_path(user.username, format: :atom)
           feed = RSS::Parser.parse(page.source)
           expect(feed.items).to be_empty
-        end
-      end
-    end
-  end
-
-  describe 'GET /settings' do
-    context 'when user is not logged in' do
-      it 'should returns 403 response' do
-        visit settings_path
-        expect(page.status_code).to be 403
-      end
-    end
-
-    context 'when user is logged in' do
-      let(:user)         { Fabricate(:user) }
-      let(:organization) { Fabricate(:organization) }
-
-      before do
-        User.any_instance.stub(:find_or_create_organizations).and_return([organization])
-        sign_in(user)
-        visit settings_path
-      end
-
-      it 'should render' do
-        expect(page.status_code).to be 200
-      end
-
-      context 'when update successfully' do
-        context 'update email' do
-          it 'should update email' do
-            fill_in 'user_email', with: 'bogus@example.org'
-            click_on 'Update!'
-
-            expect(find_field('user_email').value).to eq("bogus@example.org")
-            expect(page).to have_content "Successfully updated!"
-          end
-        end
-
-        context 'update organization' do
-          let!(:user_organization) { Fabricate(:user_organization, user: user, organization: organization) }
-
-          it 'should update organizations' do
-            expect(find("#user_organization_ids_#{organization.id}").checked?).to_not eq "checked"
-            check(organization.login)
-            click_on 'Update!'
-
-            expect(page).to have_content "Successfully updated!"
-            expect(find("#user_organization_ids_#{organization.id}").checked?).to eq "checked"
-          end
-        end
-      end
-
-      context 'when update failed' do
-        before do
-          User.any_instance.stub(:save).and_return false
-        end
-
-        it 'should update settings' do
-          fill_in 'user_email', with: 'bogus@example.org'
-          click_on 'Update!'
-
-          expect(current_path).to eq settings_path
         end
       end
     end
