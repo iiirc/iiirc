@@ -1,5 +1,5 @@
 Iiirc::Application.routes.draw do
-  resources :users
+  resources :users, except: %w(edit update)
   resources :snippets, except: %w(edit update) do
     resources :messages, only: %w(destroy) do
       resources :stars, only: %w(create)
