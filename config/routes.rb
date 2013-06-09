@@ -16,6 +16,7 @@ Iiirc::Application.routes.draw do
 
   scope '/api' do
     resources :snippets, controller: 'api/snippets', only: %w[show]
+    resources :organizations, controller: 'api/organizations', only: %w[index]
   end
 
   root to: 'top#index'

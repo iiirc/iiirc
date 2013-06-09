@@ -24,4 +24,11 @@ Iiirc::Application.configure do
 
   # Debug mode disables concatenation and preprocessing of assets.
   config.assets.debug = true
+
+  config.middleware.use Rack::Cors do
+    allow do
+      origins '*'
+      resource '*', headers: :any, methods: :any
+    end
+  end
 end
