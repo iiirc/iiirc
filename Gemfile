@@ -18,6 +18,7 @@ gem 'newrelic_rpm'
 gem 'draper'
 gem 'faraday'
 gem 'slim-rails'
+gem 'rack-cors', :require => 'rack/cors'
 
 gem 'sass-rails',   '~> 4.0.0.rc1'
 gem 'coffee-rails', '~> 4.0.0'
