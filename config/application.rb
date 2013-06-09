@@ -50,5 +50,7 @@ module Iiirc
       config.gem 'rack-google-analytics', lib: 'rack/google-analytics'
       config.middleware.use Rack::GoogleAnalytics, { tracker: 'UA-1469541-8', domain: 'iiirc.org' }
     end
+
+    Slim::Engine.default_options[:pretty] = true
   end
 end
