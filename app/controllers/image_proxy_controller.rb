@@ -1,5 +1,3 @@
-require 'open-uri'
-
 class ImageProxyController < ApplicationController
   def show
     return render_bad_request 'parameter "of" is required' if params[:of].blank?
