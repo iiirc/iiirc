@@ -1,9 +1,10 @@
 class Message < ActiveRecord::Base
   PATTERN = Regexp.union([
     /^(?<time>\d\d\:\d\d)\s+(?<nick>([^\s\:]+)\:|(?<nick>\([^\s\)]+\))) (?<content>.*)$/,
-    /^(?<time>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\t(?<nick>([^\s]+))\t(?<content>.*)$/, # Weechat1
-    /^(?<time>\d{2}:\d{2}:\d{2})\s*(?<nick>([^\s]+))\s*\|\s*(?<content>.*)$/, # Weechat2
-    /^\[?(?<time>\d{2}:\d{2}:\d{2})\]? (?<nick>[^:]+):\t? (?<content>(.*))$/, # Textual
+    /^(?<time>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\t(?<nick>([^\s]+))\t(?<content>.*)$/,  # Weechat1
+    /^(?<time>\d{2}:\d{2}:\d{2})\s*(?<nick>([^\s]+))\s*\|\s*(?<content>.*)$/,             # Weechat2
+    /^\[?(?<time>\d{2}:\d{2}:\d{2})\]? (?<nick>[^:]+):\t? (?<content>(.*))$/,             # Textual
+    /^\[(?<time>(\w{3}-\d{1,2}\s)?\d{1,2}:\d{2}\s\w{2})\]\s(?<nick>.+): (?<content>.+)/,  # HipChat only for Mac client
     /^(?<time>\d{2}:\d{2}) (?<nick>\w+) (?<content>.+)$/
   ])
 

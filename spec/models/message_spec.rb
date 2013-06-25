@@ -86,4 +86,28 @@ describe Message do
 
     it_behaves_like '#parse_content'
   end
+
+  context 'HipChat' do
+    let(:regular_message) { "[Aug-9 10:47 AM] Kensuke Sashimi Nagae: いいんです。現実はおっさんでも脳内で上書きできれば。" }
+
+    it {
+      subject.raw_content = regular_message
+      subject.parse_content
+      expect(subject.time).to eq('Aug-9 10:47 AM')
+      expect(subject.nick).to eq('Kensuke Sashimi Nagae')
+      expect(subject.content).to eq('いいんです。現実はおっさんでも脳内で上書きできれば。')
+    }
+  end
+
+  context 'HipChat2' do
+    let(:regular_message) { "[12:02 PM] Kohei Hasegawa: test test" }
+
+    it {
+      subject.raw_content = regular_message
+      subject.parse_content
+      expect(subject.time).to eq('12:02 PM')
+      expect(subject.nick).to eq('Kohei Hasegawa')
+      expect(subject.content).to eq('test test')
+    }
+  end
 end
