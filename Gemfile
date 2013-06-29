@@ -33,7 +33,6 @@ group :development do
   gem 'pry-debugger'
   gem 'pry-doc'
   gem 'sqlite3'
-  gem 'zeus'
   gem 'better_errors'
   gem 'binding_of_caller'
 end
