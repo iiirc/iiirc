@@ -19,18 +19,22 @@ gem 'draper'
 gem 'faraday'
 gem 'slim-rails'
 
-gem 'sass-rails',   '~> 4.0.0.rc1'
+gem 'sass-rails',   '~> 4.0.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'uglifier',     '>= 1.3.0'
 gem 'jquery-rails'
 
 group :development do
   gem 'awesome_print'
-  gem 'pry-rails'
   gem 'wirb'
   gem 'hirb-unicode'
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-debugger'
+  gem 'pry-doc'
   gem 'sqlite3'
-  gem 'zeus'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :development, :test do
