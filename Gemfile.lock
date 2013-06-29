@@ -368,7 +368,7 @@ DEPENDENCIES
   rb-fsevent (~> 0.9.1)
   rinku
   rspec-rails
-  sass-rails (~> 4.0.0.rc1)
+  sass-rails (~> 4.0.0)
   shoulda
   simplecov
   slim-rails
