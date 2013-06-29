@@ -31,6 +31,8 @@ group :development do
   gem 'hirb-unicode'
   gem 'sqlite3'
   gem 'zeus'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :development, :test do
