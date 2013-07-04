@@ -19,6 +19,9 @@ class SnippetDecorator < Draper::Decorator
   end
 
   def twitter_card_description
-    (messages.take(3).map(&:raw_content) << "Posted by #{user.username}").join("\n")
+    msgs = messages.take(3).map(&:raw_content)
+    msgs.last << '...' if messages.length > 3
+    msgs << "Posted by #{user.username}"
+    msgs.join(' / ')
   end
 end
