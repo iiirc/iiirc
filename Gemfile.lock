@@ -13,14 +13,6 @@ GIT
       actionpack (>= 3.0.0, < 5.0)
       activesupport (>= 3.0.0, < 5.0)
 
-GIT
-  remote: git://github.com/smartinez87/exception_notification.git
-  revision: 327b38350f7c58829b173b4929189a0cd63aa337
-  specs:
-    exception_notification (4.0.0.rc1)
-      actionmailer (>= 3.0.4)
-      activesupport (>= 3.0.4)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -340,7 +332,6 @@ DEPENDENCIES
   coveralls
   database_cleaner
   draper
-  exception_notification!
   fabrication
   faker
   faraday

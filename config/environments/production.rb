@@ -64,10 +64,4 @@ Iiirc::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
-
-  # Custom settings
-  config.middleware.use ExceptionNotifier,
-    email_prefix: "[iiirc Exception] ",
-    sender_address: %{"Exception Notifier" <no-reply@iiirc.org>},
-    exception_recipients: %w(ameutau@gmail.com KitaitiMakoto@gmail.com)
 end
