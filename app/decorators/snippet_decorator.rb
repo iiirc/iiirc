@@ -17,4 +17,8 @@ class SnippetDecorator < Draper::Decorator
       latest_star.try(:updated_at).to_i.to_s <<
       (options[:signed_in] ? '_signed_in' : '_signed_out')
   end
+
+  def twitter_card_description
+    (messages.take(3).map(&:raw_content) << "Posted by #{user.username}").join("\n")
+  end
 end

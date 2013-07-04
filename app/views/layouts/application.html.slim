@@ -9,6 +9,7 @@ html
     = auto_discovery_link_tag :atom, snippets_url(format: :atom), title: "iiirc's recent snippets"
     - if content_for? :feed_url
       = auto_discovery_link_tag :atom, content_for(:feed_url), title: content_for(:feed_title)
+    = twitter_card if content_for?(:twitter_card)
   body[id="page_#{params[:controller]}_#{params[:action]}"]
     header#header.wrapper
       .container.clear

@@ -225,7 +225,7 @@ describe "Snippets" do
     end
   end
 
-  describe "DELETE /snippet/1", js: true do
+  describe "DELETE /snippet/1" do
     context "when user is not logged in" do
       it "should not show delete button" do
         visit snippet_path(snippet.id)
