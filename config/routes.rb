@@ -15,7 +15,7 @@ Iiirc::Application.routes.draw do
   get    '/image_proxy'             => 'image_proxy#show',       as: :image_proxy
 
   scope '/api' do
-    resources :snippets, controller: 'api/snippets', only: %w[show]
+    resources :snippets, controller: 'api/snippets', only: %w[index show]
     resources :organizations, controller: 'api/organizations', only: %w[index]
   end
 

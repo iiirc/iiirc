@@ -1,4 +1,11 @@
 class Api::SnippetsController < ApplicationController
+  respond_to :json
+
+  def index
+    @snippets = Snippet.with_assoc.published.date_desc.page(params[:page]).decorate
+    respond_with @snippets
+  end
+
   def show
     @snippet = Snippet.with_assoc.find_by_hash_id(params[:id])
     if @snippet.blank?
