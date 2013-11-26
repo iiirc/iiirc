@@ -78,7 +78,7 @@ GEM
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
     cliver (0.3.2)
-    coderay (1.1.0)
+    coderay (1.0.9)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -218,8 +218,8 @@ GEM
       multi_json (~> 1.0)
       websocket-driver (>= 0.2.0)
     polyglot (0.3.3)
-    pry (0.9.12.4)
-      coderay (~> 1.0)
+    pry (0.9.12)
+      coderay (~> 1.0.5)
       method_source (~> 0.8)
       slop (~> 3.4)
     pry-debugger (0.2.2)
@@ -394,7 +394,7 @@ DEPENDENCIES
   octokit (= 1.21.0)
   omniauth-github
   poltergeist
-  pry
+  pry (= 0.9.12)
   pry-debugger
   pry-doc
   pry-rails

@@ -29,7 +29,7 @@ group :development do
   gem 'awesome_print'
   gem 'wirb'
   gem 'hirb-unicode'
-  gem 'pry'
+  gem 'pry', '0.9.12'
   gem 'pry-rails'
   gem 'pry-debugger'
   gem 'pry-doc'
@@ -66,8 +66,8 @@ group :test do
 end
 
 group :production do
-  gem 'rack-google-analytics'
   gem 'rails_12factor'
+  gem 'rack-google-analytics'
   gem "unicorn"
   gem 'remote_syslog_logger'
 end
