@@ -66,11 +66,11 @@ describe StarsController do
 
       context "when error is raised" do
         before do
-          Star.any_instance.stub(:increment).and_raise
+          allow_any_instance_of(Star).to receive(:increment).and_raise
         end
 
         it "should rollback" do
-          Star.any_instance.expects(:rollback)
+          allow_any_instance_of(Star).to receive(:rollback)
           post :create, valid_attributes
         end
 
