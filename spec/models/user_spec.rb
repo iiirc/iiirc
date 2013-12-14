@@ -17,7 +17,7 @@ describe User do
 
       before do
         expected_response = double("org", id: organization.original_id, login: organization.login )
-        Octokit::Client.stub_chain(:new, :organizations).and_return([expected_response])
+        allow(Octokit::Client).to receive_message_chain(:new, :organizations).and_return [expected_response]
       end
 
       it "should return organization" do
@@ -34,7 +34,7 @@ describe User do
     context "when organization is not created yet" do
       before do
         expected_response = double("org", id: 1, login: "new_org_which_is_not_registered" )
-        Octokit::Client.stub_chain(:new, :organizations).and_return([expected_response])
+        allow(Octokit::Client).to receive_message_chain(:new, :organizations).and_return [expected_response]
       end
 
       it "should return new organization" do
