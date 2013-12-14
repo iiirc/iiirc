@@ -39,7 +39,6 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '3.0.0.beta1'
-  gem 'fuubar'
   gem 'mocha', require: 'mocha/api'
   gem 'fabrication'
   gem 'timecop'
