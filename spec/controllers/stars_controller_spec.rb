@@ -6,7 +6,7 @@ describe StarsController do
   let(:message) { Fabricate(:message) }
 
   before do
-    controller.stub(:current_user) { user }
+    allow(controller).to receive(:current_user) { user }
     request.env["HTTP_ACCEPT"] = 'application/json'
   end
 

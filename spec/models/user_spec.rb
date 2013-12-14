@@ -3,10 +3,10 @@
 require 'spec_helper'
 
 describe User do
-  it { should have_many :snippets }
-  it { should have_many :user_organizations }
-  it { should have_many :organizations }
-  it { should have_many :stars }
+  it { is_expected.to have_many :snippets }
+  it { is_expected.to have_many :user_organizations }
+  it { is_expected.to have_many :organizations }
+  it { is_expected.to have_many :stars }
 
   describe "#find_or_create_organizations" do
     let(:user) { Fabricate(:user) }
