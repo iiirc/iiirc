@@ -11,7 +11,7 @@ describe Message do
   shared_examples '#parse_content' do
     it do
       subject.raw_content = regular_message
-      expect(subject.parse_content).to be_true
+      expect(subject.parse_content).to be_truthy
     end
 
     it do
