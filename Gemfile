@@ -38,14 +38,14 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '3.0.0.beta1'
   gem 'fuubar'
   gem 'mocha', require: 'mocha/api'
   gem 'fabrication'
   gem 'timecop'
   gem 'faker'
   gem 'database_cleaner'
-  gem 'capybara'
+  gem 'capybara', '2.2.0'
   gem 'poltergeist'
   gem 'launchy'
   gem 'rb-fsevent', '~> 0.9.1'
