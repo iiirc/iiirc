@@ -6,7 +6,7 @@ describe StarsController do
   let(:message) { Fabricate(:message) }
 
   before do
-    allow(controller).to receive(:current_user) { user }
+    controller.stub(:current_user) { user }
     request.env["HTTP_ACCEPT"] = 'application/json'
   end
 
@@ -66,11 +66,11 @@ describe StarsController do
 
       context "when error is raised" do
         before do
-          allow_any_instance_of(Star).to receive(:increment).and_raise
+          Star.any_instance.stub(:increment).and_raise
         end
 
         it "should rollback" do
-          allow_any_instance_of(Star).to receive(:rollback)
+          Star.any_instance.expects(:rollback)
           post :create, valid_attributes
         end
 

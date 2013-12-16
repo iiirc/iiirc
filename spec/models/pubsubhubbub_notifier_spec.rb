@@ -7,7 +7,7 @@ describe PubsubhubbubNotifier do
 
   it 'should call notify method of all instances' do
     notifier = PubsubhubbubNotifier.new('https://example.net/publish')
-    expect(notifier).to receive(:notify).once
+    notifier.should_receive(:notify).once
     PubsubhubbubNotifier.instances = [notifier]
 
     PubsubhubbubNotifier.notify
@@ -15,9 +15,9 @@ describe PubsubhubbubNotifier do
 
   it 'should log on error' do
     notifier = PubsubhubbubNotifier.new('https://example.net/publish')
-    allow(notifier).to receive(:notify) { raise 'Error!' }
+    notifier.stub(:notify) { raise 'Error!' }
     PubsubhubbubNotifier.instances = [notifier]
-    expect(Rails.logger).to receive(:warn).with('[PubsubhubbubNotifier.notify]ERROR: Error!')
+    Rails.logger.should_receive(:warn).with('[PubsubhubbubNotifier.notify]ERROR: Error!')
 
     PubsubhubbubNotifier.notify
   end
@@ -25,7 +25,7 @@ describe PubsubhubbubNotifier do
   context 'snippet is posted' do
 
     it 'should notify for published' do
-      expect(PubsubhubbubNotifier).to receive(:notify)
+      PubsubhubbubNotifier.should_receive(:notify)
       Fabricate(:snippet, published: true) do
         before_validation do |snippet|
           snippet.messages << Fabricate(:message)
@@ -34,7 +34,7 @@ describe PubsubhubbubNotifier do
     end
 
     it 'should not notify for secret snippet' do
-      expect(PubsubhubbubNotifier).not_to receive(:notify)
+      PubsubhubbubNotifier.should_not_receive(:notify)
       Fabricate(:snippet, published: false) do
         before_validation do |snippet|
           snippet.messages << Fabricate(:message)
@@ -50,7 +50,7 @@ describe PubsubhubbubNotifier do
     end
 
     it 'should post to hub URI' do
-      expect(subject.client).to receive(:post)
+      subject.client.should_receive(:post)
         .with('/publish', 'hub.mode' => 'publish', 'hub.url' => 'http://iiirc.org/snippets.atom')
         .once
         .and_return {double(status: 204)}
@@ -58,8 +58,8 @@ describe PubsubhubbubNotifier do
     end
 
     it 'should log on error' do
-      allow(subject.client).to receive(:post).and_return {double(status: 404, body: 'Error!')}
-      expect(Rails.logger).to receive(:warn).with('[PubsubhubbubNotifier#notify]ERROR: status: 404, body: Error!').once
+      subject.client.stub(:post).and_return {double(status: 404, body: 'Error!')}
+      Rails.logger.should_receive(:warn).with('[PubsubhubbubNotifier#notify]ERROR: status: 404, body: Error!').once
       subject.notify
     end
   end

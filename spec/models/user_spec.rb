@@ -3,10 +3,10 @@
 require 'spec_helper'
 
 describe User do
-  it { is_expected.to have_many :snippets }
-  it { is_expected.to have_many :user_organizations }
-  it { is_expected.to have_many :organizations }
-  it { is_expected.to have_many :stars }
+  it { should have_many :snippets }
+  it { should have_many :user_organizations }
+  it { should have_many :organizations }
+  it { should have_many :stars }
 
   describe "#find_or_create_organizations" do
     let(:user) { Fabricate(:user) }
@@ -17,7 +17,7 @@ describe User do
 
       before do
         expected_response = double("org", id: organization.original_id, login: organization.login )
-        allow(Octokit::Client).to receive_message_chain(:new, :organizations).and_return [expected_response]
+        Octokit::Client.stub_chain(:new, :organizations).and_return([expected_response])
       end
 
       it "should return organization" do
@@ -34,7 +34,7 @@ describe User do
     context "when organization is not created yet" do
       before do
         expected_response = double("org", id: 1, login: "new_org_which_is_not_registered" )
-        allow(Octokit::Client).to receive_message_chain(:new, :organizations).and_return [expected_response]
+        Octokit::Client.stub_chain(:new, :organizations).and_return([expected_response])
       end
 
       it "should return new organization" do

@@ -2,16 +2,16 @@
 require 'spec_helper'
 
 describe Message do
-  it { is_expected.to belong_to :snippet }
-  it { is_expected.to have_many :stars }
-  it { is_expected.to validate_presence_of :raw_content }
+  it { should belong_to :snippet }
+  it { should have_many :stars }
+  it { should validate_presence_of :raw_content }
 
   subject { described_class.new }
 
   shared_examples '#parse_content' do
     it do
       subject.raw_content = regular_message
-      expect(subject.parse_content).to be_truthy
+      expect(subject.parse_content).to be_true
     end
 
     it do

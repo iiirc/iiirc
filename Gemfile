@@ -10,8 +10,9 @@ gem 'rails_config'
 gem 'gravtastic'
 gem 'verification', github: 'sikachu/verification'
 gem 'rinku'
-gem 'friendly_id', github: 'FriendlyId/friendly_id'
+gem 'friendly_id', github: 'FriendlyId/friendly_id', branch: 'rails4'
 gem 'twitter'
+gem 'draper'
 gem 'kaminari'
 gem 'newrelic_rpm'
 gem 'draper'
@@ -38,17 +39,14 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '3.0.0.beta1'
-  # https://github.com/rspec/rspec-rails/issues/878#issuecomment-30575316
-  gem 'rspec-core', git: 'https://github.com/rspec/rspec-core.git', branch: 'master'
-  # https://github.com/rspec/rspec-mocks/pull/467
-  gem 'rspec-mocks', git: 'https://github.com/rspec/rspec-mocks.git', branch: 'master'
+  gem 'rspec-rails'
+  gem 'fuubar'
   gem 'mocha', require: 'mocha/api'
   gem 'fabrication'
   gem 'timecop'
   gem 'faker'
   gem 'database_cleaner'
-  gem 'capybara', '2.2.0'
+  gem 'capybara'
   gem 'poltergeist'
   gem 'launchy'
   gem 'rb-fsevent', '~> 0.9.1'

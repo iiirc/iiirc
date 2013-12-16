@@ -14,7 +14,7 @@ describe "Sessions" do
   describe "GET /signin" do
     before do
       @organization = Fabricate(:organization)
-      allow_any_instance_of(User).to receive(:find_or_create_organizations).and_return [@organization]
+      User.any_instance.stub(:find_or_create_organizations).and_return([@organization])
     end
 
     context "when user is a new user" do
@@ -39,7 +39,7 @@ describe "Sessions" do
 
       context "when returns invalid response" do
         before do
-          allow_any_instance_of(User).to receive(:save).and_return false
+          User.any_instance.stub(:save).and_return(false)
         end
 
         it "should not create a user" do

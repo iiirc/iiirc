@@ -2,9 +2,9 @@
 require 'spec_helper'
 
 describe Snippet do
-  it { is_expected.to belong_to :user         }
-  it { is_expected.to belong_to :organization }
-  it { is_expected.to have_many :messages     }
+  it { should belong_to :user         }
+  it { should belong_to :organization }
+  it { should have_many :messages     }
 
   let(:snippet) {
     Fabricate(:snippet, published: published) do
@@ -27,11 +27,11 @@ describe Snippet do
       let(:published) { true }
 
       before do
-        allow(Rails).to receive_messages(env: ActiveSupport::StringInquirer.new("production"))
+        Rails.stub(env: ActiveSupport::StringInquirer.new("production"))
       end
 
       it do
-        expect(TweetBot).to receive(:tweet).once
+        TweetBot.should_receive(:tweet).once
         subject
       end
     end
@@ -40,11 +40,11 @@ describe Snippet do
       let(:published) { false }
 
       before do
-        allow(Rails).to receive_messages(env: ActiveSupport::StringInquirer.new("production"))
+        Rails.stub(env: ActiveSupport::StringInquirer.new("production"))
       end
 
       it do
-        expect(TweetBot).to receive(:tweet).never
+        TweetBot.should_receive(:tweet).never
         subject
       end
     end
@@ -53,7 +53,7 @@ describe Snippet do
       let(:published) { true }
 
       it do
-        expect(TweetBot).to receive(:tweet).never
+        TweetBot.should_receive(:tweet).never
         subject
       end
     end
@@ -62,7 +62,7 @@ describe Snippet do
       let(:published) { false }
 
       it do
-        expect(TweetBot).to receive(:tweet).never
+        TweetBot.should_receive(:tweet).never
         subject
       end
     end
