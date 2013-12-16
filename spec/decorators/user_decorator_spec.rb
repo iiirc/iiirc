@@ -4,7 +4,7 @@ describe UserDecorator do
   describe '#github_url' do
     let(:user) { Fabricate(:user).decorate }
     before do
-      user.stub(:username) {'iiirc'}
+      allow(user).to receive(:username) {'iiirc'}
     end
 
     it 'should return user URI on GitHub' do
