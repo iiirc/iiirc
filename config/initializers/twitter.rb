@@ -1,7 +1,7 @@
 require 'twitter'
 
 if Rails.env.production?
-  Twitter.configure do |config|
+  Twitter::REST::Client.new do |config|
     config.consumer_key       = Settings.twitter.consumer_key
     config.consumer_secret    = Settings.twitter.consumer_secret
     config.oauth_token        = Settings.twitter.oauth_token
