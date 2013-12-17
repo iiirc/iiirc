@@ -15,14 +15,14 @@ describe TweetBot do
 
     context "when successfuly update" do
       it do
-        expect(Twitter).to receive(:update).twice
+        expect(described_class.client).to receive(:update).twice
         subject
       end
     end
 
     context "when first_tweet is failed" do
       before do
-        allow(Twitter).to receive(:update).and_raise(Twitter::Error::Forbidden)
+        allow(described_class.client).to receive(:update).and_raise(Twitter::Error::Forbidden)
         allow(TweetBot).to receive(:second_tweet) # doesn't test as stub
       end
 
@@ -34,7 +34,7 @@ describe TweetBot do
 
     context "when second_tweet is failed" do
       before do
-        allow(Twitter).to receive(:update).and_raise(Twitter::Error::Forbidden)
+        allow(described_class.client).to receive(:update).and_raise(Twitter::Error::Forbidden)
         allow(TweetBot).to receive(:first_tweet) # doesn't test as stub
       end
 
