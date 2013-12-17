@@ -12,6 +12,18 @@ class TmpController < ApplicationController
 end
 
 describe TmpController do
+  before do
+    @orig_routes, @routes = @routes, ActionDispatch::Routing::RouteSet.new
+    @routes.draw do
+      get '/error403' => 'tmp#error403'
+      get '/error404' => 'tmp#error404'
+    end
+  end
+
+  after do
+    @routes, @orig_routes = @orig_routes, nil
+  end
+
   it 'should return 403 when render_access_denied' do
     get 'error403'
     expect(response.status).to be 403
