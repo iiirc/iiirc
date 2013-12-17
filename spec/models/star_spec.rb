@@ -1,6 +1,6 @@
 require 'spec_helper'
 
 describe Star do
-  it { should belong_to :user }
-  it { should belong_to :message }
+  it { is_expected.to belong_to :user }
+  it { is_expected.to belong_to :message }
 end
