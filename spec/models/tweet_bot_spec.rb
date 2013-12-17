@@ -15,31 +15,31 @@ describe TweetBot do
 
     context "when successfuly update" do
       it do
-        Twitter.should_receive(:update).twice
+        expect(described_class.client).to receive(:update).twice
         subject
       end
     end
 
     context "when first_tweet is failed" do
       before do
-        Twitter.stub(:update).and_raise(Twitter::Error::Forbidden)
-        TweetBot.stub(:second_tweet) # doesn't test as stub
+        allow(described_class.client).to receive(:update).and_raise(Twitter::Error::Forbidden)
+        allow(TweetBot).to receive(:second_tweet) # doesn't test as stub
       end
 
       it "should logger is invoked" do
-        Rails.logger.should_receive(:warn).at_least(1).times
+        expect(Rails.logger).to receive(:warn).at_least(1).times
         subject
       end
     end
 
     context "when second_tweet is failed" do
       before do
-        Twitter.stub(:update).and_raise(Twitter::Error::Forbidden)
-        TweetBot.stub(:first_tweet) # doesn't test as stub
+        allow(described_class.client).to receive(:update).and_raise(Twitter::Error::Forbidden)
+        allow(TweetBot).to receive(:first_tweet) # doesn't test as stub
       end
 
       it "should logger is invoked" do
-        Rails.logger.should_receive(:warn).at_least(1).times
+        expect(Rails.logger).to receive(:warn).at_least(1).times
         subject
       end
     end

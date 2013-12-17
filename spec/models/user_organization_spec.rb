@@ -1,6 +1,6 @@
 require 'spec_helper'
 
 describe UserOrganization do
-  it { should belong_to :user }
-  it { should belong_to :organization }
+  it { is_expected.to belong_to :user }
+  it { is_expected.to belong_to :organization }
 end
