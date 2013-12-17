@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.2'
 
 gem 'mysql2'
 gem 'omniauth-github'
@@ -28,7 +28,7 @@ group :development do
   gem 'awesome_print'
   gem 'wirb'
   gem 'hirb-unicode'
-  gem 'pry'
+  gem "pry", "0.9.12.2"
   gem 'pry-rails'
   gem 'pry-debugger'
   gem 'pry-doc'
