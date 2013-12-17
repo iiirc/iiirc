@@ -13,6 +13,7 @@ Iiirc::Application.routes.draw do
   get    '/signup'                  => 'users#new',              as: :signup
   get    '/transition'              => 'transition#show',        as: :transition
   get    '/image_proxy'             => 'image_proxy#show',       as: :image_proxy
+  post   '/snippets/preview'        => 'snippets#preview',       as: :snippet_preview
 
   scope '/api' do
     resources :snippets, controller: 'api/snippets', only: %w[show]
