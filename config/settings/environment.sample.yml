@@ -4,8 +4,8 @@ github:
 twitter:
   consumer_key:
   consumer_secret:
-  oauth_token:
-  oauth_token_secret:
+  access_token:
+  access_token_secret:
 snippet:
   salt:
 newrelic:
