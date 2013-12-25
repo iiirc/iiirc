@@ -87,7 +87,9 @@ class SnippetsController < ApplicationController
     @snippet = snippet.decorate
     @previewing = true
 
-    render 'snippets/show', layout: false
+    respond_to do |format|
+      format.html { return render action: :show, layout: false }
+    end
   end
 
   private
