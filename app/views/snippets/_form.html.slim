@@ -9,7 +9,17 @@
           li= msg
   .container
     = f.text_field :title, class: 'input-text input-text-large', placeholder: 'Title (optional)'
-    = text_area_tag :content, @content, id: 'content-textarea', class: 'textarea', placeholder: '00:00 YourName: Logged in...', required: true
+    = text_area_tag :content, @content, id: 'content-textarea', class: 'textarea active', placeholder: '00:00 YourName: Logged in...', required: true
+    article#preview.article.artice-snippet
+      .article-content
+        p.loading Loading...
+    ul.tabs.clear
+      li
+        input[name="tab" value="paste" type="radio" data-selector="#content-textarea" id="tab-paste" checked]
+        label[for="tab-paste"] Paste
+      li
+        input[name="tab" value="preview" type="radio" data-selector="#preview" id="tab-preview"]
+        label[for="tab-preview"] Preview
   .container
     - if current_user.present? && current_user.organizations.present?
       .form-org-question.container
@@ -24,3 +34,5 @@
         = button_tag 'Public post!', name: 'commit', value: 'public', type: 'submit', class: 'btn btn-green'
         | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         | #{button_tag 'Secret post!', name: 'commit', value: 'secret', type: 'submit', class: 'btn btn-yellow'}
+
+= render 'preview_template'

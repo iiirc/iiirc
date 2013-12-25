@@ -13,6 +13,20 @@ $ ->
     status = $.parseJSON(status.responseText)
     msg = status.errors || "Error!"
     alert msg
+  $contentTextarea = $('body#page_snippets_new #content-textarea')
+  $contentTextarea.change (event) ->
+    $('#preview .loading').show()
+    content = $(event.target).val()
+    if content == ''
+      $('#preview .loading').hide()
+      return
+    $.ajax(url: '/snippets/preview', type: 'POST', data: $('#new_snippet').serializeArray(), dataType: 'html')
+    .done (data) ->
+      $('#preview .article-content').html(data);
+  $('input[name="tab"]').on 'change', (event) ->
+    $($(event.target).data('selector')).addClass 'active'
+    $('input[name="tab"]:not(:checked)').each ->
+      $($(this).data('selector')).removeClass 'active'
 
 ((w, d) ->
   s = undefined

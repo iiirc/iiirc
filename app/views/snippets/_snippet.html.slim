@@ -23,11 +23,12 @@ div id="snippet_#{snippet.id}"
           = raw message.content
       - else
         = message.raw_content
-      span.star
-        | &nbsp;
-        - if current_user
-          = link_to '★', snippet_message_stars_path(snippet, message), method: :post, remote: true
-        - else
-          = link_to '★', signin_url
-        = raw message.star_count_tag
-        = raw message.starred_by_tag
+      - unless @previewing
+        span.star
+          | &nbsp;
+          - if current_user
+            = link_to '★', snippet_message_stars_path(snippet, message), method: :post, remote: true
+          - else
+            = link_to '★', signin_url
+          = raw message.star_count_tag
+          = raw message.starred_by_tag

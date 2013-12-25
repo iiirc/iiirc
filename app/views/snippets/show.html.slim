@@ -13,17 +13,18 @@
       .article-content
         - cache @snippet.cache_key_with_stars format: :html, signed_in: !!current_user do
           = render 'snippet', snippet: @snippet
-      .embed_code
-        = text_field_tag "embedded_snippet_#{@snippet.published? ? @snippet.id : @snippet.hash_id}", '<script type="text/javascript" src="' + url_for(controller: 'api/snippets', action: 'show', id: (@snippet.published? ? @snippet.id : @snippet.hash_id), format: :js, only_path: false) + '"></script>', readonly: true, class: 'input-text'
-      .container
-        - if @snippet.owner?(current_user)
-          = link_to snippet_path, class: 'btn btn-red', method: :delete, data: { confirm: "Are you sure to delete?" } do
-            | Delete Snippet!
-      - if @snippet.published?
-        .social
-          .hatena
-            a.hatena-bookmark-button href="http://b.hatena.ne.jp/entry/#{request.url}" data-hatena-bookmark-layout="standard" data-hatena-bookmark-title="#{@snippet.title} - iiirc"
-          .twitter
-            a.twitter-share-button data-lang="en", data-url="#{request.url}", data-text="#{@snippet.title} - iiirc" href="https://twitter.com/share">ツイート
-          .facebook
-            .fb-like data-href="#{request.url}" data-layout="button_count" data-send="false" data-show-faces="false"
+      - unless @previewing
+        .embed_code
+          = text_field_tag "embedded_snippet_#{@snippet.published? ? @snippet.id : @snippet.hash_id}", '<script type="text/javascript" src="' + url_for(controller: 'api/snippets', action: 'show', id: (@snippet.published? ? @snippet.id : @snippet.hash_id), format: :js, only_path: false) + '"></script>', readonly: true, class: 'input-text'
+        .container
+          - if @snippet.owner?(current_user)
+            = link_to snippet_path, class: 'btn btn-red', method: :delete, data: { confirm: "Are you sure to delete?" } do
+              | Delete Snippet!
+        - if @snippet.published?
+          .social
+            .hatena
+              a.hatena-bookmark-button href="http://b.hatena.ne.jp/entry/#{request.url}" data-hatena-bookmark-layout="standard" data-hatena-bookmark-title="#{@snippet.title} - iiirc"
+            .twitter
+              a.twitter-share-button data-lang="en", data-url="#{request.url}", data-text="#{@snippet.title} - iiirc" href="https://twitter.com/share">ツイート
+            .facebook
+              .fb-like data-href="#{request.url}" data-layout="button_count" data-send="false" data-show-faces="false"

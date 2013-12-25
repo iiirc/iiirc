@@ -77,6 +77,19 @@ class SnippetsController < ApplicationController
     end
   end
 
+  def preview
+    return render_access_denied if current_user.blank?
+    content = params[:content].strip
+    snippet = current_user.snippets.build(snippet_params)
+    snippet.messages = content.lines.map {|line| Message.new(snippet: snippet, raw_content: line.chomp)}
+    snippet.messages.each &:parse_content
+    snippet.published = false
+    @snippet = snippet.decorate
+    @previewing = true
+
+    render 'snippets/show', layout: false
+  end
+
   private
   def set_snippet
     @snippet = Snippet.with_assoc.find_by_hash_id(params[:id])

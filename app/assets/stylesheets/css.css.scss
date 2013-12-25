@@ -484,3 +484,40 @@ footer {
   }
 }
 
+body#page_snippets_new {
+  #snippet-form {
+    overflow: hidden;
+  }
+  #content-textarea, #preview {
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
+  #preview {
+    height: 40em;
+    background-color: #333;
+  }
+  .article {
+    margin-bottom: 0;
+  }
+  .tabs {
+    li {
+      float: left;
+      width: 60px;
+      height: 2em;
+      text-align: center;
+      vertical-align: middle;
+    }
+    label {
+      display: block;
+      height: 100%;
+    }
+    input {
+      display: none;
+      &:checked + label {
+	background-color: #333;
+      }
+    }
+  }
+}
