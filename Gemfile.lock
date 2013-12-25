@@ -1,9 +1,9 @@
 GIT
   remote: git://github.com/FriendlyId/friendly_id.git
-  revision: 23cbef2bbe71189e4a91f07b3479844f33c836fa
+  revision: 35ce3de1c65682004cad00fe90f546137499cd64
   specs:
     friendly_id (5.0.2)
-      activerecord (~> 4.0.0)
+      activerecord (>= 4.0.0)
 
 GIT
   remote: git://github.com/sikachu/verification.git
@@ -15,7 +15,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-core.git
-  revision: 6e190fff08aa59c865cfa532b1ec977ec4668c19
+  revision: a173f6314c77f084ab78d899f823a7d9ae88bb7e
   branch: master
   specs:
     rspec-core (3.0.0.beta1)
@@ -23,7 +23,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-mocks.git
-  revision: 41b8a441c3e08496ee9949d67dc621145678de5c
+  revision: 5f47242ba50a9d32a9de80444f84d07b68517261
   branch: master
   specs:
     rspec-mocks (3.0.0.beta1)
@@ -60,7 +60,7 @@ GEM
     arel (4.0.1)
     atomic (1.1.14)
     awesome_print (1.2.0)
-    better_errors (1.0.1)
+    better_errors (1.1.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
@@ -112,7 +112,7 @@ GEM
     em-websocket (0.3.8)
       addressable (>= 2.1.1)
       eventmachine (>= 0.12.9)
-    equalizer (0.0.7)
+    equalizer (0.0.9)
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.0.2)
@@ -136,8 +136,9 @@ GEM
       em-websocket (>= 0.2.0)
       guard (>= 1.5.0)
       multi_json (~> 1.0)
-    guard-rspec (1.2.1)
-      guard (>= 1.1)
+    guard-rspec (4.2.1)
+      guard (>= 2.1.1)
+      rspec (~> 3.0.0.beta, >= 2.14, < 4.0)
     guard-spork (1.5.1)
       childprocess (>= 0.2.3)
       guard (>= 1.1)
@@ -172,7 +173,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    memoizable (0.2.0)
+    memoizable (0.4.0)
       thread_safe (~> 0.1.3)
     metaclass (0.0.1)
     method_source (0.8.2)
@@ -185,7 +186,7 @@ GEM
     multipart-post (1.2.0)
     mysql2 (0.3.14)
     netrc (0.7.7)
-    newrelic_rpm (3.7.0.177)
+    newrelic_rpm (3.7.1.180)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     oauth2 (0.8.1)
@@ -230,7 +231,9 @@ GEM
     pry-rails (0.3.2)
       pry (>= 0.9.10)
     rack (1.5.2)
-    rack-google-analytics (0.12.0)
+    rack-google-analytics (0.14.0)
+      actionpack
+      activesupport
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.0.2)
@@ -248,7 +251,7 @@ GEM
       activesupport (= 4.0.2)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    rake (10.1.0)
+    rake (10.1.1)
     rb-fsevent (0.9.3)
     rb-inotify (0.9.3)
       ffi (>= 0.5.0)
@@ -256,6 +259,10 @@ GEM
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rinku (1.7.3)
+    rspec (3.0.0.beta1)
+      rspec-core (= 3.0.0.beta1)
+      rspec-expectations (= 3.0.0.beta1)
+      rspec-mocks (= 3.0.0.beta1)
     rspec-collection_matchers (0.0.2)
       rspec-expectations (>= 2.99.0.beta1)
     rspec-expectations (3.0.0.beta1)
@@ -271,7 +278,7 @@ GEM
       rspec-expectations (= 3.0.0.beta1)
       rspec-mocks (= 3.0.0.beta1)
     rspec-support (3.0.0.beta1)
-    sass (3.2.12)
+    sass (3.2.13)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
       sass (>= 3.1.10)
@@ -325,21 +332,21 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    turbolinks (2.0.0)
+    turbolinks (2.1.0)
       coffee-rails
-    twitter (5.2.0)
+    twitter (5.4.1)
       addressable (~> 2.3)
       buftok (~> 0.2.0)
-      descendants_tracker (~> 0.0.1)
-      equalizer (~> 0.0.7, != 0.0.8)
+      descendants_tracker (~> 0.0.3)
+      equalizer (~> 0.0.9)
       faraday (>= 0.8, < 0.10)
       http (~> 0.5.0)
       http_parser.rb (~> 0.6.0)
       json (~> 1.8)
-      memoizable (~> 0.2.0)
+      memoizable (~> 0.4.0)
       simple_oauth (~> 0.2.0)
     tzinfo (0.3.38)
-    uglifier (2.3.3)
+    uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     unicode-display_width (0.1.1)
