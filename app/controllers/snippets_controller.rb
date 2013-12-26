@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 class SnippetsController < ApplicationController
   before_action :set_snippet, only: %w(show destroy)
+  before_action :require_sign_in, only: %w(create destroy preview)
 
   # GET /snippets
   # GET /snippets.json
@@ -46,7 +47,6 @@ class SnippetsController < ApplicationController
 
   # POST /snippets
   def create
-    return render_access_denied if current_user.blank?
     content = params[:content].strip
     snippet = current_user.snippets.build(snippet_params)
     snippet.published = params[:commit] == 'public'
@@ -78,7 +78,6 @@ class SnippetsController < ApplicationController
   end
 
   def preview
-    return render_access_denied if current_user.blank?
     content = params[:content].strip
     snippet = current_user.snippets.build(snippet_params)
     snippet.messages = content.lines.map {|line| Message.new(snippet: snippet, raw_content: line.chomp)}

@@ -20,4 +20,8 @@ class ApplicationController < ActionController::Base
   def render_not_found
     render text: "404 not found", status: 404, layout: false
   end
+
+  def require_sign_in
+    render_access_denied if current_user.blank?
+  end
 end
