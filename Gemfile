@@ -30,7 +30,7 @@ group :development do
   gem 'hirb-unicode'
   gem "pry", "0.9.12.2"
   gem 'pry-rails'
-  gem 'pry-debugger'
+  # gem 'pry-debugger'
   gem 'pry-doc'
   gem 'sqlite3'
   gem 'better_errors'

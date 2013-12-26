@@ -266,4 +266,28 @@ describe "Snippets" do
       end
     end
   end
+
+  describe 'POST /preview', js: true do
+    context 'when logged in' do
+      before do
+        sign_in user
+      end
+
+      it 'should render snippet page' do
+        visit new_snippet_path
+        fill_in 'content', :with => '00:52 shikakun: すごい！'
+        find('label[for="tab-preview"]').click
+        expect(find('#preview .article-content')).to have_content 'すごい！'
+      end
+    end
+
+    context 'when not logged in' do
+      it 'should not accept request' do
+        visit new_snippet_path
+        fill_in 'content', :with => '00:52 shikakun: すごい！'
+        find('label[for="tab-preview"]').click
+        expect(find('#preview .article-content')).to have_content 'Loading...'
+      end
+    end
+  end
 end
