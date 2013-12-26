@@ -268,7 +268,7 @@ describe "Snippets" do
   end
 
   describe 'POST /preview', js: true do
-    context 'when logged in' do
+    context 'when signed in' do
       before do
         sign_in user
       end
@@ -281,7 +281,7 @@ describe "Snippets" do
       end
     end
 
-    context 'when not logged in' do
+    context 'when not signed in' do
       it 'should not accept request' do
         visit new_snippet_path
         fill_in 'content', :with => '00:52 shikakun: すごい！'
