@@ -144,7 +144,7 @@ describe "Snippets" do
     end
   end
 
-  describe "GET /snippet/new" do
+  describe "GET /snippets/new" do
     it "should render" do
       visit new_snippet_path
       expect(page.status_code).to be == 200
@@ -225,7 +225,7 @@ describe "Snippets" do
     end
   end
 
-  describe "DELETE /snippet/1" do
+  describe "DELETE /snippets/1" do
     context "when user is not logged in" do
       it "should not show delete button" do
         visit snippet_path(snippet.id)
@@ -267,7 +267,7 @@ describe "Snippets" do
     end
   end
 
-  describe 'POST /preview', js: true do
+  describe 'POST /snippets/preview', js: true do
     context 'when signed in' do
       before do
         sign_in user
