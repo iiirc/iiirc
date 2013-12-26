@@ -1,9 +1,0 @@
-.container.clear
-  #content
-    - content_for(:title) { @snippet.title + ' - preview' }
-    article.article.article-snippet
-      hgroup.article-header.clear
-        h2.title= @snippet.title
-        = link_to image_tag(@snippet.user.gravatar_url(size: 48), alt: @snippet.user.username, class: 'user-icon'), user_path(@snippet.user)
-      .article-content
-        = render 'snippet', snippet: @snippet, starrable: false
