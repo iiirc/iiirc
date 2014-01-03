@@ -488,7 +488,7 @@ body#page_snippets_new {
   #snippet-form {
     overflow: hidden;
   }
-  #content-textarea, #preview {
+  #paste, #preview {
     display: none;
     &.active {
       display: block;
@@ -502,7 +502,7 @@ body#page_snippets_new {
     margin-bottom: 0;
   }
   .tabs {
-    li {
+    .tab {
       float: left;
       width: 60px;
       height: 2em;
@@ -516,7 +516,7 @@ body#page_snippets_new {
     input {
       display: none;
       &:checked + label {
-	background-color: #333;
+        background-color: #333;
       }
     }
   }

@@ -22,7 +22,7 @@ $ ->
       return
     $.ajax(url: '/snippets/preview', type: 'POST', data: $('#new_snippet').serializeArray(), dataType: 'html')
     .done (data) ->
-      $('#preview .article-content').html(data);
+      $('#preview').html(data);
   $('input[name="tab"]').on 'change', (event) ->
     $($(event.target).data('selector')).addClass 'active'
     $('input[name="tab"]:not(:checked)').each ->
