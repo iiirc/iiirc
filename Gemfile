@@ -24,7 +24,6 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'uglifier',     '>= 1.3.0'
 gem 'jquery-rails'
 gem 'tophat'
-gem 'rails_12factor'
 
 group :development do
   gem 'awesome_print'
@@ -68,4 +67,5 @@ end
 
 group :production do
   gem 'rack-google-analytics'
+  gem 'rails_12factor'
 end
