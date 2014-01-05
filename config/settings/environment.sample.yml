@@ -8,5 +8,3 @@ twitter:
   access_token_secret:
 snippet:
   salt:
-newrelic:
-  license_key:
