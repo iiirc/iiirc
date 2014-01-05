@@ -15,7 +15,6 @@
 /tmp
 
 /config/database.yml
-/config/initializers/secret_token.rb
 /db/schema.rb
 /db/structure.sql
 /public/assets/
