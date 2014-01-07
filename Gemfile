@@ -68,4 +68,5 @@ end
 group :production do
   gem 'rack-google-analytics'
   gem 'rails_12factor'
+  gem "unicorn"
 end
