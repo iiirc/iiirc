@@ -69,4 +69,5 @@ group :production do
   gem 'rack-google-analytics'
   gem 'rails_12factor'
   gem "unicorn"
+  gem 'remote_syslog_logger'
 end
