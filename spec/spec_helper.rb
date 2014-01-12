@@ -11,7 +11,10 @@ unless ENV['COVERAGE'] == 'off'
     SimpleCov::Formatter::HTMLFormatter,
     Coveralls::SimpleCov::Formatter
   ]
-  SimpleCov.start 'rails'
+  SimpleCov.start 'rails' do
+    add_filter "/.bundle/"
+    add_filter "/vendor/"
+  end
 end
 
 ENV["RAILS_ENV"] ||= 'test'
