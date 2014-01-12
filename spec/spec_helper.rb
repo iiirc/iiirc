@@ -30,6 +30,7 @@ RSpec.configure do |config|
 
   config.infer_base_class_for_anonymous_controllers = true
   config.order = "random"
+  config.raise_errors_for_deprecations!
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
