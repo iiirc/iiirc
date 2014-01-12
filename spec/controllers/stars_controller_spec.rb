@@ -4,6 +4,12 @@ require 'spec_helper'
 describe StarsController do
   let(:user)    { Fabricate(:user)    }
   let(:message) { Fabricate(:message) }
+  let(:snippet) {  Fabricate(:snippet, user: user) do
+      before_validation do |snippet|
+        snippet.messages << Fabricate(:message)
+      end
+    end
+  }
 
   before do
     allow(controller).to receive(:current_user) { user }
@@ -11,7 +17,7 @@ describe StarsController do
   end
 
   def valid_attributes
-    { message_id: message.id }
+    { message_id: message.id.to_s, snippet_id: snippet.id }
   end
 
   describe "POST create" do
