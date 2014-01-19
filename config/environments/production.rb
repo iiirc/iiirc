@@ -72,7 +72,7 @@ Iiirc::Application.configure do
 
       url = URI.parse(ENV["SYSLOG_URL"])
 
-      logger = RemoteSyslogLogger.new(url.host, url.port, program: "#{url.path[1..-1]}-#{Rails.env}")
+      logger = RemoteSyslogLogger.new(url.host, url.port, program: "#{url.path[1..-1]}-#{Rails.env}", local_hostname: "iiirc-#{Rails.env}")
       logger.level = Logger::INFO
 
       Rails.logger = config.logger = ActionController::Base.logger = Rails.cache.logger = logger
