@@ -6,7 +6,7 @@ gem 'rails', '4.0.2'
 gem 'mysql2'
 gem 'omniauth-github'
 gem 'turbolinks'
-gem 'octokit', '1.21.0'
+gem 'octokit', '~> 1'
 gem 'rails_config'
 gem 'gravtastic'
 gem 'verification', github: 'sikachu/verification'
@@ -39,7 +39,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '3.0.0.beta1'
+  gem 'rspec-rails', '3.0.0.beta2'
   # https://github.com/rspec/rspec-rails/issues/878#issuecomment-30575316
   gem 'rspec-core', git: 'https://github.com/rspec/rspec-core.git', branch: 'master'
   # https://github.com/rspec/rspec-mocks/pull/467
