@@ -50,7 +50,7 @@ group :development, :test do
   gem 'timecop'
   gem 'faker'
   gem 'database_cleaner'
-  gem 'capybara', '2.2.0'
+  gem 'capybara', github: 'jnicklas/capybara'
   gem 'poltergeist'
   gem 'launchy'
   gem 'rb-fsevent', '~> 0.9.1'
