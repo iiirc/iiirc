@@ -1,5 +1,8 @@
 .container.clear
   nav#navigations
+    - if Settings.google_custom_search.try(:cx).present?
+      h4.title.bubble Search
+      = render 'search/google_custom_search', cx: Settings.google_custom_search.cx
     #organizations.navigation
       h4.title.bubble Organizations
       ul.links
