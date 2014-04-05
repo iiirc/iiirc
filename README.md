@@ -30,14 +30,6 @@ $ bundle exec rake db:create db:migrate
 $ r s
 ```
 
-#### with powder
-
-```
-$ gem install powder
-$ powder link
-$ open http://iiirc.dev
-```
-
 ### Test
 
 ```

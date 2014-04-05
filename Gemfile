@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
+ruby '2.1.0'
 
-gem 'rails', '4.0.2'
+gem 'rails', '4.0.4'
 
 gem 'mysql2'
 gem 'omniauth-github'
 gem 'turbolinks'
-gem 'octokit', '1.21.0'
+gem 'octokit', '~> 1'
 gem 'rails_config'
 gem 'gravtastic'
 gem 'verification', github: 'sikachu/verification'
@@ -38,17 +39,16 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '3.0.0.beta1'
-  # https://github.com/rspec/rspec-rails/issues/878#issuecomment-30575316
-  gem 'rspec-core', git: 'https://github.com/rspec/rspec-core.git', branch: 'master'
-  # https://github.com/rspec/rspec-mocks/pull/467
-  gem 'rspec-mocks', git: 'https://github.com/rspec/rspec-mocks.git', branch: 'master'
+  gem 'rspec-rails', '3.0.0.beta2'
+  gem 'rspec-core', '3.0.0.beta2'
+  gem 'rspec-mocks', '3.0.0.beta2'
+  gem 'rspec-support', '3.0.0.beta2'
   gem 'mocha', require: 'mocha/api'
   gem 'fabrication'
   gem 'timecop'
   gem 'faker'
   gem 'database_cleaner'
-  gem 'capybara', '2.2.0'
+  gem 'capybara', git: 'https://github.com/jnicklas/capybara.git'
   gem 'poltergeist'
   gem 'launchy'
   gem 'rb-fsevent', '~> 0.9.1'
@@ -65,5 +65,8 @@ group :test do
 end
 
 group :production do
+  gem 'rails_12factor'
   gem 'rack-google-analytics'
+  gem "unicorn"
+  gem 'remote_syslog_logger'
 end

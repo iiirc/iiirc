@@ -64,4 +64,18 @@ Iiirc::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  config.after_initialize do
+    if ENV["SYSLOG_URL"]
+      require "remote_syslog_logger"
+      require "uri"
+
+      url = URI.parse(ENV["SYSLOG_URL"])
+
+      logger = RemoteSyslogLogger.new(url.host, url.port, program: "#{url.path[1..-1]}-#{Rails.env}", local_hostname: "iiirc-#{Rails.env}")
+      logger.level = Logger::INFO
+
+      Rails.logger = config.logger = ActionController::Base.logger = Rails.cache.logger = logger
+    end
+  end
 end

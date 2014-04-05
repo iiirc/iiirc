@@ -11,13 +11,15 @@ unless ENV['COVERAGE'] == 'off'
     SimpleCov::Formatter::HTMLFormatter,
     Coveralls::SimpleCov::Formatter
   ]
-  SimpleCov.start 'rails'
+  SimpleCov.start 'rails' do
+    add_filter "/.bundle/"
+    add_filter "/vendor/"
+  end
 end
 
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
-require 'rspec/autorun'
 require 'capybara/rails'
 require 'capybara/poltergeist'
 require 'omniauth'
@@ -30,6 +32,7 @@ RSpec.configure do |config|
 
   config.infer_base_class_for_anonymous_controllers = true
   config.order = "random"
+  config.raise_errors_for_deprecations!
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
