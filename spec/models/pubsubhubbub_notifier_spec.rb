@@ -53,12 +53,12 @@ describe PubsubhubbubNotifier do
       expect(subject.client).to receive(:post)
         .with('/publish', 'hub.mode' => 'publish', 'hub.url' => 'http://iiirc.org/snippets.atom')
         .once
-        .and_return {double(status: 204)}
+        .and_return double(status: 204)
       subject.notify
     end
 
     it 'should log on error' do
-      allow(subject.client).to receive(:post).and_return {double(status: 404, body: 'Error!')}
+      allow(subject.client).to receive(:post).and_return double(status: 404, body: 'Error!')
       expect(Rails.logger).to receive(:warn).with('[PubsubhubbubNotifier#notify]ERROR: status: 404, body: Error!').once
       subject.notify
     end
