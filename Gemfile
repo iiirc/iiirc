@@ -48,7 +48,7 @@ group :development, :test do
   gem 'timecop'
   gem 'faker'
   gem 'database_cleaner'
-  gem 'capybara'
+  gem 'capybara', git: 'https://github.com/jnicklas/capybara.git'
   gem 'poltergeist'
   gem 'launchy'
   gem 'rb-fsevent', '~> 0.9.1'
