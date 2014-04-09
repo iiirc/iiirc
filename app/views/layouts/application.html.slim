@@ -19,16 +19,18 @@ html
         #account_info
           - if current_user
             = link_to image_tag(current_user.gravatar_url(size: 48), alt: current_user.username, class: 'avator'), user_path(current_user.username)
-          - else
-            = link_to "Sign in with GitHub", "/auth/github", 'data-no-turbolink' => true, class: 'btn btn-blue'
         - if notice
           p#notice= notice
         - if alert
           p#alert= alert
-        - if current_user
-          #add-new-snippet
+        - if Settings.google_custom_search.try(:cx).present?
+          = render 'shared/google_custom_search', cx: Settings.google_custom_search.cx
+        .header-right
+          - if current_user
             = link_to new_snippet_path, class: 'btn' do
               | + Add New Snippet!
+          - else
+            = link_to "Sign in with GitHub", "/auth/github", 'data-no-turbolink' => true, class: 'btn btn-blue'
     #contents.wrapper
       = yield
     footer#footer.wrapper.clear

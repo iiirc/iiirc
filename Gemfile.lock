@@ -1,11 +1,4 @@
 GIT
-  remote: git://github.com/FriendlyId/friendly_id.git
-  revision: fd11923c97fefb459ecd9e099ff6f318886361dc
-  specs:
-    friendly_id (5.0.3)
-      activerecord (>= 4.0.0)
-
-GIT
   remote: git://github.com/sikachu/verification.git
   revision: 76eaf51b13276ecae54bd9cd115832595d2ff56d
   specs:
@@ -117,6 +110,8 @@ GEM
       faraday (>= 0.7.4, < 0.9)
     ffi (1.9.3)
     formatador (0.2.4)
+    friendly_id (5.0.3)
+      activerecord (>= 4.0.0)
     gravtastic (3.2.6)
     guard (2.6.0)
       formatador (>= 0.2.4)
@@ -388,7 +383,7 @@ DEPENDENCIES
   fabrication
   faker
   faraday
-  friendly_id!
+  friendly_id
   gravtastic
   guard-livereload
   guard-rspec

@@ -8,3 +8,5 @@ twitter:
   access_token_secret: '<%= ENV["TWITTER_ACCESS_TOKEN_SECRET"] %>'
 snippet:
   salt: '<%= ENV["SNIPPET_SALT"] %>'
+google_custom_search:
+  cx: '<%= ENV["GOOGLE_CUSTOM_SEARCH_CX"] %>'

@@ -159,7 +159,7 @@ p {
   text-align: left;
   line-height: 1;
   background-color: $green;
-  
+
   &:after {
     content: "";
     position: absolute;
@@ -233,10 +233,36 @@ body {
     color: $red-dark;
   }
 
-  #add-new-snippet {
-    float: right;
+  #search {
+    position: relative;
+    float: left;
+    width: 400px;
     height: 24px;
     margin-left: 12px;
+    .search-content {
+      position: absolute;
+      top: -2px;
+      left: 0;
+      z-index: 9999;
+      .gsc-control-cse {
+        padding: 0;
+        background-color: transparent;
+        border: 0;
+        z-index: 9999;
+        .gsc-search-box {
+          margin: 0;
+        }
+        .gsc-results-wrapper-nooverlay.gsc-results-wrapper-visible {
+          padding: 6px 12px;
+          background-color: #fff;
+        }
+      }
+    }
+  }
+
+  .header-right {
+    float: right;
+    height: 24px;
   }
 
   .btn {
@@ -318,23 +344,23 @@ body {
   width: 150px;
   padding-top: 10px;
   margin-right: 20px;
-  
-  .navigation {        
+
+  .navigation {
     margin-bottom: 10px;
-    
+
     .title {
       font-size: 12px;
       font-weight: bold;
     }
-    
+
     .links {
       padding: 5px 0;
       background-color: $black;
-      
+
       .link {
         position: relative;
         font-size: 12px;
-        
+
         a {
           width: 134px;
           padding: 4px 8px;
@@ -344,7 +370,7 @@ body {
           display: block;
           color: $white;
         }
-        
+
         a:after {
           content: "\0021d2";
           position: absolute;
@@ -354,7 +380,7 @@ body {
           display: none;
           color: $green;
         }
-        
+
         &:hover a:after {
           display: block;
         }
@@ -406,7 +432,7 @@ body {
 
     .tweet {
       margin-bottom: 0.15em;
-      
+
       &.starred {
         .message {
           color: #fff;

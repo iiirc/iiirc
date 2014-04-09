@@ -63,6 +63,30 @@ describe "Organizations" do
       end
     end
 
+    describe 'Search' do
+      context "When using no search engine" do
+        before do
+          visit root_path
+        end
+
+        it "doesn't have search box" do
+          expect(page).not_to have_css('#search')
+        end
+      end
+
+      context "When using Google Custom Search" do
+        before do
+          allow(Settings).to receive_message_chain(:google_custom_search, :cx).and_return 'gcs-cx'
+          visit root_path
+        end
+
+        it "has search box" do
+          expect(page).to have_css('#search')
+        end
+      end
+
+    end
+
     describe 'Atom feed' do
       let!(:snippet) {
         Fabricate(:snippet, organization: organization) do
