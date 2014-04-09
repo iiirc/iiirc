@@ -70,7 +70,7 @@ describe "Organizations" do
         end
 
         it "doesn't have search box" do
-          expect(page).not_to have_css('.search')
+          expect(page).not_to have_css('#search')
         end
       end
 
@@ -81,7 +81,7 @@ describe "Organizations" do
         end
 
         it "has search box" do
-          expect(page).to have_css('.search')
+          expect(page).to have_css('#search')
         end
       end
 

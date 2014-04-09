@@ -33,7 +33,7 @@ describe "Top" do
       end
 
       it "has search box" do
-        expect(page).to have_css('.search')
+        expect(page).to have_css('#search')
       end
     end
   end
