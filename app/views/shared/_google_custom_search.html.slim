@@ -1,5 +1,5 @@
-<div class="search navigation">
-  <script>
+div#search-form
+  javascript:
     (function() {
       var cx = '<%=j cx %>';
       var gcse = document.createElement('script');
@@ -10,6 +10,5 @@
       var s = document.getElementsByTagName('script')[0];
       s.parentNode.insertBefore(gcse, s);
     })();
-  </script>
-  <gcse:search></gcse:search>
-</div>
+  erb:
+    <gcse:search></gcse:search>

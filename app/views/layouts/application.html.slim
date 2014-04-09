@@ -25,6 +25,8 @@ html
           p#notice= notice
         - if alert
           p#alert= alert
+        - if Settings.google_custom_search.try(:cx).present?
+          = render 'shared/google_custom_search', cx: Settings.google_custom_search.cx
         - if current_user
           #add-new-snippet
             = link_to new_snippet_path, class: 'btn' do
