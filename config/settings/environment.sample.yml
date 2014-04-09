@@ -8,3 +8,5 @@ twitter:
   access_token_secret:
 snippet:
   salt:
+google_custom_search:
+  cx:
