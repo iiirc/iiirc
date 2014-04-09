@@ -509,25 +509,3 @@ footer {
     }
   }
 }
-
-div.search {
-  tbody, tr, td {
-    display: block;
-  }
-  .gsc-control-cse {
-    background-color: $black;
-    border-color: $black;
-
-    .gsc-search-box-tools .gsc-search-box {
-      .gsib_a {
-        width: 92%;
-      }
-      .gsc-input {
-        padding-right: 0;
-      }
-      .gsc-search-button {
-        display: none;
-      }
-    }
-  }
-}
