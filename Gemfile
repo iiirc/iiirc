@@ -64,6 +64,7 @@ end
 group :test do
   gem 'simplecov', require: false
   gem 'coveralls', require: false
+  gem 'test-unit', require: 'test/unit'
 end
 
 group :production do
