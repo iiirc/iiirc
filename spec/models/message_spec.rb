@@ -81,7 +81,7 @@ describe Message do
     }
   end
 
-  context 'Unknown client 54' do # http://iiirc.org/snippets/54
+  context 'Unknown client 54' do # http://www.iiirc.org/snippets/54
     let(:regular_message) { '16:31 lighty_z rspecに詳しい方すいません' }
 
     it_behaves_like '#parse_content'

@@ -13,11 +13,11 @@ describe MessageDecorator do
     let!(:message) { snippet.messages.first.decorate }
 
     before do
-      message.content = 'http://iiirc.org/'
+      message.content = 'http://www.iiirc.org/'
     end
 
     it 'marks URIs up' do
-      expect(message.content).to eq('<a href="http://iiirc.org/">http://iiirc.org/</a>')
+      expect(message.content).to eq('<a href="http://www.iiirc.org/">http://www.iiirc.org/</a>')
     end
 
     context 'when secret snippet' do
@@ -26,7 +26,7 @@ describe MessageDecorator do
       end
 
       it 'marks URIs up as links to transition pages' do
-        expect(message.content).to eq('<a href="/transition?to=http%3A%2F%2Fiiirc.org%2F">http://iiirc.org/</a>')
+        expect(message.content).to eq('<a href="/transition?to=http%3A%2F%2Fwww.iiirc.org%2F">http://www.iiirc.org/</a>')
       end
     end
 

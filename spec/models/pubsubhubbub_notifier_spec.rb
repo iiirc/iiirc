@@ -51,7 +51,7 @@ describe PubsubhubbubNotifier do
 
     it 'should post to hub URI' do
       expect(subject.client).to receive(:post)
-        .with('/publish', 'hub.mode' => 'publish', 'hub.url' => 'http://iiirc.org/snippets.atom')
+        .with('/publish', 'hub.mode' => 'publish', 'hub.url' => 'http://www.iiirc.org/snippets.atom')
         .once
         .and_return double(status: 204)
       subject.notify

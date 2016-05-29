@@ -17,7 +17,7 @@ describe Snippet do
   let(:published) {}
 
   describe '#url' do
-    it { expect(snippet.url).to eq "http://iiirc.org/snippets/#{snippet.id}" }
+    it { expect(snippet.url).to eq "http://www.iiirc.org/snippets/#{snippet.id}" }
   end
 
   describe '#tweet_bot' do
