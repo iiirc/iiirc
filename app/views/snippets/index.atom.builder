@@ -4,7 +4,7 @@ atom_feed do |feed|
   feed.updated  @snippets.first.try(:updated_at)
   feed.author do |person|
     person.name 'iiirc developers'
-    person.uri  'http://iiirc.org'
+    person.uri  'http://www.iiirc.org'
   end
   feed.icon 'https://secure.gravatar.com/avatar/8bafb8feb0f769fb5c46521c53f21eb6'
   Settings.pubsubhubbub.each do |hub|

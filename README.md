@@ -1,6 +1,6 @@
 # iiirc [![BuildStatus](https://secure.travis-ci.org/iiirc/iiirc.png)](http://travis-ci.org/iiirc/iiirc) [![Coverage Status](https://coveralls.io/repos/iiirc/iiirc/badge.png)](https://coveralls.io/r/iiirc/iiirc) [![Code Climate](https://codeclimate.com/github/iiirc/iiirc.png)](https://codeclimate.com/github/iiirc/iiirc)
 
-iiirc is running at http://iiirc.org/
+iiirc is running at http://www.iiirc.org/
 
 ## Current supported IRC log formats
 

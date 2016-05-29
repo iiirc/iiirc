@@ -49,7 +49,7 @@ module Iiirc
     # Google Analytics by rack-google-analytics
     if Rails.env.production?
       config.gem 'rack-google-analytics', lib: 'rack/google-analytics'
-      config.middleware.use Rack::GoogleAnalytics, { tracker: 'UA-1469541-8', domain: 'iiirc.org' }
+      config.middleware.use Rack::GoogleAnalytics, { tracker: 'UA-1469541-8', domain: 'www.iiirc.org' }
     end
   end
 end
