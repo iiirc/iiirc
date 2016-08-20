@@ -8,9 +8,9 @@ GIT
 
 GIT
   remote: https://github.com/jnicklas/capybara.git
-  revision: 25e37be19aaccc86edb7fbabf7253eff3a32be09
+  revision: 48e71500009c8b7fe5df4c68996938f7a0ee2f51
   specs:
-    capybara (2.8.0.dev)
+    capybara (2.8.0)
       addressable
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -144,7 +144,7 @@ GEM
     mysql2 (0.4.4)
     naught (1.1.0)
     netrc (0.7.9)
-    newrelic_rpm (3.16.0.318)
+    newrelic_rpm (3.16.1.320)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
@@ -305,7 +305,7 @@ GEM
       naught (~> 1.0)
       simple_oauth (~> 0.3.0)
     tzinfo (0.3.51)
-    uglifier (3.0.1)
+    uglifier (3.0.2)
       execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
