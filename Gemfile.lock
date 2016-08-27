@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/jnicklas/capybara.git
-  revision: 48e71500009c8b7fe5df4c68996938f7a0ee2f51
+  revision: 7266231811e57504f002e17997b98d2d75fa8fdf
   specs:
     capybara (2.8.0)
       addressable
@@ -144,7 +144,7 @@ GEM
     mysql2 (0.4.4)
     naught (1.1.0)
     netrc (0.7.9)
-    newrelic_rpm (3.16.1.320)
+    newrelic_rpm (3.16.2.321)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
