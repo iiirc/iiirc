@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/jnicklas/capybara.git
-  revision: 7266231811e57504f002e17997b98d2d75fa8fdf
+  revision: 87e8b105be7f517a7bcf6ed3cb5a13631a7d3534
   specs:
     capybara (2.8.0)
       addressable
@@ -79,7 +79,7 @@ GEM
     deep_merge (1.1.1)
     diff-lcs (1.2.5)
     docile (1.1.5)
-    domain_name (0.5.20160615)
+    domain_name (0.5.20160826)
       unf (>= 0.0.5, < 1.0.0)
     draper (2.1.0)
       actionpack (>= 3.0)
@@ -258,7 +258,7 @@ GEM
     slim (3.0.7)
       temple (~> 0.7.6)
       tilt (>= 1.3.3, < 2.1)
-    slim-rails (3.1.0)
+    slim-rails (3.1.1)
       actionpack (>= 3.1)
       railties (>= 3.1)
       slim (~> 3.0)
