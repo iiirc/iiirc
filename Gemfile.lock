@@ -8,9 +8,9 @@ GIT
 
 GIT
   remote: https://github.com/jnicklas/capybara.git
-  revision: f0f0d91fb5e669936df067b74a5d08bb60aa02d0
+  revision: 36cef3bb589fac7e71beb053a060a68a9c25ba75
   specs:
-    capybara (2.9.1)
+    capybara (2.10.0)
       addressable
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -110,7 +110,7 @@ GEM
       http-cookie (~> 1.0)
       http-form_data (~> 1.0.1)
       http_parser.rb (~> 0.6.0)
-    http-cookie (1.0.2)
+    http-cookie (1.0.3)
       domain_name (~> 0.5)
     http-form_data (1.0.1)
     http_parser.rb (0.6.0)
@@ -144,10 +144,9 @@ GEM
     mysql2 (0.4.4)
     naught (1.1.0)
     netrc (0.7.9)
-    newrelic_rpm (3.16.2.321)
-    nokogiri (1.6.8)
+    newrelic_rpm (3.16.3.323)
+    nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
-      pkg-config (~> 1.1.7)
     oauth2 (1.2.0)
       faraday (>= 0.8, < 0.10)
       jwt (~> 1.0)
@@ -171,7 +170,6 @@ GEM
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
     paint (1.0.1)
-    pkg-config (1.1.7)
     poltergeist (1.10.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
@@ -216,7 +214,7 @@ GEM
     raindrops (0.17.0)
     rake (11.3.0)
     request_store (1.3.1)
-    rinku (2.0.0)
+    rinku (2.0.2)
     rspec-collection_matchers (1.1.2)
       rspec-expectations (>= 2.99.0.beta1)
     rspec-core (3.0.0.beta2)
@@ -276,7 +274,7 @@ GEM
     tapp (1.5.0)
       thor
     temple (0.7.7)
-    term-ansicolor (1.3.2)
+    term-ansicolor (1.4.0)
       tins (~> 1.0)
     test-unit (3.2.1)
       power_assert
@@ -378,9 +376,6 @@ DEPENDENCIES
   unicorn
   verification!
   wirb
-
-RUBY VERSION
-   ruby 2.3.1p112
 
 BUNDLED WITH
    1.13.1
