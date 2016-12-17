@@ -1,14 +1,14 @@
 GIT
   remote: git://github.com/sikachu/verification.git
-  revision: e6fe084ce16b7b5a4b1cdfca5374d125fd034a0f
+  revision: ff31697b940d7b0e2ec65f08764215c96104e76d
   specs:
     verification (1.0.3)
-      actionpack (>= 3.0.0, < 5.0)
-      activesupport (>= 3.0.0, < 5.0)
+      actionpack (>= 3.0.0, < 5.1)
+      activesupport (>= 3.0.0, < 5.1)
 
 GIT
   remote: https://github.com/jnicklas/capybara.git
-  revision: ad439ba37f555386ec60b64404b9d79a9dcca17e
+  revision: 9afdc743466d15d39c106b745ac3dc8ed10cf221
   specs:
     capybara (2.11.0)
       addressable
@@ -65,7 +65,7 @@ GEM
     coffee-script (2.4.1)
       coffee-script-source
       execjs
-    coffee-script-source (1.11.1)
+    coffee-script-source (1.12.2)
     config (1.3.0)
       activesupport (>= 3.0)
       deep_merge (~> 1.1.1)
@@ -124,7 +124,7 @@ GEM
     kaminari (0.17.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    kgio (2.10.0)
+    kgio (2.11.0)
     launchy (2.4.3)
       addressable (~> 2.3)
     mail (2.5.4)
@@ -145,7 +145,7 @@ GEM
     mysql2 (0.4.5)
     naught (1.1.0)
     netrc (0.7.9)
-    newrelic_rpm (3.17.1.326)
+    newrelic_rpm (3.17.2.327)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
     oauth2 (1.2.0)
