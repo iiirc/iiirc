@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/jnicklas/capybara.git
-  revision: 9afdc743466d15d39c106b745ac3dc8ed10cf221
+  revision: f6bbc6b6391bf6d0434863b4d6f853faaa1851fa
   specs:
     capybara (2.11.0)
       addressable
@@ -66,7 +66,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    config (1.3.0)
+    config (1.4.0)
       activesupport (>= 3.0)
       deep_merge (~> 1.1.1)
     coveralls (0.8.17)
@@ -217,7 +217,7 @@ GEM
     rake (12.0.0)
     request_store (1.3.1)
     rinku (2.0.2)
-    rspec-collection_matchers (1.1.2)
+    rspec-collection_matchers (1.1.3)
       rspec-expectations (>= 2.99.0.beta1)
     rspec-core (3.0.0.beta2)
       rspec-support (= 3.0.0.beta2)
