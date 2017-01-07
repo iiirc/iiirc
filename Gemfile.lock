@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/jnicklas/capybara.git
-  revision: 2ed9aad29f3455bbb75e089756e5c9f7a5cd8e96
+  revision: 30d037a0050085be996084bbf6538c3571bedea4
   specs:
     capybara (2.11.0)
       addressable
@@ -91,7 +91,7 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     fabrication (2.16.0)
-    faker (1.7.1)
+    faker (1.7.2)
       i18n (~> 0.5)
     faraday (0.10.1)
       multipart-post (>= 1.2, < 3)
@@ -146,7 +146,7 @@ GEM
     naught (1.1.0)
     netrc (0.7.9)
     newrelic_rpm (3.17.2.327)
-    nokogiri (1.7.0)
+    nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
     oauth2 (1.3.0)
       faraday (>= 0.8, < 0.11)
@@ -181,12 +181,12 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    pry-doc (0.9.0)
+    pry-doc (0.10.0)
       pry (~> 0.9)
-      yard (~> 0.8)
+      yard (~> 0.9)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
-    public_suffix (2.0.4)
+    public_suffix (2.0.5)
     rack (1.5.5)
     rack-google-analytics (1.2.0)
       actionpack
@@ -215,7 +215,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.17.0)
     rake (12.0.0)
-    request_store (1.3.1)
+    request_store (1.3.2)
     rinku (2.0.2)
     rspec-collection_matchers (1.1.3)
       rspec-expectations (>= 2.99.0.beta1)
@@ -272,7 +272,7 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
-    sqlite3 (1.3.12)
+    sqlite3 (1.3.13)
     tapp (1.5.0)
       thor
     temple (0.7.7)
