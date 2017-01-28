@@ -8,9 +8,9 @@ GIT
 
 GIT
   remote: https://github.com/jnicklas/capybara.git
-  revision: 92098f44b0b371ded2e87ed2843b1f85b849c99d
+  revision: 12ff809a75159eedcbc19744085801c7a86dd4ac
   specs:
-    capybara (2.11.0)
+    capybara (2.12.0)
       addressable
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -95,7 +95,7 @@ GEM
       i18n (~> 0.5)
     faraday (0.10.1)
       multipart-post (>= 1.2, < 3)
-    faraday_middleware (0.11.0)
+    faraday_middleware (0.11.0.1)
       faraday (>= 0.7.4, < 1.0)
     friendly_id (5.2.0)
       activerecord (>= 4.0.0)
@@ -145,7 +145,7 @@ GEM
     mysql2 (0.4.5)
     naught (1.1.0)
     netrc (0.7.9)
-    newrelic_rpm (3.17.2.327)
+    newrelic_rpm (3.18.0.329)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
     oauth2 (1.3.0)
@@ -171,12 +171,12 @@ GEM
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
     paint (1.0.1)
-    poltergeist (1.12.0)
+    poltergeist (1.13.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
       websocket-driver (>= 0.2.0)
     polyglot (0.3.5)
-    power_assert (0.4.1)
+    power_assert (1.0.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -313,7 +313,7 @@ GEM
     unicorn (5.2.0)
       kgio (~> 2.6)
       raindrops (~> 0.7)
-    websocket-driver (0.6.4)
+    websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
     wirb (2.1.0)
