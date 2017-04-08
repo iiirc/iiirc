@@ -80,7 +80,7 @@ GEM
     deep_merge (1.1.1)
     diff-lcs (1.3)
     docile (1.1.5)
-    domain_name (0.5.20170223)
+    domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
     draper (2.1.0)
       actionpack (>= 3.0)
@@ -304,7 +304,7 @@ GEM
       naught (~> 1.1)
       simple_oauth (~> 0.3.1)
     tzinfo (0.3.53)
-    uglifier (3.1.12)
+    uglifier (3.1.13)
       execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
