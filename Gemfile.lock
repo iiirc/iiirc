@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/jnicklas/capybara.git
-  revision: cc5168b59a08cc83a7224ce8461f52b88523f34c
+  revision: f36a20ba8d90922e4c6c445743c9a877d3a01130
   specs:
     capybara (2.13.0)
       addressable
@@ -97,7 +97,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.11.0.1)
       faraday (>= 0.7.4, < 1.0)
-    friendly_id (5.2.0)
+    friendly_id (5.2.1)
       activerecord (>= 4.0.0)
     gravtastic (3.2.6)
     hashie (2.1.2)
@@ -145,7 +145,7 @@ GEM
     mysql2 (0.4.5)
     naught (1.1.0)
     netrc (0.7.9)
-    newrelic_rpm (4.0.0.332)
+    newrelic_rpm (4.1.0.333)
     nokogiri (1.7.1)
       mini_portile2 (~> 2.1.0)
     oauth2 (1.3.1)
@@ -276,7 +276,7 @@ GEM
     tapp (1.5.0)
       thor
     temple (0.7.7)
-    term-ansicolor (1.5.0)
+    term-ansicolor (1.6.0)
       tins (~> 1.0)
     test-unit (3.2.3)
       power_assert
@@ -304,11 +304,11 @@ GEM
       naught (~> 1.1)
       simple_oauth (~> 0.3.1)
     tzinfo (0.3.53)
-    uglifier (3.1.13)
+    uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.7.2)
+    unf_ext (0.0.7.3)
     unicode-display_width (0.1.1)
     unicorn (5.3.0)
       kgio (~> 2.6)
