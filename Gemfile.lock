@@ -8,9 +8,9 @@ GIT
 
 GIT
   remote: https://github.com/jnicklas/capybara.git
-  revision: 8f5f55af895d67c4b58503050e8e782b265ad2b1
+  revision: 75e883689df197665c02ffc4b4d3c71a8dfdc7b8
   specs:
-    capybara (2.14.0)
+    capybara (2.14.2)
       addressable
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -127,7 +127,7 @@ GEM
     kgio (2.11.0)
     launchy (2.4.3)
       addressable (~> 2.3)
-    mail (2.5.4)
+    mail (2.5.5)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     memoizable (0.4.2)
@@ -135,7 +135,7 @@ GEM
     metaclass (0.0.4)
     method_source (0.8.2)
     mime-types (1.25.1)
-    mini_portile2 (2.1.0)
+    mini_portile2 (2.2.0)
     minitest (4.7.5)
     mocha (1.2.1)
       metaclass (~> 0.0.1)
@@ -146,10 +146,10 @@ GEM
     naught (1.1.0)
     netrc (0.7.9)
     newrelic_rpm (4.2.0.334)
-    nokogiri (1.7.2)
-      mini_portile2 (~> 2.1.0)
-    oauth2 (1.3.1)
-      faraday (>= 0.8, < 0.12)
+    nokogiri (1.8.0)
+      mini_portile2 (~> 2.2.0)
+    oauth2 (1.4.0)
+      faraday (>= 0.8, < 0.13)
       jwt (~> 1.0)
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
