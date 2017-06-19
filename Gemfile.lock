@@ -8,9 +8,9 @@ GIT
 
 GIT
   remote: https://github.com/jnicklas/capybara.git
-  revision: 75e883689df197665c02ffc4b4d3c71a8dfdc7b8
+  revision: 3f4d584e5a24040cfd8cf72f4623a95889ba0244
   specs:
-    capybara (2.14.2)
+    capybara (2.14.3)
       addressable
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -48,7 +48,7 @@ GEM
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
     arel (4.0.2)
-    awesome_print (1.7.0)
+    awesome_print (1.8.0)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
