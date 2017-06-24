@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/jnicklas/capybara.git
-  revision: 3f4d584e5a24040cfd8cf72f4623a95889ba0244
+  revision: 75436b4e4a4a3951a8f4a28180cb201ecd992abd
   specs:
     capybara (2.14.3)
       addressable
@@ -283,7 +283,7 @@ GEM
     thor (0.19.4)
     thread_safe (0.3.6)
     tilt (1.4.1)
-    timecop (0.8.1)
+    timecop (0.9.0)
     tins (1.14.0)
     tophat (2.3.1)
       actionpack (>= 3.0.0)
