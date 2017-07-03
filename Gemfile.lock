@@ -8,11 +8,11 @@ GIT
 
 GIT
   remote: https://github.com/jnicklas/capybara.git
-  revision: 75436b4e4a4a3951a8f4a28180cb201ecd992abd
+  revision: bd5ec5176447a6d7f17b3420396f8af00b23819c
   specs:
-    capybara (2.14.3)
+    capybara (2.14.4)
       addressable
-      mime-types (>= 1.16)
+      mini_mime (>= 0.1.3)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
@@ -135,6 +135,7 @@ GEM
     metaclass (0.0.4)
     method_source (0.8.2)
     mime-types (1.25.1)
+    mini_mime (0.1.3)
     mini_portile2 (2.2.0)
     minitest (4.7.5)
     mocha (1.2.1)
@@ -278,13 +279,13 @@ GEM
     temple (0.8.0)
     term-ansicolor (1.6.0)
       tins (~> 1.0)
-    test-unit (3.2.4)
+    test-unit (3.2.5)
       power_assert
     thor (0.19.4)
     thread_safe (0.3.6)
     tilt (1.4.1)
     timecop (0.9.0)
-    tins (1.14.0)
+    tins (1.15.0)
     tophat (2.3.1)
       actionpack (>= 3.0.0)
     treetop (1.4.15)
