@@ -41,10 +41,10 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '3.0.0.beta2'
-  gem 'rspec-core', '3.0.0.beta2'
-  gem 'rspec-mocks', '3.0.0.beta2'
-  gem 'rspec-support', '3.0.0.beta2'
+  gem 'rspec-rails', '~> 3.6.0'
+  gem 'rspec-core', '~> 3.6.0'
+  gem 'rspec-mocks', '~> 3.6.0'
+  gem 'rspec-support', '~> 3.6.0'
   gem 'mocha', require: 'mocha/api'
   gem 'fabrication'
   gem 'timecop'
