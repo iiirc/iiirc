@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe SnippetsController do
+describe SnippetsController, type: :routing do
   describe "routing" do
 
     it "routes to #index" do
