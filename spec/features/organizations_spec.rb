@@ -1,7 +1,7 @@
 # coding: utf-8
 require 'spec_helper'
 
-describe "Organizations" do
+describe "Organizations", type: :feature do
   describe "GET /organizations" do
     subject { page }
 

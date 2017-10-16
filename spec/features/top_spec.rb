@@ -1,7 +1,7 @@
 # coding: utf-8
 require 'spec_helper'
 
-describe "Top" do
+describe "Top", type: :feature do
   describe "GET /" do
     subject { page }
 

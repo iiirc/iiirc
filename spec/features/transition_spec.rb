@@ -1,7 +1,7 @@
 # coding: utf-8
 require 'spec_helper'
 
-describe "Transition" do
+describe "Transition", type: :feature do
   describe "GET /transition?to=http://yahoo.co.jp" do
     subject { page }
 

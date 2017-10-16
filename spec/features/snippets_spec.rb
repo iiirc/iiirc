@@ -1,7 +1,7 @@
 # coding: utf-8
 require 'spec_helper'
 
-describe "Snippets" do
+describe "Snippets", type: :feature do
   subject { page }
 
   let(:user)    { Fabricate(:user) }

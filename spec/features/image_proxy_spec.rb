@@ -1,7 +1,7 @@
 # coding: utf-8
 require 'spec_helper'
 
-describe 'ImageProxy' do
+describe 'ImageProxy', type: :feature do
   describe 'GET /image_proxy?of=' do
     subject { page }
 

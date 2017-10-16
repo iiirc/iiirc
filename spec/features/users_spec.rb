@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Users' do
+describe 'Users', type: :feature do
   subject { page }
 
   describe 'GET /users/alice0' do

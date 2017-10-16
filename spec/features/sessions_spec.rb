@@ -1,7 +1,7 @@
 # coding: utf-8
 require 'spec_helper'
 
-describe "Sessions" do
+describe "Sessions", type: :feature do
   subject { page }
 
   describe "GET /" do
