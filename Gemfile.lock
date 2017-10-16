@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/jnicklas/capybara.git
-  revision: 2bf3243ca51bad5186cc8208cc275b9afa1cfb95
+  revision: addbde1db4dc6d163018e3dcfd9c4b27a3bff6d7
   specs:
     capybara (2.15.4)
       addressable
@@ -49,7 +49,7 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     arel (4.0.2)
     awesome_print (1.8.0)
-    better_errors (2.3.0)
+    better_errors (2.4.0)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
       rack (>= 0.9.0)
@@ -101,7 +101,7 @@ GEM
       dry-container (~> 0.2, >= 0.2.6)
       dry-core (~> 0.2)
       dry-equalizer (~> 0.2)
-    dry-types (0.12.0)
+    dry-types (0.12.1)
       concurrent-ruby (~> 1.0)
       dry-configurable (~> 0.1)
       dry-container (~> 0.3)
@@ -145,7 +145,8 @@ GEM
       domain_name (~> 0.5)
     http-form_data (1.0.3)
     http_parser.rb (0.6.0)
-    i18n (0.8.6)
+    i18n (0.9.0)
+      concurrent-ruby (~> 1.0)
     inflecto (0.0.2)
     jquery-rails (3.1.4)
       railties (>= 3.0, < 5.0)
@@ -407,9 +408,6 @@ DEPENDENCIES
   unicorn
   verification!
   wirb
-
-RUBY VERSION
-   ruby 2.3.1p112
 
 BUNDLED WITH
    1.15.4
