@@ -175,7 +175,7 @@ GEM
     multi_json (1.12.2)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
-    mysql2 (0.4.9)
+    mysql2 (0.3.21)
     naught (1.1.0)
     netrc (0.7.9)
     newrelic_rpm (4.5.0.337)
@@ -374,7 +374,7 @@ DEPENDENCIES
   kaminari
   launchy
   mocha
-  mysql2
+  mysql2 (~> 0.3.21)
   newrelic_rpm
   octokit (~> 1)
   omniauth-github

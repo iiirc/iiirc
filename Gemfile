@@ -3,7 +3,7 @@ ruby '2.3.1'
 
 gem 'rails', '4.0.4'
 
-gem 'mysql2'
+gem 'mysql2', '~> 0.3.21'
 gem 'omniauth-github'
 gem 'turbolinks'
 gem 'octokit', '~> 1'
