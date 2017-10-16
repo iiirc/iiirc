@@ -1,7 +1,7 @@
 # coding: utf-8
 require 'spec_helper'
 
-describe Api::SnippetsController do
+describe Api::SnippetsController, type: :controller do
   render_views
 
   let(:snippet) {

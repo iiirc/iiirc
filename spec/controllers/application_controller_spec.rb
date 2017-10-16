@@ -11,7 +11,7 @@ class TmpController < ApplicationController
   end
 end
 
-describe TmpController do
+describe TmpController, type: :controller do
   before do
     @orig_routes, @routes = @routes, ActionDispatch::Routing::RouteSet.new
     @routes.draw do

@@ -1,7 +1,7 @@
 # coding: utf-8
 require 'spec_helper'
 
-describe StarsController do
+describe StarsController, type: :controller do
   let(:user)    { Fabricate(:user)    }
   let(:message) { Fabricate(:message) }
   let(:snippet) {  Fabricate(:snippet, user: user) do
